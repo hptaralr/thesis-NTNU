@@ -309,6 +309,6 @@
 % Based on source code for listings package https://ctan.uib.no/macros/latex/contrib/listings/listings.dtx line: 14635
 \renewcommand*{\lstlistoflistings}{%
        \chapter*{\lstlistlistingname}%
-       \parskip\z@\parindent\z@\parfillskip \z@ \@plus 1fil%
+       %\parskip\z@\parindent\z@\parfillskip \z@ \@plus 1fil%
        \@starttoc{lol}%
        }%
