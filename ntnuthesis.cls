@@ -162,7 +162,7 @@
     labelfont=bf,
     margin=\parindent
 ]{subcaption}
-\RequirePackage{xcolor}                     % selecting text color
+\RequirePackage{xcolor}                    % selecting text color
 \RequirePackage{emptypage}                  % empty pages should be blank
 \RequirePackage{csquotes}                   % recommended for biblatex
 \RequirePackage[

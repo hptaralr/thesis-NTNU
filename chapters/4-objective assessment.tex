@@ -1,0 +1,69 @@
+\chapter{Objective Assessment}
+\label{chap:objective}
+
+\section{Application requirements}
+For building the application, Mobai was very open in terms of how we wanted to build it. They only came up with a few requirements:
+\begin{itemize}
+    \item The application should be able to be containerized and ran independently in a docker container.
+    \item The application should have a front- and backend functionality.
+    \item The backend should be built in a simple way to easily add new FIQM's into the system.
+\end{itemize}
+Other than this, Mobai gave us no restrictions on what software we had to use to develop the application. They gave us a vocal introduction on how they wanted the application to work, and from there, we started to create the main functional requirements. It is important to mention that Mobai was quite open for suggestions regarding the functionality and that new functional requirements were formed during the developement process, both from Mobai's part and from our suggestions. This means that some functional requirements were not clear to us before the middle of the development process, and we had to take that into consideration when choosing our development method. It wasn't before the middle of march we got a clear understanding of exactly what requirements Mobai had for the application and we could create specific functional requirements for the whole application. We have chosen to display all the functional requirements in the form of use cases and a use case diagram. Note that the functional requirements differ in terms of frontend and backend functionality, and that the backend functionality should work independently from the frontend:         
+%write about what people can use what functionality. maybe split it into use case for frontend and use case for backend?
+
+
+\begin{table}[h]
+\caption{use case - browse files}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|p{5cm}|p{7cm}|}
+\hline
+Case: & browse files  \\ \hline
+Description: & To upload files to the backend, the user wants the ability to browse and choose what images he wants to upload.    \\ \hline
+Actors: & User, Mobai employee               \\ \hline
+Basic flow: & \begin{enumerate}
+    \item The user navigates to the frontend application and clicks the button 'Browse files'
+    \item The user chooses what images he wants to upload to the backend. 
+\end{enumerate}           \\ \hline
+Pre-conditions: & The frontend application server must be up and running in order to access the web page \\ \hline
+Post-conditions: & The images are now chosen and ready to be uploaded  \\ \hline
+\end{tabular}%
+}
+\end{table}
+
+
+\begin{table}[h]
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|p{5cm}|p{7cm}|}
+\hline
+Case: & Upload files  \\ \hline
+Description: & A frontend functionality that allows users to upload images to the backend    \\ \hline
+Actors: & User, Mobai employee               \\ \hline
+Basic flow: & \begin{enumerate}
+    \item The user clicks the 'Upload files' button in the frontend and the selected files gets uploaded
+\end{enumerate}           \\ \hline
+Pre-conditions: & The frontend application server must be up and running in order to access the web page and the user must have chosen the selected images he wants to upload using the 'Browse files' case. \\ \hline
+Post-conditions: & The images are now uploaded to the backend.  \\ \hline
+\end{tabular}%
+}
+\end{table}
+
+
+
+
+\begin{table}[h]
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|p{5cm}|p{7cm}|}
+\hline
+Case: & Run metric(s)  \\ \hline
+Description: & A frontend and backend functionality to run FIQMs on already uploaded images     \\ \hline
+Actors: & User, Mobai employee               \\ \hline
+Basic flow: & \begin{enumerate}
+    \item The user can choose to run all metrics or to run one FIQM.
+\end{enumerate}           \\ \hline
+Pre-conditions: & There must be images uploaded to the backend using the 'Upload files' case \\ \hline
+Post-conditions: & The FIQMs have   \\ \hline
+\end{tabular}%
+}
+\end{table}
+
+\section{Choice of front- and backend}

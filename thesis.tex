@@ -1,4 +1,4 @@
-\documentclass[british,titlepage]{ntnuthesis}
+\documentclass[british,titlepage,table,xcdraw]{ntnuthesis}
 
 \title{An NTNU Thesis \LaTeX{} Document Class}
 \shorttitle{An NTNU Thesis Document Class}
@@ -8,8 +8,11 @@
 
 \addbibresource{thesis.bib}
 \usepackage{float} % added by Walid 
+\usepackage{multirow} % added by Walid 
+
 
 \input{glossary.tex} % add glossary and acronym lists before document
+
 \begin{document}
 
 \input{chapters/0a-abstract.tex}
@@ -24,9 +27,12 @@
 \printglossary                    % Print glossary
 
 \input{chapters/1-introduction}
-\input{chapters/2-usage.tex}
-\input{chapters/3-structure.tex}
-\input{chapters/4-conclusion.tex}
+\input{chapters/2-specification}
+\input{chapters/3-face quality assessment}
+\input{chapters/4-objective assessment} 
+\input{chapters/5-subjective experiment} 
+\input{chapters/6-results}
+\input{chapters/7-conclusion}
 
 \chapter*{\bibname}
 \printbibliography[heading=none]

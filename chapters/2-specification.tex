@@ -1,0 +1,245 @@
+\chapter{Specification}
+\label{chap:Specification}
+We will start off by taking a look at our chosen development method for the project and obstacles that arose with it. To end the chapter of, an in depth risk analysis will be presented.
+
+\section{Development method}
+Projects of size are dependant on well structured development methods to succeed as it affects the way teams are organized and delegated tasks. The prioritization of workload is also affected with the choice of development method. 
+
+This project was characterised by uncertainty, a limited amount of labor, several meetings, a survey that may differ in complexity and a development phase with requirements that may change. These characteristics paved the way for us to pick the agile software development method Scrum, as was suggested by Mobai. 
+
+Our group consists of four inexperienced students with little to none experience with comprehensive projects of this size. Our inexperience alone causes some uncertainty in regards to deadlines, survey work and development. Having regular meetings with both Mobai and our project supervisor as well as receiving regular feedback, will decrease the chance to drift of track. This also ensures that our final product is as close to Mobai's vision as possible. The agile software development methods involves the client to a far more degree than the plan-driven approaches, which was an important point to take into consideration.
+
+Since our team was small in size with no experts, the agile development methods seemed like a natural choice. Should we have decided to use one of the plan-driven methods, like the Waterfall-method\footnote{\url{https://en.wikipedia.org/wiki/Waterfall_model}}, the chance to not succeed seemed greater. A key principle in the Waterfall-method is its strict way of dividing a project into phases. The model emphasises finishing one phase before the next one starts. This would not be suitable for our project because of the very reason that it is time consuming. Should the development phase run into trouble that was not taken into consideration in the planning or design phase, the design phase would have to start over. At the time it seemed likely that problems would occur in our project and having the flexibility provided by Scrum would assure that progress was achieved as much as possible. 
+
+Should we finish Mobai's desired application quickly it was suggested by Mobai that additional functionality could be added to the solution if our time schedule allowed for it. Changes in requirements were something Mobai were open to discuss and Scrum handles this well, which was another reason for our choice.
+
+Within the agile development methods both Kanban and eXtreme Programming (XP) were taken into consideration. Both of these are reliable methods that provide solid structuring and flexibility \cite{KanbanVScrum}. However, Kanban usually does not incorporate the element of predefined roles and therefore it suited our project to a lesser degree. The roles subsection (\ref{subsec:roles}) describes what each group member was in charge of. Although all of us are expected to participate in all the tasks, some delegation of responsibility were decided to achieve greater structure of the tasks. In addition to this the end dates for all the tasks are tough to determine, which was why a sprint with several tasks will be more reliable and preferential. 
+
+With that said, Kanban is excellent for getting a clear overview of the tasks needed to be done, which was why we also decided to incorporate this method to a lesser degree. \textit{Trello}\cite{Trello} was used for tracking the tasks and the tasks were divided into three phases: \textit{To-Do}, \textit{Doing} and \textit{Done}. Since Kanban was not our main method, no specific rules or limitations were set considering the amount of tasks in each phase. 
+
+XP was briefly considered, but we quickly realised that it would be difficult to follow all 12 practices all the time. However we decided to implement the \textit{Pair Programming} practice with a little tweak: Due to the uncertainty that the pandemic caused, the pair programming was done by screen-sharing on laptop. Pair programming will improve the code quality which was the reasoning behind our choice \cite{eXtremeP}. 
+
+\subsection{Scrum layout}
+We had sprints with a two-week duration. On one hand, one-week sprints felt short and would lead to excessive meetings which would affect our time management. On the other hand longer sprints tend to involve the client to a lesser degree, which would not be ideal in our case. We were dependant on input from Mobai to satisfy their requirements, given our experience. The sprints consisted of several meetings and scrum practises, such as \textit{Sprint planning meetings}, \textit{Daily scrums}, \textit{Sprint review meetings} and \textit{Sprint retrospective meetings}. These meeting were all followed to a certain extent. 
+
+\subsubsection*{Sprint planning meeting}
+The start of the sprints took place on Tuesdays, starting 2. February and these were expected to finish before 11:00 every Monday two weeks in advance. The weekly scheduled meetings with our bachelor supervisor took place every Monday at 12:00, which gave us at least one hour to prepare both the next sprint and what we should discuss during the meeting. This is when all our sprint planning meetings were held and conversations about what features should be included in the upcoming sprint were planned. \textit{Planning poker} was used to estimate the time spent on tasks.
+
+\subsubsection*{Daily scrum}
+These short meetings were held at the start of every day at 9:00 and were included to assure the members were kept up to date about the progress of the project.
+
+\subsubsection*{Sprint review meeting}
+The sprint review meetings with Mobai were arranged every other Tuesday, at the start of each sprint. Mobai was informed about our progress and gave us feedback. Several people from Mobai attended these meetings, but it was mainly Guoqiang Li, the product owner, that expressed Mobai's priorities. 
+
+\subsubsection*{Sprint retrospective meeting}
+At the end of each sprint right after our sprint review meetings with Mobai, time was delegated into the sprint retrospective meetings. During these meetings we reflected about what had went well and tried to improve these aspects for the next sprints. A crucial part of these meetings was to decide if our time estimates were on point. 
+
+\subsubsection{Definition of done}
+We used the Scrum-pattern \textit{Definition of done} to collectively define what development-tasks were considered done \cite{DoneDone}. In partnership with Mobai we came to an agreement upon different criteria that form the definition of done. It was important to set different criteria to different work tasks (there should be a difference between coding-criteria and report-criteria). This pattern gave us a familiar understanding of work quality and absoluteness. We also obtained good habits in our workflow using the definition of done as a checklist to correlate with the user stories. In that way we prevented possible delays occurring in the development process. Here is an example of our report-criteria: 
+
+\begin{enumerate}
+    \item The section is completed according to the member.
+    \item The member has analyzed the section's contents.
+    \item The section is checked for typos.
+    \item The whole group has read and approved the section.
+\end{enumerate}
+
+\subsection{Difficulties with our model}
+At the early stages of the bachelor project planning, our own development method seemed to fit all our requirements and needs with few disadvantages. However, once the development began, we quickly realised specific elements that were not desirable. 
+
+Our pair programming practise inspired by XP did not work out as we intended or predicted it would. While at the start it seemed like a great opportunity to achieve well written code, we came to the realization that it was very time consuming and limiting. Originally, the pair programming was supposed to be done on Visual Studio Code's Live Share, which allows developers to collaborate in real-time. However, the Live Share platform was constantly lagging for some of the members, which was why we decided to achieve pair programming by screen-sharing instead. This method forced one member to write code while the other observed and gave input which we found out to be unproductive and a waste of our limited resources. Because of that, we ended up coding the product mostly individually. The quality of the code was likely affected by this, however the productivity of the team became increasingly higher. The progress was easily traceable given our everyday meetings on online platforms.   
+
+All meetings associated with scrum presented in the end of the previous section were beyond doubt time consuming and required certain planning in advance. The planning poker time estimating game was abandoned after a while because we felt it took valuable time away from the project. At the start it was a great tool that served us quite well, but as the project became clearer, we developed an understanding of time estimates. Because of that, we ended up estimating tasks verbally, which saved us time and resources.  
+
+\section{Risk analysis} 
+Risk analysis was done during the early stages of the project. Our risk identification was done by discussing possible events that could occur, as well as identifying their likelihood and consequences. Prior knowledge from earlier projects helped us estimate whether a risk was likely or unlikely to happen. The team categorized the risks according to the type of risk. The risk categories we used were: \textit{Project}, \textit{Product} and \textit{Business}, as introduced by Sommerville(kilde). 
+
+\begin{itemize}
+    \item \textbf{Project risks} 
+        \par Risks that affect available resources assigned the project. These risks interfere with the schedule and may hinder reaching planned deadlines. 
+    \item \textbf{Product risks} 
+        \par Risks that affect the overall performance of the system created. Risks in this category may affect the functionality which can reduce the overall quality. 
+    \item \textbf{Business risks}
+        \par These risks affect the organization developing a product. During this project, it will be risks targeted towards the team as well as collaborators such as Mobai and our supervisor. 
+\end{itemize}
+
+Each risk listed below in the section, was evaluated and placed inside table \ref{table:colorC}. The numbers inside the squares reference what the risks were, and have nothing to do with the priority or severity. 
+    
+\begin{itemize}
+    \item \textbf{Risk 1:} Group members leaving the project.
+    \item \textbf{Risk 2:} Sprint deadlines are not met.
+    \item \textbf{Risk 3:} Bachelor thesis is not finished in time.
+    \item \textbf{Risk 4:} Mobai´s expected involvement turn out to be minimal. 
+    \item \textbf{Risk 5:} A similar product launches.
+    \item \textbf{Risk 6:} The software does not fulfill the minimal requirements.
+    \item \textbf{Risk 7:} Inadequate planning and execution of subjective experiment.
+    \item \textbf{Risk 8:} Loss of vital documents or source code.
+    \item \textbf{Risk 9:} Sickness among group members, project supervisor or Mobai.
+    \item \textbf{Risk 10:} Application breaking bugs.
+    \item \textbf{Risk 11:} Planned tools for development of the survey and application prove to be unsatisfactory. 
+    \item \textbf{Risk 12:} Covid-19 restrictions interfere with the subjective experiment. 
+    \item \textbf{Risk 13:} We are unable to connect the frontend to the backend logic. 
+    \item \textbf{Risk 14:} Unrealistic demands are made along the way by the Product Owner. 
+    \item \textbf{Risk 15:} Additional help is required by other group members to overcome a specific problem.
+\end{itemize}
+
+
+\newpage
+
+\begin{table}[h]
+\caption{Consequence and likelihood color coding risk matrix}
+\label{table:colorC}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{ll|l|l|l|l|}
+\cline{3-6}
+ &
+  \textbf{} &
+  \multicolumn{4}{c|}{\textbf{Consequence}} \\ \cline{3-6} 
+ &
+  \multicolumn{1}{c|}{} &
+  \cellcolor[HTML]{C0C0C0}{\color[HTML]{333333} Minor} &
+  \cellcolor[HTML]{C0C0C0}{\color[HTML]{333333} Moderate} &
+  \cellcolor[HTML]{C0C0C0}{\color[HTML]{333333} Major} &
+  \cellcolor[HTML]{C0C0C0}{\color[HTML]{333333} Critical} \\ \hline
+\multicolumn{1}{|l|}{} &
+  \cellcolor[HTML]{C0C0C0}Unlikely &
+  \cellcolor[HTML]{32CB00} R5 &
+  \cellcolor[HTML]{32CB00} &
+  \cellcolor[HTML]{F8FF00} R1 \& R4 \& R6 &
+  \cellcolor[HTML]{FE0000} R3 \& R8 \& R13 \\ \cline{2-6} 
+\multicolumn{1}{|l|}{} &
+  \cellcolor[HTML]{C0C0C0}Likely &
+  \cellcolor[HTML]{32CB00} R14 &
+  \cellcolor[HTML]{F8FF00} R11 &
+  \cellcolor[HTML]{F8FF00} R2 &
+  \cellcolor[HTML]{FE0000} R10 \\ \cline{2-6} 
+\multicolumn{1}{|l|}{} &
+  \cellcolor[HTML]{C0C0C0}Quite likely &
+  \cellcolor[HTML]{F8FF00} R15 &
+  \cellcolor[HTML]{F8FF00} &
+  \cellcolor[HTML]{FE0000} R7 \& R9 {\color[HTML]{FFFFFF} } &
+  \cellcolor[HTML]{FE0000} \\ \cline{2-6} 
+\multicolumn{1}{|l|}{\multirow{-4}{*}{\rotatebox[origin=c]{90}{\textbf{Likelihood}}}} &
+  \cellcolor[HTML]{C0C0C0}Very likely &
+  \cellcolor[HTML]{F8FF00} &
+  \cellcolor[HTML]{FE0000} R12 &
+  \cellcolor[HTML]{FE0000}{\color[HTML]{FFFFFF} } &
+  \cellcolor[HTML]{FE0000} \\ \hline
+\end{tabular}%
+}
+\end{table}
+
+Table \ref{table:colorC} showcases a standard consequence/likelihood risk ranking matrix split into the likelihood of a risk occurring, and its corresponding consequence (i.e severity). The consequences ranges from minor to critical and the likelihood from unlikely to very likely. The three colors represent different type of risk levels. The green color indicates low risk, yellow indicated moderate risk and the red squares represent risks of great importance. 
+
+We chose a $4\times4$ matrix with three color codes because it covers and classifies a wide specter of risks. We could have settled for a $3\times3$ matrix, but we felt that risks would overlap and therefore a more severe risk could be mixed with lesser severity risks. Even a $5\times5$ matrix could work, but since our project was limited in size relative to corporate projects, we felt that this type of granularity was not needed. Originally a fourth color, orange (represents a level between yellow and red), was considered. After a discussion the idea was scrapped because a difference between yellow and orange seemed insignificant and added unnecessary complexity when it comes to risk evaluation. 
+
+In the next pages, all the above mentioned risks are placed into the three categories presented, and discussed with countermeasures. 
+
+\begin{table}[h]
+\caption{Project risks}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|p{4cm}|p{7cm}|}
+\hline
+\rowcolor[HTML]{C0C0C0} 
+\textbf{ID}                 & \textbf{Description} & \textbf{Countermeasures} \\ \hline
+\cellcolor[HTML]{FE0000}R3  &    
+Bachelor thesis is not finished in time. 
+&
+Base our time estimates on worst-case scenarios, that way if tasks are finished before a set date, some extra time can be added to the end for polishing purposes.
+\\ \hline
+\cellcolor[HTML]{FE0000}R7  &    
+Inadequate planning and execution of subjective experiment. 
+& 
+Creating the survey at an early stage and doing lots of research about pitfalls in conducting surveys will minimize the risk of designing a lackluster and confusing survey. For more in depth and specific countermeasures, see \ref{sec:ConductingSurvey} Conducting the survey. 
+\\ \hline
+\cellcolor[HTML]{FE0000}R8  &      
+Loss of vital documents or source code. 
+& 
+Using backup-technologies when writing the report and coding the software prevents loss of important content. The thesis was synced with a GitHub repository and changes to the Overleaf project were regularly pushed to the repository. 
+\\ \hline
+\cellcolor[HTML]{FE0000}R12 &      
+Covid-19 restrictions interfere with the subjective experiment. &
+It is highly likely that we won´t be able to conduct the experiment in a controlled environment which may affect subjects image evaluations. An instruction manual will be provided to all participants. 
+\\ \hline
+\cellcolor[HTML]{F8FF00}R2  &     
+Sprint deadlines are not met. 
+&      
+Having a consistent workflow and a regular meeting schedule, makes it easier to meet the deadlines. If there are too many tasks in the upcoming sprint, a rescheduling may occur and Product Owner will be informed. 
+\\ \hline
+\cellcolor[HTML]{F8FF00}R4  &      
+Mobai´s expected involvement turn out to be minimal. 
+&
+Doing a lot of early research about our subject field is important to understand the basics, which we can build on ourselves. In addition, our supervisor should be utilized as best as possible, given his great knowledge and experience within the same field.  
+\\ \hline
+\cellcolor[HTML]{F8FF00}R15 &        
+Additional help is required by other group members to overcome a specific problem. &
+Our research and planning should make us capable of knowing a little about a several topics. Members should therefore be able to assist each other if needed. Additionally, XP´s pair programming practise assures at least two members are working together. 
+\\ \hline
+\end{tabular}%
+}
+\end{table}
+
+
+\begin{table}[h]
+\caption{Product risks}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|p{4cm}|p{7cm}|}
+\hline
+\rowcolor[HTML]{C0C0C0} 
+\textbf{ID}                 & \textbf{Description} & \textbf{Countermeasures} \\ \hline
+\cellcolor[HTML]{FE0000}R10 &
+Application breaking bugs. 
+& 
+Analyze what critical bugs can occur when developing the product at an early stage. Applying continuous testing throughout the development phase should mitigate large faults in the application. 
+\\ \hline
+\cellcolor[HTML]{FE0000}R13 &
+We are unable to connect the frontend to the backend logic.  
+&
+We should minimize the use of hard coding that may interfere with connecting React to Flask. Additionally, papers or YouTube videos addressing the issue should be read or watched respectively by the members. Lastly, Mobai´s development team may assist us if needed. 
+\\ \hline
+\cellcolor[HTML]{F8FF00}R6  &
+The software does not fulfill the minimal requirements. 
+&  
+Keeping a consistent workflow insures maximum efficiency. Should problems, which forces us to exceed deadlines by a great margin occur, a meeting with Mobai will be held where the requirements should be reconsidered. 
+\\ \hline
+\cellcolor[HTML]{F8FF00}R11 &
+Planned tools for development of the survey and application prove to be unsatisfactory. 
+& 
+All tools should be replaceable and carefully considered through research to minimize the use of inefficient tools. Most of our requirements should be met by the tool. If several tools match our needs, the easiest and quickest to learn will be chosen.  
+\\ \hline
+\end{tabular}%
+}
+\end{table}
+
+\begin{table}[h]
+\caption{Business risks}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|p{4cm}|p{7cm}|}
+\hline
+\rowcolor[HTML]{C0C0C0} 
+\textbf{ID}                 & \textbf{Description} & \textbf{Countermeasures} \\ \hline
+\cellcolor[HTML]{FE0000}R9  &
+Sickness among group members, project supervisor or Mobai. 
+&
+The team shall follow the regional and local Covid-19 measures to their greatest extent. Members becoming ill should be kept up to date about the progress of the project. Additionally, to prevent rescheduling, members should know what the rest of the group is working on. Daily meetings and pair programming will be an effective countermeasure. 
+\\ \hline
+\cellcolor[HTML]{F8FF00}R1  &
+Group members leaving the project. 
+&  
+A structured group with good planning and communication reduces the risk of members leaving the project. A safe team atmosphere where members are encouraged to bring fourth new ideas and input is essential. The team members should also be given the opportunity to work with something they find interesting and fun. 
+\\ \hline
+\cellcolor[HTML]{32CB00}R5  &
+A similar product launches. 
+&
+If a similar product launches, it is important to meet all of Mobais specialized needs and avoid delays in the deployment. 
+\\ \hline
+\cellcolor[HTML]{32CB00}R14 &
+Unrealistic demands are made along the way by the Product Owner. 
+&
+Our agile development method will mitigate large reschedules of the project if new demands are provided. However, our main task is written in the task description (\ref{sec:TaskD}) and any additional demands are not required by us to complete. 
+\\ \hline
+\end{tabular}%
+}
+\end{table}
+
+

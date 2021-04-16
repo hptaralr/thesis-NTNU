@@ -1,50 +1,67 @@
 \chapter{Introduction}
+\label{chap:Intro}
 
 \section{Background}
-Mobai is a spin off company from the Norwegian University of Science and Technology that works with technology developed at Norsk Biometrilab in Gjøvik. They provide solutions for facial recognition, biometrical attack detection and face morph detection. 
-
-To create models for detection of biometrical attributes, artificial intelligence and machine learning are essential tools for Mobai. In addition to the models, appropriate datasets are needed to train the models. 
-
-Mobai is using different Image Quality Metrics (IQMs) to determine the quality of facial images in a dataset. In order to train models, quickly assess several datasets or create new datasets, it is important to know the quality of face images. Therefore, Mobai now wishes to develop an application that automates this process. 
-
+\label{section:background}
+Mobai is a spin off company from the research developed in the Norwegian Biometrics Laboratory at the Norwegian University of Science and Technology (NTNU). They provide solutions for facial recognition, biometrical attack detection and face morph detection. To create models for detection of biometrical attributes, artificial intelligence and machine learning are essential tools for Mobai. In addition to the models, having access to appropriate datasets plays a crucial role in training and developing new models. An important focus of Mobai is using different Face Image Quality Metrics (FIQMs) to determine the quality of facial images in a dataset. In order to train models, quickly assess several datasets or create new datasets, it is important to know the quality of face images. Therefore, Mobai now aims to develop an application that automates this process. 
 
 \section{Subject Area}
-Digital image processing is a rapidly growing field within the world of engineering and computer science. A great amount of research has been done in the field which have paved the way for multimedia systems to become one of the pillars of the modern information society.
+Digital image processing is a rapidly growing field within the world of engineering and computer science. A great amount of research has been done in this field of study paving the way for multimedia systems to become one of the pillars of the modern information society. Digital image processing is used in a variety of technologies, including face detection and face recognition which itself could be categorized under the broader field of patter recognition. Digitalization has drastically changed peoples everyday lives over the last decade, and with that change, biometrics has become more relevant and important than ever. 
 
-Digital image processing is used in a variety of technologies, one of which is pattern recognition, and more specifically, face detection and face recognition. Digitalization has drastically changed peoples everyday lives over the last decade, and with that change, biometrics has become more relevant and important than ever. 
+Solutions such as face recognition, presentation attack detection and face morph detection all heavily rely on the quality of the face images used for machine learning training. The quality of facial images are dependent on several factors which FIQMs have learned trough artificial intelligence and machine learning. FIQMs' performance can be measured by comparing the quality scores with human assessment. This thesis is mainly focused on Face Image Quality Assessment (FIQA) which plays a key role in improving the accuracy of face recognition systems. 
 
-Biometric systems raises a lot of security issues. Solutions such as face recognition, presentation attack detection and face morph detection all heavily rely on the quality of the face images used for machine learning training. The quality of facial images are dependent on several factors which IQMs have learned trough artificial intelligence and machine learning. Accurate IQMs are reliant on appropriate datasets and their performance can be measured by comparing the quality scores with human assessment. This thesis is mainly about Face Image Quality Assessment (FIQA) since it plays a key role in improving face recognition accuracy. 
+\section{Task Description}  
+\label{sec:TaskD}
+This bachelor project can be divided into two main parts, a programming part (mainly chapter \ref{chap:objective}) and a research part (mainly chapter \ref{chap:subjective}).
 
-\section{Task Description}
-The task consists of two parts, a programming part and a research part. The programming part involves the creation of an application that uses two IQMs provided by Mobai to evaluate the quality of images of faces.  The application will create a report over the whole dataset and output relevant data about the quality of the images in the dataset. 
-
-The key functionalities Mobai wants are: 
+\subsection*{Programming}
+\textbf{The programming part} involves the creation of an application that uses two FIQMs provided by Mobai for evaluating the quality of images of faces. The application will create an analysis which contains the FIQM calculations in the set of images. The key functionalities of the application expected from Mobai are: 
 \begin{itemize}
-    \item The user should be able to read/select images from a database.
-    \item The user should be able to upload images to an upload folder.
-    \item Execute both IQMs on the selected images.
-    \item Display and save/download the results from the IQMs. 
+    \item The user should be able to read/select images from a local database.
+    \item The user should be able to upload images to an folder.
+    \item Execute the two FIQMs on the uploaded images.
+    \item Display the results from the FIQMs. 
 \end{itemize}
 
-The research part on the other hand, consists of conducting a subjective experiment in the form of a survey. The subjective experiment consists of collecting ground truth data by having subjects evaluate the quality of facial images from a dataset based on certain criteria. They will be shown different facial images of varying quality and asked to rate the quality of the images ranging from Poor (1) to Excellent (5). The subjective results will then be used to compare with the objective results from the IQMs. The subjective results will be used to conclude if the provided IQMs are accurate and reliable. The higher the correlation between the two, the more accurate the IQMs are. 
+\subsection*{Research}
+\textbf{The research part} consists of conducting a subjective experiment in the form of a survey. The subjective experiment consists of collecting ground truth data by having subjects evaluate the quality of facial images from a dataset based on certain criteria. During the experiment observers will be shown different facial images of varying quality and asked to label the images into predefined categories. The subjective results will then be used to compare with the objective results from the FIQMs. By comparing the subjective results will be used to conclude if the provided FIQMs are accurate and reliable. The higher the correlation between the two, the more accurate the FIQMs are. 
 
 \section{Delimitation}
-The task was not solely made up of pure programming. The subject field we were working within allowed for a lot of different research. Face images used for research in the field of face quality assessment and face recognition were usually taken from a straight angle with little to none rotation of the camera lens. We did our own research and found out that papers addressing camera rotation was very limited. 
+The task was not solely made up of pure programming. The subject field we were working within allowed for a lot of different research. Face images used for research in the field of face quality assessment and face recognition were usually taken from a straight angle with little to no tilting of the camera lens. We did our own research and found out that papers addressing camera tilting was very limited. With the ongoing pandemic affecting our daily lives, it has become a habit of wearing face masks in public. In that case, we wanted to assess the performance of the FIQMs on face mask images. 
 
-Mobai and the bachelor group agreed upon creating a selfie dataset that Mobai, as well as us, can use for further research. Each day we took selfies of ourselves. Our own selfie dataset included several images with a rotated camera angle, which was used to assess if they negatively affected the scores provided by the IQMs. 
+Mobai and the bachelor group agreed upon creating a selfie dataset that Mobai, as well as us, can use for further research. Each day we took selfies of ourselves. Our own selfie dataset included several images with a tilted camera angle and face mask images, which was used to assess if they negatively affected the scores provided by the FIQMs. 
+%we suggested to mobai that we would create our own dataset and they agreed
 
-We as developers were not responsible for the creation of the IQMs or the relevant datasets, with the exeption of our selfie dataset. All IQMs and relevant datasets were given to us from Mobai.
+We as developers were not responsible for the creation of the FIQMs or the relevant datasets, with the exception of our selfie dataset. All FIQMs and relevant datasets were handed to us from Mobai.
 
 \section{Target groups}
 \subsection{Users of the web application}
-The web application will be used by employees at Mobai to evaluate IQM's ran on different datasets. Neither the source code or the application should be distributed to others except Mobai because of possible competitive companies.
+The web application will be used by employees at Mobai to evaluate the performance of the FIQMs on different datasets. Neither the source code or the application should be distributed to others except Mobai because of possible competitive companies.
 
 \subsection{Thesis readers}
 The target group for the bachelor thesis are people who want insight in how we did the project from a developer point of view as well as a scientific point of view. People like our supervisor, sensor, client and fellow students with equal experience could be interested in reading the thesis.
 %people that want to test the algorithms we used/scientific results
 
-\section{Professional background}
-All the group members are studying for a bachelor´s degree in computer engineering, hence our academic backgrounds are more or less the same. However, during the fifth semester we all chose different subjects. Hans Petter and Walid both chose \textit{artificial intelligence}, \textit{software design} and \textit{calculus 3}. Julian had the elective subjects \textit{application development}, \textit{software security} and also \textit{calculus 3}, while Kjetil studied the subjects: \textit{ergonomics in digital media}, \textit{infrastructure as code} and \textit{application development}. 
+\section{The team}
+
+\subsection{The members}
+
+\subsubsection*{Hans Petter}
+Hans Petter is a computer engineer/developer with a focus on python who is interested in mathematics and artificial intelligence. He is interested in python programming, and was therefore in charge of structuring the backend. Hans Petter had the main responsibility for implementing APIs to the frontend. He also helped out the other team members whenever there were any API errors connecting flask to react or general python problems. In addition to the application task, Hans Petter collected the data from the subjective experiment survey to make it workable. 
+
+\subsubsection*{Walid}
+Walid has some prior knowledge with artificial intelligence and finds topics that mixes statistics and mathematics with artificial intelligence interesting. Throughout the project, Walid was mainly involved in the creation of the backend logic with Hans Petter. In particular he developed API endpoints used by the frontend. 
+
+\subsection*{Julian}
+Julian is a computer engineer with an interest in programming, mathematics and artificial intelligence. His background consists of different subjects regarding programming, mathematics, software security and application development. Julian's main responsibility was creating the frontend of the application and handling the data received by the backend. 
+
+\subsubsection*{Kjetil}
+Kjetil is a developer with an interest in front end web-development, JavaScript and Python programming. Due to his background and interests, his main responsibilities was to work with the frontend and also help with the backend development. 
+
+
+\subsection{Academic background}
+\label{section:academic background}
+All the group members are studying for a bachelor´s degree in computer engineering, hence our academic backgrounds are more or less the same. However, during the fifth semester we all chose different subjects. Hans Petter and Walid both chose \textit{artificial intelligence}, \textit{software design} and \textit{calculus 3}. Julian had the elective subjects \textit{application development}, \textit{software security} and \textit{calculus 3}, while Kjetil studied the subjects: \textit{ergonomics in digital media}, \textit{infrastructure as code} and \textit{application development}. 
 
 Trough our bachelor´s program we have acquired a solid foundation when it comes to the software development process and scientific thinking by finishing courses like \textit{software engineering}, \textit{algorithmic methods}, \textit{operating systems}, \textit{scientific computing}, \textit{calculus} and \textit{physics}. The compulsory courses we finished, helped us see different approaches to the same problem. There will always be several ways to approach a task and a bachelor´s degree in computer engineering has cemented that statement. Our prior knowledge made it easier to understand and process the main concepts of the new topics we had to learn. 
 
@@ -55,16 +72,11 @@ The group had never heard of Mobai or what they do, although they are stationed 
 
 A reason why we chose this task was the field of work. All group members were interested in machine-learning and artificial intelligence. Therefore, we could not miss the opportunity to work realistically in this field. Another reason for our choice was the width of the project. We felt that we could use experiences and knowledge worked up throughout the bachelor courses in this task. We had to combine math, statistics and programming with research, which suited us well given our bachelor´s program. This kind of scope was complex, but manageable, and challenged us in several ways in terms of coding and research. We were motivated by the fact that Mobai wanted us to create an application that they would utilize in addition to create a subjective experiment.   
 
-\section{The team}
-
-\subsection{The members}
-
-\subsection{Our backgrounds}
-
 \subsection{Roles}
-Our project work areas were mainly divided into two categories: research and programming. All research about the IQMs, the subjective assessment and the creation of a Face Quality survey were done collectively to ensure equal professional foundation. In the programming part at the other hand, each group member were delegated responsibility more individually. However, we had to work closely together with backend and frontend because they were heavily dependent on each other.  
+\label{subsec:roles}
+Our project work areas were mainly divided into two categories: research and programming. All research about the FIQMs, the subjective assessment and the creation of a Face Quality survey were done collectively to ensure equal professional foundation. In the programming part at the other hand, each group member were delegated responsibility more individually. However, we had to work closely together with backend and frontend because they were heavily dependent on each other.  
 
-Kjetil Grosberghaugen was scrum master and developer. His main responsibility was frontend, written in React.js. As a scrum master he ensured the development process flew evenly and led sprint meetings. 
+Kjetil Grosberghaugen was scrum master and developer. His main responsibility was frontend, written in React.js. As a scrum master he ensured the development process flew evenly and led sprint meetings.
 
 Julian Nyland Skattum was a developer with main responsibility in frontend. He was also responsible for programming language choices as well as the overall application appearance. 
 
@@ -76,6 +88,29 @@ Every member were participating in the full stack application despite their area
 
 Seyed Ali Amirshahi was our supervisor. The project group had scheduled meetings every Monday at 12:00. Ali's role in the project was to guide us throughout the project. He would evaluate the project plan, thesis and answer professional questions. 
 
-Kjartan Mikkelsen started as the product owner, but after about three months in the process, he quit his job. Our new product owner and contact was Guoqiang Li. He expressed Mobai's vision and wishes during the project.  We also got technical assistance from other employees at Mobai. 
+Kjartan Mikkelsen started as the product owner, but after about three months in the process, he left the company. Our new product owner and contact was Guoqiang Li. He expressed Mobai's vision and wishes during the project. We also got technical assistance from other employees at Mobai. 
 
-\section{Structure of the report}
+\subsection{Decision making}
+The group decided to go for a collaborative decision-making \footnote{\url{https://en.wikipedia.org/wiki/Group_decision-making}} approach when making choices throughout the project. Decisions like frontend and backend environment and survey software were decided collectively with knowledge and experience in mind. A touch of prior knowledge benefited our project so we did not need to learn everything from scratch. Making choices in groups led to a comfortable team atmosphere with a good relationship between each team member. The decentralization of decision responsibilities made it easier to contribute in the decision making, because eventual failure would be shared in the group. However, if a discussion had reached an impasse, the group leader had the final say. 
+
+Choices related to project work were brought up in the daily scrum meetings, as they offered frequent changes as well as a cordial environment to give feedback and improvements. Choices related to project organization was arranged in the sprint retrospective meetings, every other week. 
+
+
+\section{Thesis structure}
+\subsection*{Specification}
+In this chapter are we discussing our choice of development methodology. We look at pros and cons for the methodology and address possible development methods. Following the chosen development method is our final risk analysis in detail. 
+%specific, only one paragraph. we have chosen to structure the thesis as follows:...
+%why have we chosen to tructure the tesis like that?
+
+\subsection*{Face Quality Assessment}
+In the Face Quality Assessment chapter, we define some of the most important concepts used in the project. We describe the definition of a good facial image in face recognition as well as introducing the FIQMs used in the application. 
+
+\subsection*{Objective assessment}
+Next, in the Objective assessment we will look at how the face image metric application has been implemented and the reason behind our choices. Results from the FIQMs will be introduced here.  
+
+\subsection*{Subjective experiment}
+In the Subjective experiment we go through the process of conducing a subjective survey to gather ground truth data. We also introduce the datasets used in the survey and tell about our own dataset creation. At the end of the chapter, we display the results of the experiment. 
+
+\subsection*{Results}
+\subsection*{Conclusion}
+

@@ -1,0 +1,126 @@
+\chapter{Subjective Experiment}
+\label{chap:subjective}
+
+\section{Conducting the survey}
+\label{sec:ConductingSurvey}
+One main reason for arranging a subjective experiment, was to collect ground truth data that would confirm the quality scores provided by the metrics. As mentioned in \ref{section:academic background}, our lack of experience indicated that an introduction to the topic was needed. The research about conducting a subjective survey made us realize the importance and difficulties with this task. There were several assessments to perform in terms of creating a comprehensive subjective survey.
+
+\subsection*{Survey scope}
+A crucial factor in the making, was the survey's scope. It was important that the observer had a sufficient amount of images to evaluate, for the validation purposes of the ground truth data. However, it would not benefit for each observer to have a giant workload. Too much facial image evaluation would cause for example eye fatigue and headache. These kind of disorders would affect the subjective scores negatively, resulting a lot of data to be invalid. 
+
+Our solution included separating the experiment into three individual parts. Each session consisted of more or less 100 facial images for the observers to evaluate. Combined, 305 images made up the whole dataset. We thought the survey's scope was fine-tuned, especially in regards to the duration of completing the survey. We also specified to the observers in the survey instructions manual (described later in this chapter) to take a break of minimum 5 minutes between each session to feel refreshed. The duration of the subjective experiment including breaks was estimated to take approximately 45 minutes. In our opinion, this was a reasonable time span in terms of making observers participate the survey or make them bored. 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale = 0.2]{figures/three-sessions.png}
+    \caption{Survey separated in three sessions}
+    \label{fig:three-sessions}
+\end{figure}
+
+\newpage 
+
+\subsection*{Displaying images randomly}
+Early in the survey development process, we knew the presentation of the facial images would affect the total subjective scores at the end. On that account, we decided to display images in a random order to each observer. The primary reason for our choice was the elimination of bias data. Ordering every image equally would result in score biases, because observers are more attentive at the beginning of the experiment than towards the end. Having a unique question sequence for every observer would result in reliable subjective scores. 
+Secondly, randomizing questions preserved every observer to give their honest opinion on the facial images, without sharing answers with other participants.
+
+\subsection*{Judgment methods}
+A judgment scale was another key factor to take into account for the subjective survey. We needed to provide the observers an easy scale to rate the facial images. Mobai suggested to rate the images on a scale from 1 to 100, because both metrics provided this output. We suppressed the proposal, with two main arguments: First, it would be extremely challenging for the observers to know the difference between an image with a score of 61 and an image with a score of 65. Second, the larger the judgment scale was, the more time consuming it would be to complete the survey. We felt that even rating facial images on a scale from 1 to 10 was too arduous. 
+
+A way that made the subjective experiment more interesting for the users, was to vary in ratings methods. Initially we found this idea useful. In addition to rate the images categorically, we discussed the option of using a rank order system in one of the sessions. The observers would rate images by drag and drop in different categories. The rank order system idea got terminated quickly. We had to pre choose images of different quality for the observers to assess, resulting in bad data in terms of leading answers. Mixing different ranking methods would also boost the experiment duration due to multiple tasks for the participants to learn. 
+
+Our final deployable survey consisted of judging images individually on a scale from 1 to 5. Here, 1 was poor, 2 was bad, 3 was fair, 4 was good and 5 was excellent. The reason for this scale system was firstly in regards to the observers. Given 305 images to evaluate, it was easy for the participants to assess the facial images within a reasonable time slot. Another reason for using the scale system was to receive sufficient data to correlate with the FIQMs. Different ranking systems between the subjective experiment and the FIQMs would not affect the correlation because of evaluating the subjective score's averages.
+
+\subsection*{Choice of Survey software}
+\label{subsection:choicesoftware}
+A decision we thought would be easy but ended up being challenging and time consuming was the choice of survey software. There were a bunch of opportunities for conducting the survey. However, we had to bare in mind the factors described above in our choice. One survey software we found interesting, was Survey Monkey. The main reason we abstained Survey Monkey was their demand of creating a yearly subscription use included functions as randomly display questions. We even asked for a four month subscription without luck. Another software we found appropriate was Survey Legend, a survey software perfectly suitable for images. It included much functions we needed, except enabling questions to be ordered randomly for each observer. Therefore, we unfortunately had to abort Survey Legend as well. 
+
+After some inspiration and advice from our supervisor we ended up arranging the subjective experiment in \textit{Quickeval} - a survey software provided by NTNU. The software provided every functionality we needed such as categorical judgment and random order of questions. We produced three survey sessions easily by adding datasets to the application. Quickeval formatted each image in the center of the screen with a neutral dark grey background, but we had to make sure every image in the datasets were similar in size. Our psychometric experiment was available for everyone to participate, but specific employers at Mobai and NTNU were specially invited. This, to get answers from experts in the field. Quickeval displayed statistics in the application gradually as people responded to the experiment. The statistics data was also downloadable as a csv, html or excel file. 
+Using Quickeval as a survey handler ended up being a good choice because it was created by NTNU. We had a close relationship with the developers. When an issue occurred, we submitted that issue and communicated directly with a developer resulting the issue to be fixed quickly. 
+
+\section{Covid-19 pandemic implications}
+Due to the ongoing Covid-19 pandemic, this led to some limitations with the subjective experiment. We did not have the opportunity to create a controlled environment and invite the participants over to complete the subjective experiment there. Ideally, such a controlled environment would be a well lit room with good air quality, timed breaks between the sessions and a computer with specific screen settings for all of the participants to complete the experiment on. All the participants completed the subjective experiments using their own computers. We had no opportunity to control the length of the breaks between the sessions. However, in quickeval we had the opportunity to review the observers breaks by monitoring the timestamps between starting each session. 
+
+\section{Introduction manual}
+\label{sec:intromanual}
+When conducting the subjective experiment and collecting the ground truth data, we wanted the subjective scores of the facial images to be similar. That meant all observers should give equal rating to an image. In order to manage this, we needed to create an uniform understanding for the observers on how they should perform the survey. Thus, a survey instruction manual was made. 
+
+The first clarification we had to convey to the participants, was the meaning of image quality. Both experts and non experts would have different perceptions in terms of face image quality and we had to clarify all factors affecting face image quality - not only the resolution. 
+
+The most clear and effective way to train the observers was to visualize examples of rated images like they would do in the survey. We created five example-lineups with selfies of ourselves. Those facial images included every issue affecting the quality of an image. 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale = 0.23]{figures/Example-lineup.png}
+    \caption{A lineup from the introduction manual}
+    \label{fig:example-manual}
+\end{figure}
+
+The lineup images \ref{fig:example-manual} was a good guidance on how to rate the images. In the survey however, some participants found it harder to rate the survey images, because they included several image properties to take into account. 
+
+\section{Types of participants}
+As mentioned in \ref{subsection:choicesoftware}, the experiment was available for everyone to perform, but we invited a specific target group that work in this field. The types of participants are divided in two groups: experts and non-experts.
+
+\subsection*{Experts}
+The experts are the people who were specially invited to complete the survey. These observers work either for Mobai with facial recognition systems or at NTNU in the faculty of information technology and electronics. A point of having experts in the field doing the survey was to quality assure our creation in addition to compare results from experts and non-experts. 
+
+\subsection*{Non-experts}
+Non-experts were people with no experience in the biometric field. They were our friends and family of different ages and educations or people who arbitrary came across the experiment on the web. 
+
+\section{Datasets}
+\label{sec:datasets}
+The usage of facial images in the application and survey raised a lot of GDPR issues. It would strike against the rules if we photographed people on the streets (would also be illegal due to the pandemic) or collected random images on the web without consent from the objects. Mobai provided us with three approved datasets with different image attributes: \textit{Combined passport alike} was a high resolution dataset which has similarity to passport or id photos, hence the title. The set consisted of 109 facial images of people with different poses, facial expressions and lighting. All images are taken with a \textit{NIKON D3100} with a dark blue or light grey background. The camera distance was equal in every photo and the camera lens was in an even height with the faces. 
+\begin{figure}[h]
+    \centering
+    \subfloat[\centering]{{\includegraphics[width=5cm]{figures/0.jpg} }}
+    \qquad
+    \subfloat[\centering]{{\includegraphics[width=5cm]{figures/50.jpg} }}
+    \caption{Facial images from Combined passport alike}
+    \label{fig:combined_passport_alike}
+\end{figure}
+% 
+\textit{Capture from photo} was created by several employees at NTNU. All 69 images were selfies, taken with different phone cameras. Like \textit{Combined passport alike}, the people had disparate poses and facial expression. However, in this dataset the images were photographed in multiple locations at campus, which made the background and lightning vary considerably. Some of the images were captured from computer screens that would possibly affect the FIQM's evaluation scores. \newpage
+\begin{figure}[h]
+    \centering
+    \subfloat[\centering]{{\includegraphics[width=5cm]{figures/1_0.89185.jpg} }}
+    \qquad
+    \subfloat[\centering]{{\includegraphics[width=5cm]{figures/3_0.74371.jpg} }}
+    \caption{Facial images from Capture from photo}
+    \label{fig:capture_from_photo}
+\end{figure}
+
+\noindent The \textit{Selfie dataset} was a set of 123 images accessible on the web. All the images were selfies of different people at numerous locations: both indoors to the outdoors. Given the selfies, the photos were taken with phone cameras and the camera to subject distance was short. 
+\begin{figure}[h]
+    \centering
+    \subfloat[\centering]{{\includegraphics[width=5cm]{figures/10249165_693227110715964_1497214365_a.jpg} }}
+    \qquad
+    \subfloat[\centering]{{\includegraphics[width=5cm]{figures/10251439_436588196485138_396348425_a.jpg} }}
+    \caption{Facial images from Selfie dataset}
+    \label{fig:selfie_dataset}
+\end{figure}
+
+\noindent The images within the three datasets were mixed up and used in the experiment sessions. We combined the images equally, meaning that one third of every dataset was in each session. A mixture of image types prevented the observers of getting bored and evaluate badly due to monotonous types of facial images. 
+
+
+\subsection{Creation of "navnet på datasettet"}
+When working with machine learning and AI in context to face recognition, the probability of using one of the famous pre-curated \textit{Labeled Faces in the Wild (LFW)} datasets is highly likely. Conditions such as poor lightning, extreme poses and face coverings are somewhat lacking in LFW and these are all important aspects for Mobai´s face recognition system. We saw the opportunity to contribute with a specialized dataset designed to fit Mobai´s needs which lead to the proposal of a new dataset. Our initiative was positively received by our employer. 
+
+The idea to collect a new dataset came about when the team was discussing flaws with the \textit{Selfie dataset}. Mobai´s definition of face quality is (as mentioned in \ref{sec:setup}) originally based on ISO 29794-5 and ICAO Doc 9303 Part 3. Based on those definitions one could argue that the images in the selfie dataset are not reflectant of those definitions. A significant part of the selfie dataset is that the faces are very off-centered, zoomed-in and 
+
+\subsection*{Creation process}
+We had initially taken a few images of ourselves which was used for the instruction manual (\ref{sec:intromanual}) to the subjective experiment. These images were included in the dataset we started gathering. We came to the conclusion that each day, starting 1. Mars and ending 15. April, we would capture at least five selfies of ourselves. This would wind up to be at least 250 images of each member, which equals a dataset consisting of approximately 1000 images. Our dataset is relatively large in size in comparison to the combined dataset used in our experiment. Some of the images are similar to \textit{Combined passport alike} datasets in regards to pose, but our dataset includes several varieties and specialized conditions which will be presented below. 
+
+\subsection*{Contents}
+Our dataset is inspired by the three datasets mentioned the Datasets-section (\ref{sec:datasets}), but is unique because elements like camera tilting and face masks are represented. During our image collection we gathered examples of our faces in: 
+
+\begin{itemize}
+    \item Different lightning conditions.
+    \item Different facial expressions and poses.
+    %\item Different times of the day.
+    \item Different face and head coverings. 
+    \item Different camera angles and camera tilts.
+    \item Different backgrounds. 
+\end{itemize}
+
+
+
+
