@@ -7,7 +7,7 @@ Throughout this thesis we will mention the word quality several times. While som
 
 Within the standard image quality assessment field, quality´s definition is straight forward and is what most people think about when hearing the word. Ordinary people and people working with images will for the most part think about the image resolution as the most important characteristic that defines image quality. An excellent image of a face with this definition would have high resolution and sharp focus.   
 
-However Mobai´s and our definition differs from the usual way image quality is defined. Our emphasis lies not with the image resolution itself, but rather how well the face is visible. There are several aspects that heavily affect the quality of facial images with respect to biometric systems performance. These aspects are presented and discussed in two important papers: 
+However Mobai´s and our definition differs from the usual way image quality is defined. Our emphasis lies not with the image resolution itself, but with how well the face is visible. There are several aspects that heavily affect the quality of facial images with respect to biometric systems performance. These aspects are presented and discussed in two important papers: 
 
 \begin{itemize}
     \item ISO/IEC TR 29794-5:2010: Information technology — Biometric sample quality — Part 5: Face image data. \footnote{\url{https://www.iso.org/standard/50912.html}}
@@ -60,7 +60,7 @@ The characteristics will affect the quality in a good or bad way. If all the bul
     \caption{Difference in face quality}
 \end{figure}
 
-Image \ref{fig:excellentImg} checks all bullet points in what defines an excellent image. The subject´s facial expression and head pose is neutral and the whole face is clearly visible. The second image (\ref{fig:defectedImg}) however does have some flaws. The main reason these two images greatly differ in quality is because of the head rotation. The head is tilted 90 degrees to the side which makes vital parts of the face far less visible. The facial image with defects does have a neutral background with good lightning and image resolution, but those aspects does not weight up against the head pose.
+Image \ref{fig:excellentImg} checks all bullet points in what defines an excellent image. The subject´s facial expression and head pose is neutral and the whole face is clearly visible. The second image (\ref{fig:defectedImg}) however does have some flaws. The main reason these two images greatly differ in quality is because of the head rotation. The head is rotated 90 degrees to the side which makes vital parts of the face far less visible. The facial image with defects does have a neutral background with good lightning and image resolution, but those aspects does not weight up against the head pose.
 \newpage
 
 \begin{figure}[h]
@@ -79,7 +79,7 @@ Image \ref{fig:excellentImg} checks all bullet points in what defines an excelle
     \caption{Subject lineups}
 \end{figure}
 
-The three image lineups above showcases typical flaws of facial images that negatively affect the quality. The last image of each lineup is considered to have the best quality. The flaws described varies in severity. The face image quality of the lady with her face covered would be at the lowest layer of the quality scale. The first two images of the man, would not affect the quality to the same degree and the quality of the first two images of the kid, would affect the quality even less. 
+The three image lineups above showcases typical flaws of facial images that negatively affect the quality. The last image of each lineup is considered to have the best quality. The flaws described varies in severity. The face image quality of the lady with her face covered would be at the bottom of the quality scale. The first two images of the man, would not affect the quality to the same degree and the quality of the first two images of the kid, would affect the quality even less. 
 \newpage
 
 \section{Face image quality metrics} 
@@ -92,9 +92,9 @@ With the inclusion of authentication to applications, face recognition (FR) syst
     \label{fig:erna}
 \end{figure}
 
-Figure \ref{fig:erna} visualizes how FR systems work. The probe images´s quality, on the left side of the figure, are assessed and then used to compare with a reference image. The reference image is of the best quality. A similarity score between the two images is calculated, and in this case the similarity score is between zero and one. FR systems have a set threshold where probe images are rejected if the similarity score is too low. 
+Figure \ref{fig:erna} visualizes how FR systems work. The probe images´s qualities, on the left side of the figure, are assessed and then used to compare with a reference image. The reference image is of the best quality. A similarity score between the two images is calculated, and in this case the similarity score is between zero and one. FR systems have a set threshold where probe images are rejected if the similarity score is too low. 
 
-As mentioned in the background (\ref{section:background}), Mobai is currently using such a FR system. The performance of the system is affected by the quality of the probe images. If the probe images are of bad quality, the overall performance of the system will be degraded. This is where the face image quality metrics come into the picture. The metrics can be used to reject and filter images of low quality and therefore only allow images of good quality to be used in the FR system. 
+As mentioned in the background (\ref{section:background}), Mobai is currently using such a FR system. The performance of the system is affected by the quality of the probe images. If the probe images are of bad quality, the overall performance of the system will be degraded. This is where the FIQMs come into the picture. The metrics can be used to reject and filter images of low quality and therefore only allow images of good quality to be used in the FR system. 
 \newpage
 
 \begin{figure}[h]
@@ -104,9 +104,9 @@ As mentioned in the background (\ref{section:background}), Mobai is currently us
     \label{fig:fiqm}
 \end{figure}
 
-Face image quality metrics (FIQM) are automated algorithms that take images as input, does some calculations, and return a quality estimate score. FIQM can be based on different quality factors, such as subject-camera distance, inter-eye distance, pose, lightning and facial coverings. 
+FIQMs are automated algorithms that take images as input, does some calculations, and return a quality estimate score. FIQM can be based on different quality factors, such as subject-camera distance, inter-eye distance, pose, lightning and facial coverings. 
 
-FIQM can be divided into three approaches in regards to a reference image. It is important to understand that these reference images have nothing to do with the reference images mention in the FR system. These reference images are only used for the FIQM. The three approaches are: 
+FIQMs can be divided into three approaches in regards to a reference image. It is important to understand that these reference images have nothing to do with the reference images mention in the FR system. These reference images are only used for the FIQMs. The three approaches are: 
 
 \begin{itemize}
     \item Full-reference.
@@ -114,13 +114,13 @@ FIQM can be divided into three approaches in regards to a reference image. It is
     \item No-reference. 
 \end{itemize}
 
-The approach-names speak for them selves. The full-reference approach compare the input image against a known reference image of good quality. The reduced-reference approach is similar to the above mentioned approach, however only some of the information in the reference image is used. At last, the no-reference approach does not require a reference image to calculate a score. 
+The names of the approaches are telling of what to expect. The full-reference approach compares the input image against a known reference image of good quality. The reduced-reference approach is similar to the above mentioned approach, however only some of the information in the reference image is used. At last, the no-reference approach does not require a reference image to calculate a score. 
 
-Mobai chose the FIQMs used in our application. The reason for choosing these specific metrics was their differences in terms of evaluating images of faces. The two FIQMs are both no-reference approaches which will be used to assist and provide feedback when an image is acquired for FR system enrolment. 
+Mobai chose the FIQMs used in our application. The reason for choosing these specific metrics was their differences in terms of evaluating images of faces. The two FIQMs are both no-reference approaches which will be used to assist and provide feedback when an image is acquired for FR system enrollment. 
 
 
 \subsection{ISO metrics}
-ISO metrics is a non-referenced face quality metric. The metric is implemented based on ISO/IEC TR 29794-5:2010 Information technology — Biometric sample quality — Part 5: Face image data. Different factors that affects the face image quality are considered in the implementation. 
+ISO metrics is a non-referenced face image quality metric. The metric is implemented based on ISO/IEC TR 29794-5:2010 Information technology — Biometric sample quality — Part 5: Face image data. Different factors that affects the face image quality are considered in the implementation. 
 
 \subsubsection*{Filter by eye distance}
 The ISO metrics calculates the inter-eye distance on facial images passed in the metric. If this value is below a certain criteria, the metric will filter out these type of images. The inter-eye distance is related to subject camera distance, because it indicates that the subject could be too close to or too far from the camera lens. 

@@ -102,25 +102,92 @@ The usage of facial images in the application and survey raised a lot of GDPR is
 
 
 \subsection{Creation of "navnet på datasettet"}
+\label{sec:ownData}
 When working with machine learning and AI in context to face recognition, the probability of using one of the famous pre-curated \textit{Labeled Faces in the Wild (LFW)} datasets is highly likely. Conditions such as poor lightning, extreme poses and face coverings are somewhat lacking in LFW and these are all important aspects for Mobai´s face recognition system. We saw the opportunity to contribute with a specialized dataset designed to fit Mobai´s needs which lead to the proposal of a new dataset. Our initiative was positively received by our employer. 
 
-The idea to collect a new dataset came about when the team was discussing flaws with the \textit{Selfie dataset}. Mobai´s definition of face quality is (as mentioned in \ref{sec:setup}) originally based on ISO 29794-5 and ICAO Doc 9303 Part 3. Based on those definitions one could argue that the images in the selfie dataset are not reflectant of those definitions. A significant part of the selfie dataset is that the faces are very off-centered, zoomed-in and 
+The idea to collect a new dataset came about when the team was discussing flaws with the \textit{Selfie dataset}. Mobai´s definition of face quality is (as mentioned in \ref{sec:setup}) originally based on ISO 29794-5 and ICAO Doc 9303 Part 3. Based on those definitions one could argue that the images in the selfie dataset are not reflectant upon those definitions. A significant part of the images in the selfie dataset are of faces which either are way off-centered, too zoomed-in or a combination of both. We figured it could be valuable for Mobai to have a new dataset aligned with certain criteria they valued. 
 
 \subsection*{Creation process}
-We had initially taken a few images of ourselves which was used for the instruction manual (\ref{sec:intromanual}) to the subjective experiment. These images were included in the dataset we started gathering. We came to the conclusion that each day, starting 1. Mars and ending 15. April, we would capture at least five selfies of ourselves. This would wind up to be at least 250 images of each member, which equals a dataset consisting of approximately 1000 images. Our dataset is relatively large in size in comparison to the combined dataset used in our experiment. Some of the images are similar to \textit{Combined passport alike} datasets in regards to pose, but our dataset includes several varieties and specialized conditions which will be presented below. 
+We had initially taken a few images of ourselves which was used for the instruction manual (\ref{sec:intromanual}) to the subjective experiment. These images were included in the dataset we started gathering. We came to the conclusion that each day, starting 1. Mars and ending 15. April, we would capture at least five selfies of ourselves. This would wind up to be at least 250 images of each member, which in the end equaled a dataset consisting of 1172 images. Our dataset is relatively large in size in comparison to the combined dataset used in our experiment. Some of the images are similar to \textit{Combined passport alike} datasets in regards to pose, but our dataset includes several varieties and specialized conditions which will be presented below. 
+
+All the images were captured using both the front and back camera of our mobile phones. This lead to our dataset containing images of varying resolution, given that our phones were not of the same type. The phones used for the dataset collection were:
+\begin{itemize}
+    \item Apple iPhone 8 
+    \item Apple iPhone 11 (2 units)
+    \item Motorola Moto G5S Plus 
+\end{itemize}
+These had different camera specifications with the front cameras ranging from seven to 12 megapixels and the back cameras ranging from 12 to 13 megapixels. The change in image resolution was very minor which makes the differences barely noticeable and insignificant in regards to the face image quality.
 
 \subsection*{Contents}
-Our dataset is inspired by the three datasets mentioned the Datasets-section (\ref{sec:datasets}), but is unique because elements like camera tilting and face masks are represented. During our image collection we gathered examples of our faces in: 
+Our dataset is inspired by the three datasets mentioned the Datasets-section (\ref{sec:datasets}), but is unique because elements like camera tilting and face masks are represented. During our image collection we gathered examples of our faces with: 
 
 \begin{itemize}
     \item Different lightning conditions.
-    \item Different facial expressions and poses.
-    %\item Different times of the day.
+    \item Different facial expressions and head poses.
     \item Different face and head coverings. 
     \item Different camera angles and camera tilts.
-    \item Different backgrounds. 
+    \item Different backgrounds.
 \end{itemize}
 
+A crucial consideration was to gather a bunch of images to cover a wide range of varying quality. Face images of bad quality are equally as important as excellent quality face images, because machine learning algorithms such as FIQMs rely on diversified images to learn.  
+
+\subsection*{Face masks}
+One of the two significant aspects of our dataset, was the inclusion of face mask images. The usage of face masks have drastically changed peoples everyday lives across the globe. This is especially true in western society, since face masks were almost non-existent in public areas before the corona pandemic. Seeing that face masks became a normal part of peoples lives, we figured Mobai´s face recognition systems would have limited enrollment images with face masks as well as their FIQMs. 
+
+In order to achieve a variety of all face mask images, we altered the coverage of the face masks. The common way to wear a face mask, is for it to cover your mouth and nose. Some of the images were captured with regards to those aspects (not sure if right word), but a significant amount were captured with the masks covering less of the face, as shown in Figure \ref{fig:masks}. All those images are expected to receive noteworthy different scores by ISO-metrics and FaceQNet because the visibility of the faces are dissimilar.  
+
+\begin{figure}[h]
+\centering
+    \subfloat[Normal face mask use]
+        {\includegraphics[scale = 0.18]{figures/1133.png}\hspace{1cm}}
+    \subfloat[Mask below the nose]
+        {\includegraphics[scale = 0.18]{figures/940.png}\hspace{1cm}}
+    \subfloat[Mask covering the chin]
+        {\includegraphics[scale = 0.18]{figures/1110.png}\hspace{1cm}}
+    \subfloat[Mask below the chin]
+        {\includegraphics[scale = 0.18]{figures/1152.png}\hspace{1cm}}
+    \caption{Different usage of face masks}
+    \label{fig:masks}
+\end{figure}
 
 
+\subsection*{Camera tilting}
+The other important contribution to our dataset, was that we experimented with different camera tilts also known as ``Dutch angle'' or ``oblique angles''. These type of images involves tilting the camera at an angle on its roll axis which produces images where the viewpoint is similar to tilting one´s head to the side. Images like these create a form of disorientation because the camera has been rotated relative to the horizon of an image. This type of disorientation can be perceived by humans, but whether the FIQMs react differently towards these type of images, is yet to be seen. For that reason, we wanted to look into dutch angle face images and see if the FIQMs produce significant different scores solely based on the camera tilt. 
 
+\begin{figure}[h]
+\centering
+    \subfloat
+        {\includegraphics[scale = 0.2]{figures/0368.png}\hspace{1cm}}
+    \subfloat
+        {\includegraphics[scale = 0.2]{figures/0367.png}\hspace{1cm}}
+    \subfloat
+        {\includegraphics[scale = 0.2]{figures/0129.png}\hspace{1cm}}
+    \subfloat
+        {\includegraphics[scale = 0.295]{figures/0699.png}}
+    \caption{Different camera angle shots}
+    \label{fig:tilt}
+\end{figure}
+
+As briefly mentioned in section \ref{sec:delimit}, finding datasets that addressed and included face images taken from oblique angles were tough to come by. The closest datasets we came by, only included face images where the subjects had their heads tilted and not the camera which does not correspond to the same. Not only are the inclusion of the dutch angle face images quite new, but our dataset furthermore mixed these images with face masks, which created an even more distinct dataset. 
+
+\subsection*{Labeling our dataset}
+The creation of our dataset would be lackluster had we not gathered the ground truth data for the images. However, gathering ground truth data for all 1172 images would require us to create a substantially large-scale subjective experiment and by the experience we gathered during the first one, as described in \ref{sec:ConductingSurvey}, this would take a lot of time and organizing. At that time, one month was left before the thesis was due and that would not be sufficient time. Since we had not yet planned to create our own dataset in the start of the semester, we felt a second subjective experiment of this size without proper planning would be destined to fail. Because of those reasons, we agreed to label only a small part of the dataset instead.  \newpage
+
+Out of the 1172 images originally captured, 250 images were selected and used in our second subjective experiment. The images were picked equally between the members´ individual datasets to prevent that one member appeared more times than the others. Since 250 images cannot be equally split between four subjects, one member was represented two times less in the new dataset. Because these images were going to be used in the second subjective experiment we had to pick images with different aspects and quality. 
+
+The dataset used for the second subjective experiment was already unique, but it lacked a clear difference from the first subjective experiment datasets. A more in-depth explanation of the second subjective experiment will be presented in section \ref{sec:secondse}, but we figured including distorted images would make the difference. 25 images from each subject, which equals 100 images, were therefore selected and added distortions to. The dataset used for the survey were therefore made up of 350 images, which equals the size of our first survey. The type of distortions we added had to be reproducible, that way future research could add the same distortions and expect similar results. Adobe Photoshop was used as the platform to add the distortions and these distortions were:
+
+\begin{itemize}
+    \item Blurring
+    \item 
+    \item 
+\end{itemize}
+
+\section{Second subjective experiment}
+\label{sec:secondse}
+A key part we wanted to achieve with the second subjective experiment was to make it as straight forward and understandable as possible. One should not have to be trained once more in order to understand and perform the survey. Therefore, we designed the second survey as similar to our first one, given that no new participants were invited to participate. The ground truth data was collected only by six people who were the bachelor team, our supervisor and the product owner. The key elements of the survey were: 
+\begin{itemize}
+    \item Randomizing the order of the images.
+    \item Splitting it into three sessions. 
+    \item Using a categorical judgement. 
+\end{itemize}
