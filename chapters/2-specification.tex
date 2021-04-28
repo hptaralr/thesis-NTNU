@@ -2,23 +2,46 @@
 \label{chap:Specification}
 In this chapter we will start by looking at our chosen development method for the project and obstacles that arose with it. To end the chapter of, an in depth risk analysis will be presented.
 
+
 \section{Development method}
 Projects of this size are dependant on well structured development methods to succeed as it affects the way teams are organized and tasks are delegated. The prioritization of workload is also affected with the choice of development method. 
-This project was characterised by uncertainty, a limited amount of labor, several meetings, a survey that may differ in complexity and a development phase with requirements that may change. These characteristics paved the way for us to pick the agile software development method scrum which was suggested by our client Mobai. 
+This project was characterised by uncertainty, a limited amount of labor and a development phase with requirements that may change. These characteristics paved the way for us to pick an agile software development method which was suggested by our client Mobai.  
+\begin{enumerate}
+    \item \textbf{Constant feedback} 
+    
+    \hspace{0,5cm}Our group consists of four third year students with little to none experience with comprehensive projects of this size. Such lack of experience alone causes some uncertainty in regards to deadlines, survey work and development. Having regular meetings with both Mobai and our project supervisor as well as receiving regular feedback, will decrease the chance to drift of track. This also ensures that our final product is as close to Mobai's vision as possible. Agile software development methods provides the client with the chance to be far more involved in the project. This aspect itself was an important point to take into consideration.
+        
+    \item \textbf{Small team}
+    
+    \hspace{0,5cm}For a team like us, an agile method is more suited because small teams are better positioned to efficiently and effectively manage events like meetings \cite{SmallTeams}. The reduction of communication channels in a team decreases the possibility of misinterpretations among members. A small team is more likely to have an attentive communication where decisions are made quickly.
+    \newpage
+    
+    \item \textbf{All known requirements are not final}
+    
+    \hspace{0,5cm}In agile development methods it is expected that all the requirements are not finalized or even known in advance. Throughout the development process new requirements may be added and existing ones can be refined to better suit the upcoming application. This agility is not achieved by plan driven approaches because all requirements must be finalized in the planning phase. Bachelor projects rarely turn out exactly as planned, which is why an agile development method that handles changes would be beneficial. 
+\end{enumerate}
 
-Our group consists of four third year students with little to none experience with comprehensive projects of this size. Such lack of experience alone causes some uncertainty in regards to deadlines, survey work and development. Having regular meetings with both Mobai and our project supervisor as well as receiving regular feedback, will decrease the chance to drift of track. This also ensures that our final product is as close to Mobai's vision as possible. Compared to plan-driven approaches, agile software development methods provides the client with the chance to be far more involved in the project. This aspect itself was an important point to take into consideration.
+\subsection{Considered models}
+Although the scale tipped towards an agile methodology, we also included plan-driven approaches in our considerations in case they were a better solution. Following is our reasoning behind considered models.  
 
-Since our team was small in size, the agile development methods seemed like a natural choice. Should we have decided to use one of the plan-driven methods, like the Waterfall-method \cite{WaterfallMethod}, the chance to not succeed seemed greater. A key principle in the Waterfall-method is its strict way of dividing a project into phases. The model strictly emphasises on finishing one phase before the next one starts. This would not be suitable for our project because of the very reason that it is time consuming. Should the development phase run into issues that was not taken into consideration in the planning or design phase, the design phase would have to start over. At the start of the project and due to its nature the flexibility provided by scrum seemed to be a safe option which could also increase the chances of success in the project.
+\subsubsection*{Waterfall method}
+The fundamental process activities is broken down into linear sequential pha-ses\cite{WaterfallMethod}. Each phase has to be completed before it cascades into the next. This allows for departmentalization and control where deadlines can be set for every phase, resulting in a clear workflow. However, this model would not be suitable for our development due to its lack of revision. Should the development phase run into issues that was not taken into consideration in the planning or design phase, the design phase would have to start over. This would be very time consuming. Also, not having a working product until late in the development life cycle would be risky in regards to our programming uncertainty.   
 
-Should we finish Mobai's desired application quickly it was suggested by Mo-bai that additional functionality could be added to the solution if our time schedule allowed for it. Changes in requirements were something Mobai were open to discuss and scrum handles this well, which was another reason for our choice.
+\subsubsection*{Extreme Programming}
+Extreme Programming (XP) emphasises five key values: communication, feedback, simplicity, courage and respect. It strives for high team efficiency and higher quality code by implementing 12 practises such as, refactoring, pair programming, test first development, continuous integration and simple design. Programmers are expected to work closely together, which is encouraged by the values mentioned \cite{eXtremeP}. The main downside however, is its strict and difficult way of working. It requires great self discipline to follow all the practises the method is built upon. XP mainly focuses on how software development should be approached, and since our project was not solely based on development, the model did not seem to fit our needs.  
+\newpage
 
-Within the agile development methods both Kanban and eXtreme Programming (XP) were taken into consideration. Both of these are reliable methods that provide solid structuring and flexibility \cite{KanbanVScrum}. However, Kanban usually does not incorporate the element of predefined roles and therefore it suited our project to a lesser degree. Further information about roles in the project can be found in Section \ref{subsec:roles}. Although we all are expected to participate in all the tasks, some delegation of responsibility were needed to achieve greater structure of the tasks. In addition to the mentioned points the end dates for all the tasks are tough to determine, which was why a sprint with several tasks will be more reliable and preferential. 
-With that said, Kanban is excellent for getting a clear overview of the tasks needed to be done, which was why we also decided to incorporate this method to a lesser degree. Trello \cite{Trello} was used for tracking the tasks and the tasks were divided into three phases: To-Do, Doing and Done. Since Kanban was not our main method, no specific rules or limitations were set considering the amount of tasks in each phase. 
+\subsubsection*{Kanban}
+Kanban provides solid structuring and flexibility. The methodology is all about limiting work in progress as well as maximizing the work efficiency. It is based on a continuous workflow structure with continuous deliveries with no set dates. This ensures the team is ready to adapt to change whenever priorities may change. The kanban team are reliant on each other to succeed. No predefined roles are set, which means it is a collective responsibility of the team to work together and finish tasks. Likewise, no set dates are placed for when certain functionality should be released \cite{kanban}. We felt that this ``go with the flow'' mentality of kanban would lead to more uncertainty regarding the bachelor groups progress. The roles and responsibilities structuring of kanban, reinforced this mindset.  
 
-In the project XP was briefly considered, but we quickly realised that it would be difficult to follow all 12 practices all the time. However we decided to implement the Pair Programming practice with a little tweak: due to the uncertainty that the pandemic caused, the pair programming was done by screen-sharing on laptop. Pair programming will improve the code quality which was the reasoning behind our choice \cite{eXtremeP}. 
+\subsubsection*{Scrum}
+Scrum is adjustable, flexible and a fast agile method that largely involves the client throughout the project cycle\cite{ScrumDefinition}. The requirements are never entirely determined which allows for updating the product. Small teams with defined roles are appropriate to provide different responsibility within the team. Having regular meetings ensures good communication as well as keeping team members up to date with the continuous progress.    
+
+\subsection{Our model}
+We chose to use a scrum model for this project. In addition, we wanted to implement the pair programming practise from XP since it would help to produce high-quality code as well as share experience in the field of programming. The pair programming was executed by screen sharing or with Visual Studio Code live-share. We also wanted to easily manage our working tasks. Therefore, we applied a kanban board to get a clear overview of the tasks that needed to be done. Trello \cite{Trello} was used for tracking the tasks and the tasks were divided into three phases: To-Do, Doing and Done. Since Kanban was not our main method, no specific rules or limitations were set considering the amount of tasks in each phase. Due to the project's nature, the adaptability and flexibility provided by scrum seemed to be a safe option which could also increase the chances of success in the project. The way the model organizes workload into different sprints and facilitates to pre-defined member roles helped us to keep up with the progression made throughout the project. Should we finish Mobai's desired application quickly it was suggested by Mobai that additional functionality could be added to the solution if our time schedule allowed for it. Changes in requirements were something Mobai were open to discuss and scrum handles this well, which was another reason for our choice. 
 
 \subsection{Scrum layout}
-We had sprints with a two-week duration. This is because, one-week sprints felt short and would lead to excessive meetings which would affect our time management. Longer sprints however, tend to involve the client to a lesser degree, which would not be ideal in our case. The involvement of the client was not only to have continues feedback to ensure that we satisfied their requirements, but it was what Mobai had emphasized on at the start of the project. The sprints consisted of several meetings and scrum practises, such as Sprint planning meetings, Daily scrums, Sprint review meetings and Sprint retrospective meetings. These meeting were all followed to a certain extent. 
+We had sprints with a two-week duration. This is because, one-week sprints felt short and would lead to excessive meetings which would affect our time management. Longer sprints however, tend to involve the client to a lesser degree, which would not be ideal in our case. The involvement of the client was not only to have continues feedback to ensure that we satisfied their requirements, but it was what Mobai had emphasized on at the start of the project. The sprints consisted of several meetings and scrum practises, such as Sprint planning meetings, Daily scrums, Sprint review meetings and Sprint retrospective meetings. These meetings were all followed to a certain extent. 
 
 \subsubsection*{Sprint planning meeting}
 The start of the sprints took place on Tuesdays, (with the first meeting on the 2\textsuperscript{nd} of February) and were expected to finish by 11:00 every other Monday. The weekly scheduled meetings with our bachelor supervisor took place every Monday at 12:00, which gave us at least one hour to prepare both the next sprint and what we should discuss during the meeting. This is when all our sprint planning meetings were held and conversations about what features should be included in the upcoming sprint were planned. \textit{Planning poker} was used to estimate the time spent on different tasks.
@@ -27,7 +50,7 @@ The start of the sprints took place on Tuesdays, (with the first meeting on the 
 These short meetings were held at the start of every day at 9:00 and were included to assure the members were kept up to date about the progress of the project.
 
 \subsubsection*{Sprint review meeting}
-The sprint review meetings with Mobai were arranged every other Tuesday, at the start of each sprint. Mobai was informed about our progress and provided us feedback. Several people from Mobai attended these meetings, but it was mainly Guoqiang Li, the product owner, that expressed Mobai's priorities. 
+The sprint review meetings with Mobai were arranged every other Tuesday, at the end of each sprint. Mobai was informed about our progress and provided us feedback. While these meetings were mainly attended by the product owner (Dr. Guoqiang Li) who provided feedback from the client's side, other employees of Mobai also attended these meetings. 
 
 \subsubsection*{Sprint retrospective meeting}
 At the end of each sprint right after our sprint review meetings with Mobai, time was delegated into the sprint retrospective meetings. During these meetings we reflected about what had went well and tried to improve these aspects for the next sprints. A crucial part of these meetings was to decide if our time estimates were on point. 
@@ -45,7 +68,7 @@ We used the scrum-pattern Definition of done \cite{DoneDone} to collectively def
 \subsection{Difficulties with our model}
 At the early stages of planning our bachelor project, our own development method seemed to fit all our requirements and needs with few disadvantages. However, once the development began, we quickly realised specific elements that were not desirable. 
 
-Our pair programming practise inspired by XP did not work out as we intended or predicted it would. While at the start it seemed like a great opportunity to achieve well written code, we came to the realization that it was very time consuming and limiting. Originally, the pair programming was supposed to be done on Visual Studio Code's Live Share, which allows developers to collaborate in real-time. However, the Live Share platform was constantly lagging for some of the members, which was why we decided to achieve pair programming by screen-sharing instead. This method forced one member to write code while the other observed and gave input which we found out to be unproductive and a waste of our limited resources. Because of that, we ended up coding the product mostly individually. The quality of the code was likely affected by this, however the productivity of the team became increasingly higher. The progress was easily traceable given our everyday meetings on online platforms.   
+Our pair programming practise inspired by XP did not work out as we intended or predicted it would. As it in the initial start of the project was very helpful to share experience, later in the development process, we came to the realization that it was very time consuming and limiting. Originally, the pair programming was supposed to be done on Visual Studio Code's Live Share, which allows developers to collaborate in real-time. However, the Live Share platform was constantly lagging for some of the members, which was why we decided to achieve pair programming by screen-sharing instead. This method forced one member to write code while the other observed and gave input which we found out to be unproductive and a waste of our limited resources. Because of that, we ended up coding the product mostly individually. The quality of the code was likely affected by this, however the productivity of the team became increasingly higher. The progress was easily traceable given our everyday meetings on online platforms.   
 
 All meetings associated with scrum presented in the end of the previous section were beyond doubt time consuming and required certain planning in advance. The planning poker time estimating game was abandoned after a while because we felt it took valuable time away from the project. At the start it was a great tool that served us quite well, but as the project became clearer, we developed an understanding of time estimates. Because of that, we ended up estimating tasks verbally, which saved us time and resources.  
 
@@ -54,11 +77,11 @@ Almost every decision made throughout the project involved a risk. A risk was ma
 
 \begin{itemize}
     \item \textbf{Project risks} 
-        \par Risks that affect available resources assigned to the project. These risks interfere with the schedule and may hinder reaching planned deadlines. 
+        \par \hspace{0,5cm} Risks that affect available resources assigned to the project. These risks interfere with the schedule and may hinder reaching planned deadlines. 
     \item \textbf{Product risks} 
-        \par Risks that affect the overall performance of the system created. Risks in this category may affect the functionality which can reduce the overall quality. 
+        \par \hspace{0,5cm} Risks that affect the overall performance of the system created. Risks in this category may affect the functionality which can reduce the overall quality. 
     \item \textbf{Business risks}
-        \par These risks affect the organization developing of a product. During this project, such risks will mainly be related to the team members as well as collaborators such as Mobai and our supervisor. 
+        \par \hspace{0,5cm} These risks affect the organization developing of a product. During this project, such risks will mainly be related to the team members as well as collaborators such as Mobai and our supervisor. 
 \end{itemize}
 
 Each risk listed below in the section, was evaluated and assessed based on its consequence and likelihood (Table\ref{table:colorC}). The numbers inside the Table reference what the risks were, and have nothing to do with the priority or severity. 
@@ -80,9 +103,6 @@ Each risk listed below in the section, was evaluated and assessed based on its c
     \item \textbf{Risk 14:} Unrealistic demands are made along the way by the Product Ow-ner. 
     \item \textbf{Risk 15:} Additional help is required by other group members to overcome a specific problem.
 \end{itemize}
-
-
-\newpage
 
 \begin{table}[h]
 \caption{Consequence and likelihood color coding risk matrix}
@@ -171,7 +191,7 @@ Doing a lot of early research about our subject field is important to understand
 \\ \hline
 \cellcolor[HTML]{F8FF00}R15 &        
 Additional help is required by other group members to overcome a specific problem. &
-Our research and planning should make us capable of knowing a little about several topics. Members should therefore be able to assist each other if needed. Additionally, XP´s pair programming practise assures at least two members are working together. 
+Our research and planning should make us capable of knowing a little about several topics. Members should therefore be able to assist each other if needed.
 \\ \hline
 \end{tabular}%
 }
@@ -219,17 +239,17 @@ All tools should be replaceable and carefully considered through research to min
 \cellcolor[HTML]{FE0000}R9  &
 Sickness among group members, project supervisor or Mobai. 
 &
-The team shall follow the regional and local Covid-19 measures to the greatest extent. Members becoming ill should be kept up to date about the progress of the project. Additionally, to prevent rescheduling, members should know what the rest of the group is working on. Daily meetings and pair programming will be an effective countermeasure. 
+The team shall follow the regional and local Covid-19 measures to the greatest extent. Members becoming ill should be kept up to date about the progress of the project. Additionally, to prevent rescheduling, members should know what the rest of the group is working on. Daily meetings will be an effective countermeasure. 
 \\ \hline
 \cellcolor[HTML]{F8FF00}R1  &
 Group members leaving the project. 
 &  
-A structured group with good planning and communication reduces the risk of members leaving the project. A safe team atmosphere where members are encouraged to bring fourth new ideas and input is essential. The team members should also be given the opportunity to work with something they find interesting and fun. 
+A structured group with good planning and communication reduces the risk of members leaving the project. A safe team atmosphere where members are encouraged to bring fourth new ideas and input is essential. The team members should also be given the opportunity to work with something they find interesting and fun. Should however a member leave the team, a redistribution of the remaining work tasks shall be equally split amongst the remaining members. 
 \\ \hline
 \cellcolor[HTML]{32CB00}R5  &
 A similar product launches. 
 &
-If a similar product launches, it is important to meet all of Mobais specialized needs and avoid delays in the deployment. 
+If a similar product launches, it is important to meet all of Mobai´s specialized needs and avoid delays in the deployment. 
 \\ \hline
 \cellcolor[HTML]{32CB00}R14 &
 Unrealistic demands are made along the way by the Product Owner. 

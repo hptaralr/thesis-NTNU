@@ -38,7 +38,7 @@ After some inspiration and advice from our supervisor we ended up arranging the 
 Using Quickeval as a survey handler ended up being a good choice because it was created by NTNU. We had a close relationship with the developers. When an issue occurred, we submitted that issue and communicated directly with a developer resulting the issue to be fixed quickly. 
 
 \section{Covid-19 pandemic implications}
-Due to the ongoing Covid-19 pandemic, this led to some limitations with the subjective experiment. We did not have the opportunity to create a controlled environment and invite the participants over to complete the subjective experiment there. Ideally, such a controlled environment would be a well lit room with good air quality, timed breaks between the sessions and a computer with specific screen settings for all of the participants to complete the experiment on. All the participants completed the subjective experiments using their own computers. We had no opportunity to control the length of the breaks between the sessions. However, in quickeval we had the opportunity to review the observers breaks by monitoring the timestamps between starting each session. 
+Due to the ongoing Covid-19 pandemic, limitations with the subjective experiment occurred. We did not have the opportunity to create a controlled environment and invite the participants over to complete the subjective experiment there. Ideally, such a controlled environment would be a well lit room with good air quality, timed breaks between the sessions and a computer with specific screen settings for all of the participants to complete the experiment on. The Norwegian Colour and Visual Computing Laboratory in NTNU Gjøvik would be a complete environment, but unfortunately this was not achievable given the Covid restrictions. For that reason, all the participants completed the subjective experiments using their own computers with their custom screen resolution and lighting conditions. Factors such as the monitors brightness and color temperature and even the participants distance from the monitor as well as the illuminance of the room, matter. These custom settings are tiny factors that likely can alter the perception of the images in the survey and provide cognitive biased scores. The design of the survey was therefore important. QuickEval had an already built-in neutral and balanced gray background, which is considered by psychologists to not trigger any emotions. Since the participants performed the survey at different environments, not influencing the participants´s moods were important \cite{grayBackground}. We had no opportunity to control the length of the breaks between the sessions or if even breaks were held. However, in QuickEval we had the opportunity to review the observers breaks by monitoring the timestamps between starting each session and the review showed that none of the sessions were taken right after each other.  
 
 \section{Introduction manual}
 \label{sec:intromanual}
@@ -175,19 +175,24 @@ The creation of our dataset would be lackluster had we not gathered the ground t
 
 Out of the 1172 images originally captured, 250 images were selected and used in our second subjective experiment. The images were picked equally between the members´ individual datasets to prevent that one member appeared more times than the others. Since 250 images cannot be equally split between four subjects, one member was represented two times less in the new dataset. Because these images were going to be used in the second subjective experiment we had to pick images with different aspects and quality. 
 
-The dataset used for the second subjective experiment was already unique, but it lacked a clear difference from the first subjective experiment datasets. A more in-depth explanation of the second subjective experiment will be presented in section \ref{sec:secondse}, but we figured including distorted images would make the difference. 25 images from each subject, which equals 100 images, were therefore selected and added distortions to. The dataset used for the survey were therefore made up of 350 images, which equals the size of our first survey. The type of distortions we added had to be reproducible, that way future research could add the same distortions and expect similar results. Adobe Photoshop was used as the platform to add the distortions and these distortions were:
-
-\begin{itemize}
-    \item Blurring
-    \item 
-    \item 
-\end{itemize}
 
 \section{Second subjective experiment}
 \label{sec:secondse}
 A key part we wanted to achieve with the second subjective experiment was to make it as straight forward and understandable as possible. One should not have to be trained once more in order to understand and perform the survey. Therefore, we designed the second survey as similar to our first one, given that no new participants were invited to participate. The ground truth data was collected only by six people who were the bachelor team, our supervisor and the product owner. The key elements of the survey were: 
 \begin{itemize}
     \item Randomizing the order of the images.
-    \item Splitting it into three sessions. 
-    \item Using a categorical judgement. 
+    \item Splitting it into two parts. 
+    \item Using a categorical judgement.
+\end{itemize}
+
+The second experiment consisted of two parts. The first one included all 250 images from our selected dataset without splitting it into several connected survey sessions as we did in our first experiment. Since all the participants already had knowledge about rating images, we did not feel the need to split it into multiple sessions. While splitting the survey would prevent participants from getting exhausted and bored, experience from our first survey showed that the average duration to finish a session with 100 images was shorter than expected. We had initially planned a 100 image session to take up to 15 minutes, but feedback from our participants showed that most were finished after six to eight minutes. Based on those results, a survey with 250 images should not take longer than 25 minutes which is below the maximum limit of 30 minutes suggested by International Telecommunication Union \cite{methodologySubjective}. Although the survey was 2,5 times larger than the sessions of the first experiment, only people directly involved with the project was expected to participate. Creating several sessions felt like unnecessary overhead. 
+
+The main purpose of the second subjective experiment was to label our dataset of 250 images, but we felt it lacked a clear difference from the first subjective experiment, and we figured including distorted images would make the difference. The second part of the experiment was therefore made of 50 images, consisting of all subjects selected from the first dataset, but with distortions added to them. The point of the second part was to see whether the participants would evaluate the face image quality of an undistorted and distorted image the same, and whether the FIQMs followed that statement. If the participants valued the images the same and the FIQMs did not, then the FIQMs would not provide the right scores, given that the scores are based on human assessment.   
+
+The type of distortions we added had to be reproducible, that way future research could add the same distortions and expect similar results. Adobe Photoshop was used as the platform to add the distortions such as:
+
+\begin{itemize}
+    \item Blur
+    \item Noise
+    \item Exposure 
 \end{itemize}
