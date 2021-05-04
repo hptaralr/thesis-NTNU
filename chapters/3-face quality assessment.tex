@@ -1,5 +1,6 @@
 \chapter{Face Quality Assessment}
 \label{chap:FQA}
+The third chapter of the thesis introduces the reader to key definitions and concepts, within the field of face quality, used throughout the project. We will throw light on face image quality with examples and elaborate how face recognition systems and the two face image quality metrics behave.  
 
 \section{What is a good image?}
 \label{sec:setup}
@@ -8,12 +9,12 @@ Throughout this thesis we will mention the word quality several times. While som
 Within the standard image quality assessment field, the definition of quality is straight forward and is what most people think about when hearing the word. Ordinary people and people working with images will for the most part think about the image resolution as the most important characteristic that defines image quality. An excellent image of a face with this definition would have high resolution and sharp focus.   
 
 However Mobai´s and our definition differs from the usual way image quality is defined. Our emphasis lies not with the image resolution itself, but with how well the face is visible. There are several aspects that heavily affect the quality of facial images with respect to biometric systems performance. These aspects are presented and discussed in two important papers: 
-
+%
 \begin{itemize}
     \item ISO/IEC TR 29794-5:2010: Information technology — Biometric sample quality — Part 5: Face image data \cite{ISO50912}.
     \item ICAO Doc 9303 Part 3: Specifications Common to all MRTDs \cite{ICAO1}. 
 \end{itemize}
-
+%
 The quality specific aspects of facial images presented in the two standards are what defines the quality in our thesis. The different quality factors are:  
 
 \begin{itemize}
@@ -61,7 +62,6 @@ The characteristics will affect the quality in a good or bad way. If all the bul
 \end{figure}
 
 Image \ref{fig:excellentImg} checks all bullet points in what defines an excellent image. The subjects' facial expression and head pose is neutral and the whole face is clearly visible. The second image \ref{fig:defectedImg} however does have some flaws. The main reason these two images greatly differ in quality is because of the head rotation. The head is rotated 90 degrees to the side which makes vital parts of the face far less visible. The facial image with defects does have a neutral background with good lightning and image resolution, but those aspects does not weight up against the head pose.
-\newpage
 
 \begin{figure}[h]
 \centering
@@ -140,7 +140,6 @@ FaceQnet \cite{FaceQnet} is an open source, no-reference face quality assessment
 In figure \ref{fig:fiqm} the second step, data preprocessing, is optional. That step is key in the implementation of FaceQnet. Generally data preprocessing removes unnecessary data, which directly improves the quality of machine learning algorithms. 
 
 The background of images will affect the quality score which provides us with biased results. One way to avoid feature extraction from the background, is to crop the input images to only match the face before using FIQMs. FaceQnet uses multitask cascaded convolutional networks (MTCNN) to detect and extract the coordinates of the faces. Thereafter the facial image is cropped to an $224 \times 224 \times 3$ image according to the bounding box and used as the input image to the FIQM. 
-\newpage
 
 \subsubsection*{Training data}
 FaceQnet uses the VGGFace2 \cite{VGGFace2} database to create a pretrained model to make its quality prediction. The VGGFace2 database is quite large with over 3.31 million images of 9131 subjects which is why FaceQnet only uses a subset of 300 subjects. The algorithm will first generate ground truth quality measures which is created by labeling the 300 subjects in the training database. The ground truth quality measures will then train the deep regression model in order to generate quality scores. After the model is trained, it is ready to receive the probe images. The data provided to the FIQM is loaded and split into test data (X\_test and y\_test) which are used to get a quality estimate. 
