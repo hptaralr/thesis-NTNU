@@ -4,25 +4,20 @@ The third chapter of the thesis introduces the reader to key definitions and con
 
 \section{What is a good image?}
 \label{sec:setup}
-Throughout this thesis we will mention the word quality several times. While some people already have a good understanding of what the word means, some confusion may arise. 
-
-Within the standard image quality assessment field, the definition of quality is straight forward and is what most people think about when hearing the word. Ordinary people and people working with images will for the most part think about the image resolution as the most important characteristic that defines image quality. An excellent image of a face with this definition would have high resolution and sharp focus.   
-
-However Mobai´s and our definition differs from the usual way image quality is defined. Our emphasis lies not with the image resolution itself, but with how well the face is visible. There are several aspects that heavily affect the quality of facial images with respect to biometric systems performance. These aspects are presented and discussed in two important papers: 
+Throughout this thesis we will mention the word quality several times. While some people already have a good understanding of what the word means, some confusion may arise. Within the standard image quality assessment field, the definition of quality is straight forward and is what most people think about when hearing the word. Ordinary people and people working with images will for the most part think about an image with a high resolution and no distortion or noise as the most important characteristic that defines image quality. An excellent image of a face with this definition would have a high resolution and a sharp focus. However we are working in the field of biometrics, where the definition differs from this. Our emphasis lies not with the image resolution itself, but with how well the face is visible. There are several aspects that heavily affect the quality of facial images with respect to the performance of biometric systems. These aspects are presented and discussed in two important standards: 
 %
 \begin{itemize}
     \item ISO/IEC TR 29794-5:2010: Information technology — Biometric sample quality — Part 5: Face image data \cite{ISO50912}.
     \item ICAO Doc 9303 Part 3: Specifications Common to all MRTDs \cite{ICAO1}. 
 \end{itemize}
 %
-The quality specific aspects of facial images presented in the two standards are what defines the quality in our thesis. The different quality factors are:  
+The quality specific aspects of facial images presented in the two standards are what defines the quality in our work. These different quality factors are:  
 
 \begin{itemize}
-    \item Scenery characteristics like lighting or background.
-    \item Characteristics like the consistency between the skin colour on the image and the skin colour of the subject.
+    \item Scenery characteristics such as lighting or background.
     \item Complete or partial face coverings.
     \begin{itemize}
-        \item Glasses fully covering the eyes.
+        \item Dark glasses fully covering the eyes.
         \item Any type of head coverings.
     \end{itemize}
     \item The behaviour of the subject.
@@ -34,35 +29,35 @@ The quality specific aspects of facial images presented in the two standards are
     \end{itemize}
     \item Image properties like the size of the image or its resolution.
     \item Image appearance characteristics like the exposure or noise.
+    \item Characteristics like the consistency between the skin colour on the image and the skin colour of the subject.
 \end{itemize}
-
-The above mentioned aspects all affect the quality of the facial image to some degree. What we consider an excellent facial image is similar to a standard passport image with the following characteristics: 
+%
+The above mentioned aspects all have an affect on the quality of the facial image to some degree. What we consider a high quality facial image is similar to a standard passport photograph with the following characteristics: 
 \begin{itemize}
     \item Open and visible eyes.
     \item No dark tinted glasses. 
     \item Neutral or little to none facial expression.
-    \item Neutral head pose.
+    \item Neutral face pose.
     \item No garments covering the face.
     \item Clean background.
-    \item Neither too dark or too light.
+    \item Neither too dark or too light background.
     \item Photo taken neither too close or too far away.
 \end{itemize}
-
-The characteristics will affect the quality in a good or bad way. If all the bullet points above are true, the quality of the facial image is near perfect. An image of a half-covered or missing face will negatively affect the quality, even though the image resolution itself may be impeccable. 
-
+%
+Such characteristics will naturally have an affect on the image quality in a good or bad way. If all the bullet points above are followed, the quality of the facial image is near perfect. An image of a half-covered or missing face will negatively affect the quality, even though the image resolution itself may be impeccable. 
 \begin{figure}[h]
 \centering
-    \subfloat[Excellent facial image]
+    \subfloat[A facial image which has the requirements needed for a facial recognition system.]
         {\includegraphics[scale = 0.15]{figures/ExcellentImg.jpg}
         \label{fig:excellentImg}\hspace{1.5cm}}
-    \subfloat[Facial image with defects]
+    \subfloat[A facial image with defects which does not have the requirements needed for a facial recognition system.]
         {\includegraphics[scale = 0.23]{figures/FairImg.jpg}
         \label{fig:defectedImg}}
-    \caption{Difference in face quality}
+    \caption{Sample images from a face quality dataset.}
 \end{figure}
-
-Image \ref{fig:excellentImg} checks all bullet points in what defines an excellent image. The subjects' facial expression and head pose is neutral and the whole face is clearly visible. The second image \ref{fig:defectedImg} however does have some flaws. The main reason these two images greatly differ in quality is because of the head rotation. The head is rotated 90 degrees to the side which makes vital parts of the face far less visible. The facial image with defects does have a neutral background with good lightning and image resolution, but those aspects does not weight up against the head pose.
-
+%
+Image depicted in Figure \ref{fig:excellentImg} checks all bullet points in what defines a high quality image. The subjects' facial expression and head pose is neutral and the whole face is clearly visible. The second Figure \ref{fig:defectedImg} however, does not have high quality since the face is rotated 90 degrees sideways which only make half of the face visible. The facial image  in Figure \ref{fig:defectedImg} does have a neutral background with good lightning and image resolution, but those aspects does not weight up against the head pose.
+%
 \begin{figure}[h]
 \centering
     \subfloat[Use of face coverings]
@@ -76,10 +71,10 @@ Image \ref{fig:excellentImg} checks all bullet points in what defines an excelle
     \subfloat[Facial expressions]
         {\includegraphics[scale = 0.55]{figures/BabyOpenMouth.png}
         \label{fig:babyMouth}}
-    \caption{Subject lineups \cite{ICAO1}}
+    \caption{Examples of accepted and not accepted facial images in a facial recognition system. Images are taken from \cite{ICAO1}}
     \label{fig:ICAOlineup}
 \end{figure}
-
+%
 The three image lineups in Figure \ref{fig:ICAOlineup} showcases typical flaws of facial images that negatively affect the quality. The last image of each lineup is considered to have the best quality. The flaws described varies in severity. The face image quality of the lady with her face covered would be at the bottom of the quality scale. The first two images of the man, would not affect the quality to the same degree and the quality of the first two images of the kid, would affect the quality even less. 
 \newpage
 
