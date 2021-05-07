@@ -161,7 +161,7 @@ Once the images are saved in the backend, the web application is now ready to ex
 Unlike Figure \ref{fig:highlevel}, Figure \ref{fig:lowlevel} in-depth showcases how FaceQNet is executed the first time it is ran on a computer. Before the ``Run 'FaceQnet''' button is clicked in the client, it is given that images have been selected and uploaded to the uploads folder, check Figure \ref{fig:highlevel} to see how this works. Because of that, the uploads-entity already exists instead of being created along the way. The first few steps are quite similar to the previous sequence diagram, however this time an API called FaceQNet is executed that in return starts the FaceQNet FIQM. 
 \newpage
 
-The cropping phase of FaceQNet begins, and since this is the first time the API has been called, another folder by the name of uploads\_cropped is created. The function then enters a for-loop that reads all the uploaded images from the original uploads folder, before they are cropped. Unfortunately the cropping tool provided by MTCNN sometimes fails to detect the face in the images which results in an empty image. An alternative scenario then occurs, which ignores these type of images, and they will automatically be provided with the lowest score possible. If no exception happens during the face cropping, the cropped image is saved to the uploads\_cropped folder.  
+The cropping phase of FaceQNet begins, and since this is the first time the API has been called, another folder by the name of uploads\_cropped is created. The function then enters a for-loop that reads all the uploaded images from the original uploads folder, before they are cropped. Unfortunately the cropping tool provided by MTCNN sometimes fails to detect the face in the images which results in an empty image. An alternative scenario then occurs, which ignores these types of images, and they will automatically be provided with the lowest score possible. If no exception happens during the face cropping, the cropped image is saved to the uploads\_cropped folder.  
 
 After having finished the cropping, the API starts the scores prediction, which first has to read all images from the uploads\_cropped folder, resize them and then predict their scores. The metric likewise returns a JSON file with all scores back to the web page. 
 
@@ -169,7 +169,7 @@ After having finished the cropping, the API starts the scores prediction, which 
 When choosing development software, we had to take some considerations. First, both backend and frontend software should not be time consuming to master, given that the project consisted of coding and research. Second, it should be uncomplicated to integrate the released FIQMs with the backend as well as creating an intelligible user interface. 
 
 \subsection*{Backend}
-The two FIQMs FaceQNet and ISO metrics were written in python. Since we were experienced with python and operated with it in courses throughout the bachelor program, it was natural to choose a python framework for the backend. With a dozen of possible web frameworks, we needed to select a framework which suited our needs in terms of scalability, performance and ease of use. In the end, the choices were between Django and Flask. 
+The two FIQMs FaceQNet and ISO metrics were written in Python. Since we were experienced with Python and operated with it in courses throughout the bachelor program, it was natural to choose a Python framework for the backend. With a dozen of possible web frameworks, we needed to select a framework which suited our needs in terms of scalability, performance and ease of use. In the end, the choices were between Django and Flask. 
 
 \newpage
 
@@ -203,34 +203,44 @@ The two FIQMs FaceQNet and ISO metrics were written in python. Since we were exp
 Initially, we started the backend development process using Django. This was mainly because the team working with backend had learned about the framework in an earlier course of the bachelor program. However, we eventually concluded not to use Django for the backend. Given some knowledge in the framework, we had not actually developed anything with it. Since Django did not provide the usage of python packages or tools, it would be more time consuming to code the application. The steep learning curve provided by the framework would make the development process even more time consuming. Our project differed in working tasks, by not only have a coding task, made the application smaller in terms of features and requirements. Django was more suitable for larger applications, making the decision of not using the framework clearer. We ended up using Flask for the backend. Immediately after installing the framework, the development productivity increased rapidly. Our python experience was easily adaptable to Flask which made it simple to make a deployable application and integrate FIQMs to the program. 
 
 \subsection*{Frontend}
-Given the few requirements and the key concepts of how Mobai wanted the application to be built, simplicity played a big role for us when choosing how to build the frontend. Mobai's vision for the frontend was for it to be a demo to demonstrate some of the key concepts provided by the backend, like uploading images and running FIQMs. The frontend would then be used to easily display results from different FIQMs on a small amount of images, or be used as a demonstration to Mobai's customers. Since we decided to build the frontend as a web application, we quickly understood that is was going to be made out of HTML, CSS and JaveScript. \\
+Given the few requirements and the key concepts of how Mobai wanted the application to be built, simplicity played a big role for us when choosing how to build the frontend. Mobai's vision for the frontend was for it to be a demo to demonstrate some of the key concepts provided by the backend, like uploading images and running FIQMs. The frontend would then be used to easily display results from different FIQMs on a small amount of images, or be used as a demonstration to Mobai's customers. Since we decided to build the frontend as a web application, we quickly understood that is was going to be made out of HTML, CSS and JavaScript. 
 
-The backend framework Flask explained in Table \ref{table:flask}  has a way of rendering simple HTML pages by itself. In the early stages of our developement, we built a simple HTML page consisting of buttons and text and had Flask render the template. This was a good way of testing the backend functionality. Using this method would simplify the frontend a lot and make the application run solely on the backend port 5000. The problem with this method was that the HTML pages rendered were quite static and had restrictions in form of design and functionality. This also meant that the frontend would be incorporated into the backend, and the backend had to be started in order for the frontend to work. After a discussion with Mobai, we found out that this was not the best solution. \\
+The backend framework Flask explained in Table \ref{table:flask}  has a way of rendering simple HTML pages by itself. In the early stages of our developement, we built a simple HTML page consisting of buttons and text and had Flask render the template. This was a good way of testing the backend functionality. Using this method would simplify the frontend a lot and make the application run solely on the backend port 5000. The problem with this method was that the HTML pages rendered were quite static and had restrictions in form of design and functionality. This also meant that the frontend would be incorporated into the backend, and the backend had to be started in order for the frontend to work. After a discussion with Mobai, we found out that this was not the best solution. 
 
-We wanted the frontend to run independently from the backend on its own server. This way, the frontend would not be dependent on the backend to run, and we would get more flexibility when it came to design and implementations. We could still code the frontend using basic HTML and some JavaScript, but we found that using a well developed web framework would enhance the design and simplify for future development of the application. Angular and React are the two frameworks we considered to use.  \\
+We wanted the frontend to run independently from the backend on its own server. This way, the frontend would not be dependent on the backend to run, and we would get more flexibility when it came to design and implementations. We could still code the frontend using basic HTML and some JavaScript, but we found that using a well developed web framework would enhance the design and simplify for future development of the application. Angular and React are the two frameworks we considered to use. 
 
-%write about angular and React, må endres
-React is a component-based framework, which means the User Interface (UI) can be rendered using different components. By doing this, the same component can be rendered multiple times without duplicating code and it will be easier so fix bugs because they are likely caused by one specific component. This is one of the key factors that makes React so flexible. If the web application were to be extended in the future, the current code would not have to be changed, instead it could be done by rendering, changing or replacing components. \\
+\begin{table}[h]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|p{9cm}|} 
+\hline
+\textbf{Framework} & React  \\ \hline
+\textbf{Advantages} &  React is a JavaScript library, but is often referred to as a whole framework because it is directly comparable to other web development frameworks. React is component based, which means the User Interface (UI) can be rendered using different components. By doing this, the same component can be rendered multiple times without duplicating code and it will be easier so fix bugs because they are likely caused by one specific component. This is one of the key factors that makes React so flexible and dynamic. This also makes React applications easier to test and maintain. Considering it is a JavaScript library, is is easier to learn for any developer that has a JavaScript background, and is more lightweight than other frameworks. React uses its own virtual Document Object Model (DOM). This DOM is a cross-platform and programming API which deals with HTML, XML or XHTML. The React virtual DOM exists entirely in memory and is a representation of the web browser's DOM. This means that when we want to render React, the virtual components will turn into the DOM, leading to smoother and faster performance.  \cite{ReactProsAndCons}      \\ \hline
+\textbf{Disadvantages} & React has a high pace of development, which can be both an advantage and a disadvantage. Since the environment constantly changes so fast, some developers might not feel comfortable to relearn the new ways of doing things regularly. It may be hard to adapt to new ways of doing things constantly and always be updated. Because of the constant updating, the technology is accelerating so fast that there might not be enough time to make proper documentation. \cite{ReactProsAndCons}           \\ \hline
+\end{tabular}%
+}
+\caption{Pros and cons with React}
+\end{table}
+
+\begin{table}[h]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|p{9cm}|} 
+\hline
+\textbf{Framework} & Angular  \\ \hline
+\textbf{Advantages} &  Angular is an open-source software engineering platform used to build UIs. The main benefit of using Angular is to turn static HTML-based documents into dynamic content using components. It was built on the Model-View-Controller architecture, where the framework is synchronized with the model and the view. This is called two-way binding. This allows developers that use Angular to reduce the development time as it will not require additional code to synchronize the model and the view. Angular uses something called dependency injection. Dependencies define how different pieces of code interacts with each other and how changing one component affects others. Using dependency injection, dependencies can be defined externally outside components, making the dependencies decoupled from the components. This makes components more reusable, easier to manage and test \cite{goodBadAngular}.\\ \hline
+
+\textbf{Disadvantages} & Angular is a heavy weighted framework and always has multiple ways of completing any task. This makes the framework have a steep learning curve. Due to Angulars two-way binding, it may sometimes cause performance issues when rendering multiple components, especially on old devices \cite{AngularCons}. Since Angular is a complete framework, it s created for building enterprise-scale applications, making the framework less flexible than other lightweight frameworks \cite{goodBadAngular}. Angular also offers a limited amount of freedom and flexibility \cite{ReactVSAngular} .         \\ \hline
+\end{tabular}%
+}
+\caption{Pros and cons with Angular}
+\end{table}
+
+
+
 %React is a library for building user interfaces, and can be used to build full stack apps by communicating with a server/api. 
 
-We ended up choosing React, considering its great performance, flexibility and its ability to create dynamic web pages. React has its own Command Line Interface (CLI) tool that makes building a React app easy. This command is called create-react-app and automatically builds up all files, packages and folders that is needed to run a React application. The command also serves the react app with a server using Node.js, which is an open source, cross platform, javaScript runtime environment that gives the ability to run web pages on server side. In order to run the CLI tool, Node.js would have to be installed first. Using this method, a React application could easily be installed and the web page be run on a local server on port 3000 using the Node.js command 'npm start'. This way we have created a frontend independently of the backend running on port 3000.  \\
-
-Due to Reacts popularity, multiple UI frameworks has been built to simplify the process of building web pages. One of these frameworks are called Material-UI. Material-UI delivers already built components, styles, icons and templates that supports the React framework. Most of these components are free and can be used to easily get started with building a web page. When we discussed how to build the web page, we came to a conclusion that using the Material-UI framework would be beneficial to the simplicity, efficiency and Design of our frontend application. Different Material-UI libraries could be installed using the Node.js command 'npm install'. We also chose to start off the developement process using a Material-UI pre built pattern, called 'Album', that can be found on the Material-UI website (kilde). \\
-
-To build dynamic web pages, React introduced a new addition in version 16.8, called 'React hooks'. This addition provides a way of storing data as a state, and the data gets updated automatically once the state is updated. This way we could change textfields, counters and data and display it automatically without refreshing the website, because it is stored in a state. We have used React hooks to store data that we know can be modified during the web applications lifetime. This is an example of how we have implemented a React hook of the use case 'Browse files' showcased in the use case diagram in figure \ref{fig:UseCase}:
-\begin{lstlisting}[caption=React hook implementation]
-const [ imagesSelected, setImagesSelected ] = useState([]);
-\end{lstlisting}
-%
-The 'imagesSelected' variable stores the state of what images has been selected from the user, and the 'setImagesSelected' function updates the state every time a user selects images. If we wanted to display the images selected by the user, setting the variable name in a paragraph would suffice, and React would update the paragraph automatically once the state had been updated.   \\
-
-
-
-
-
-
-%https://en.wikipedia.org/wiki/Node.js
-%https://www.youtube.com/watch?v=w7ejDZ8SWv8
+We ended up choosing React, considering its great performance, flexibility and its ability to create dynamic web pages. React has its own Command Line Interface (CLI) tool that makes building a React app easy. This command is called create-react-app and automatically builds up all files, packages and folders that is needed to run a React application \cite{ReactGetStarted}. The command also serves the react app with a server using Node.js, which is an open source, cross platform, javaScript runtime environment that gives the ability to run web pages on server side \cite{NodeJs}. In order to run the CLI tool, Node.js would have to be installed first. Using this method, a React application could easily be installed and the web page be run on a local server on port 3000 using the Node.js command 'npm start'. This way we have created a frontend independently of the backend running on port 3000.  
 
 %write about material-ui, react hooks,, axios requests
 
@@ -245,38 +255,68 @@ One of the main requirements given by Mobai was to deploy the application in a c
 \begin{itemize}
     \item A container is independent of the operating system, making it portable between dissimilar platforms. 
     \item Containers are efficient in terms of allowing applications being quickly deployed, patched or scaled. 
-    \item Containers consume less system overhead than regular hardware or virtual environment owing to that they do not include operating system images. 
+    \item Containers consume less system overhead than regular hardware or virtual environments owing to that they do not include operating system images. 
     \item It provides better application development, production cycles and testing as containers supports an agile workflow.
     \item Having the application separated into different containers will improve security. 
 \end{itemize}
 
 \section{Design and implementation}
+Due to Reacts popularity, multiple UI frameworks has been built to simplify the process of building web pages. One of these frameworks are called Material-UI. Material-UI delivers already built components, styles, icons and templates that supports the React framework. Most of these components are free and can be used to easily get started with building a web page. When we discussed how to build the web page, we came to a conclusion that using the Material-UI framework would be beneficial to the simplicity, efficiency and design of our frontend application. Different Material-UI libraries could be installed using the Node.js command 'npm install'. We also chose to start off the developement process using a Material-UI pre built pattern, called 'Album', that can be found on the Material-UI website (kilde). 
+
+To build dynamic web pages, React introduced a new addition in version 16.8, called 'React hooks'. This addition provides a way of storing data as a state and the data gets updated automatically once the state is updated. This way we could change text fields, counters and data and display it automatically without refreshing the website, because it is stored in a state. We have used React hooks to store data that we know can be modified during the web applications lifetime. This is an example of how we have implemented a React hook of the use case 'Browse files' showcased in the use case diagram in figure \ref{fig:UseCase}:
+\begin{lstlisting}[language=HTML5, caption=React hook implementation]
+const [ imagesSelected, setImagesSelected ] = useState([]);
+\end{lstlisting}
+%
+The 'imagesSelected' variable stores the state of what images have been selected from the user, and the 'setImagesSelected' function updates the state every time a user selects images. If we wanted to display the images selected by the user, setting the variable name in a paragraph would suffice, and React would update the paragraph automatically once the state had been updated.
+
+One 
+
+
+
+%write about material-ui, react hooks,, axios requests
+
+%write about deployment. we dont have to use deployment build, its deployed as a docker container instead, so it can run on port 3000 and 5000 locally. 
 
 \subsection{Flask API}
+
+
 
 \section{Testing}
 
 \subsection{User testing}
 
 \subsubsection{Mobai employee}
-Send repository to Guoqiang. Get general feedback from him and other people from Mobai.
+At the end of the development process, we began the user testing of the frontend and the backend. The potential users of the web application were the product owner and other employees at Mobai. The user testing was done by sending the product owner an email with a link to the Github repository containing the source code of the web application. The email also included a list of tasks for the users to complete, a few questions about the user experience and possible issues.
 
-% Tasks
-Deploy the backend/API and the frontend/client with Docker.
-Upload multiple images.
-Run all of metrics at the same time.
-Run each of the metrics separately. 
-Delete the images uploaded to the backend.
-Upload a single image.
-Run all of metrics at the same time.
-Run each of the metrics separately. 
+% Describe tasks. TODO: Add feedback from the user testing to each task
+The first task was to deploy the frontend and the backend on the users computer using Docker. Instructions to complete this task were clearly stated in the readme file of the project repository. 
+The second task was to upload multiple images to the backend from the users computer using the frontend.
 
-% General feedback from Mobai
-How is the visual design?
-Is the user interface intuitive?
-Are the metric results displayed in a satisfying way?
+The third task was to run all metrics at the same time with the images uploaded in the second task. 
 
-% Issues
-Are there any severe issues? If so, how much should we prioritize each issue? 
+The fourth task was to run each of the metrics separately with the images uploaded in the second task. 
 
-% Add table with problems and solutions. See Viten i senter chapter 9
+The fifth task was to delete the images uploaded to the backend.
+
+The sixth task was to upload a single image to the backend from the users computer using the frontend.
+
+The seventh task was to run all metrics at the same time with the image uploaded in the sixth task.
+
+The eight task was to run each of the metrics separately with the image uploaded in the sixth task. 
+
+% TODO: Add feedback from the testing about the user experience
+The user was asked to answer the following questions about the user experience:
+\begin{itemize}
+    \item How is the visual design?
+    \item Is the user interface intuitive?
+    \item Are the metric results displayed in a satisfying way?
+    \item Any other feedback about the user experience?
+\end{itemize}
+
+% TODO: Add issues from the user testing
+Finally, the user was asked to write down any issues encountered during the testing and to specify how much priority we should give the issue
+
+% Add table with problems and solutions. See Viten i senter chapter 9, page 64
+
+
