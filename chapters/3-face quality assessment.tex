@@ -113,7 +113,7 @@ When it comes to the performance of the system, the quality of the probe images 
 %
 \begin{figure}[h]
     \centering
-    \includegraphics[scale = 0.45]{figures/FIQM.png}
+    \includegraphics[scale = 0.45]{figures/FIQM_process.png}
     \caption{Typical FIQM process \cite{FaceImageQualityAssessment}}
     \label{fig:fiqm}
 \end{figure}
@@ -130,24 +130,22 @@ FIQMs can be divided into three approaches in regards to a reference image. It i
 %
 The names of the approaches are telling of what to expect. The full-reference approach compares the input image against a known reference image of good quality. The reduced-reference approach is similar to the above mentioned approach, however only some information of the reference image is used. Finally, the no-reference approach does not require a reference image to calculate a score. 
 
-Mobai chose FaceQNet and ISO metrics to be used in our application. The reason for choosing these specific metrics was their differences in terms of evaluating facial images. The two FIQMs are both no-reference approaches which will be used to assist and provide feedback when an image is acquired for FR system enrollment. 
+Mobai chose FaceQnet and ISO metrics to be used in our application. The reason for choosing these specific metrics was their differences in terms of evaluating facial images. The two FIQMs are both no-reference approaches which will be used to assist and provide feedback when an image is acquired for FR system enrollment. 
 
 
 \subsection{ISO metrics}
-ISO metrics is a non-referenced face image quality metric. The metric is implemented based on ISO/IEC TR 29794-5:2010 Information technology — Biometric sample quality — Part 5: Face image data. Different factors that affects the face image quality are considered in the implementation. 
+ISO metrics is a no-referenced FIQM. The metric is implemented based on ISO/IEC TR 29794-5:2010 Information technology — Biometric sample quality — Part 5: Face image data \cite{ISO50912}. All factors described in the standard affecting the face image quality are implemented in the FIQM. 
 
-The ISO metrics calculates the inter-eye distance on the facial images. If this value is below a certain criteria, the metric will filter out these type of images. The inter-eye distance is related to subject camera distance, because it indicates that the subject could be too close to or too far from the camera lens. 
+The ISO metrics calculates the inter-eye distance on the facial images. If this value is below a certain score, the metric will filter out these type of images. The inter-eye distance is related to subject camera distance, because it indicates that the subject could be too close to or to far from the camera lens. 
 
 All image properties and characteristics described in \cite{ISO50912} are taken into account when evaluating the quality of facial images in ISO metrics. This includes the sharpness, contrast, blur, brightness, exposure, pose symmetry, light symmetry and illumination symmetry of the image. These factors are stored in an array for each facial image. 
 
-To be able to calculate quality scores on the facial images, training data are needed. The metric uses random forest regression \cite{RandomForestRegressor} with 214 trees, 22 nodes of depth and the input dataset is used to build each tree. Quality scores of the facial images are computed by predicting the image properties array described above. 
+To be able to calculate quality scores on the facial images, training data are needed. The metric uses random forest regression \cite{RandomForestRegressor} with 214 estimators and 22 nodes of depth. The quality score for each facial image is computed by predicting the output score of the image properties array.  
 
 \subsection{FaceQnet}
-FaceQnet \cite{FaceQnet} is an open source, no-reference face quality metric using Convolutional Neural Networks (CNNs). FaceQnet has two versions implemented, FaceQnet v0 and FaceQnet v1. In this project we used the latest version (FaceQNet v1). Its quality measures is closely related to the ICAO \cite{ICAO2} standard that provides strict guidelines for capturing images. Factors such as illumination, pose, resolution and focus are essential in regards to the final quality score.
+FaceQnet \cite{FaceQnet} is an open source, no-reference FIQM using Convolutional Neural Networks (CNNs). FaceQnet has two versions implemented, FaceQnet v0 \cite{hernandezortega2019faceqnet} and FaceQnet v1 \cite{hernandezortega2021biometric}. In this project we used the latest version (FaceQnet v1). Its quality measures is closely related to the ICAO standard \cite{ICAO2} that provides strict guidelines for capturing images. Factors such as illumination, pose, resolution and focus are essential in regards to the final quality score.
 
-A key of the implementation of FaceQNet is data preprocessing (shown in Figure \ref{fig:fiqm}). Generally data preprocessing removes unnecessary data, which directly improves the quality of machine learning algorithms. 
+A key part of the implementation of FaceQnet is data preprocessing (shown in Figure \ref{fig:fiqm}). Generally data preprocessing removes unnecessary data, which directly improves the quality of machine learning algorithms. The background of images will affect the quality score which provides us with biased results. One way to avoid feature extraction from the background, is to crop the input images to only include the face before using FIQMs. FaceQnet uses multitask cascaded convolutional networks (MTCNN) to detect and extract the coordinates of the face. In the next step the facial image is cropped to an image with the size $224 \times $224 and used as the input image in FaceQnet v1. 
 
-The background of images will affect the quality score which provides us with biased results. One way to avoid feature extraction from the background, is to crop the input images to only include the face before using FIQMs. FaceQnet uses multitask cascaded convolutional networks (MTCNN) to detect and extract the coordinates of the face. In the next step the facial image is cropped to an image with the size $224 \times $224 and used as the input image in FaceQNet v1. 
-
-FaceQnet uses the VGGFace2 \cite{VGGFace2} database to create a pretrained model to make its quality prediction. The VGGFace2 database includes over 3.31 million images of 9131 subjects which is why FaceQnet only uses a subset of 300 subjects. The algorithm will first generate ground truth quality measures which is created by labeling the 300 subjects in the training database. The ground truth quality measures will then train the deep regression model in order to generate quality scores. The data provided to the FIQM is loaded and split into test data (X\_test and y\_test) which are used to get a quality estimate. 
+FaceQnet uses the VGGFace2 \cite{VGGFace2} database to create a pre-trained model to make its quality prediction. The VGGFace2 database includes over 3.31 million images of 9131 subjects which is why FaceQnet only uses a subset of 300 subjects. The algorithm will first generate ground truth quality measures which is created by labeling the 300 subjects in the training database. The ground truth quality measures will then train the deep regression model in order to generate quality scores. The data provided to the FIQM is loaded and split into test data (X\_test and y\_test) which are used to get a quality estimate. 
 
