@@ -120,7 +120,7 @@ Plotting the results of the FIQMs against the ground truth data was not enough t
 \begin{equation}
     RMSE = \sqrt{\frac{1}{N}\sum _{i=1}^{N}(Predicted_{i} - Actual_{i})^2}
 \end{equation}
-$N$ equaled the number of samples, and in our case these were images. The predicted values denoted the objective scores by the FIQMs while the actual values were the corresponding ground truth data. This calculation gave us the standard deviation of the prediction errors. In other words, RMSE measured how far from the linear regression line the predicted values were. 
+$N$ equaled the number of samples, and in our case these were images. The predicted values denoted the objective scores by the FIQMs while the actual values were the corresponding ground truth data. This calculation gave us the standard deviation of the prediction errors. In other words, RMSE measured how far from the linear regression line the predicted values were. The closer to zero the scores were, the better the FIQMs predicted the right scores.
 \newpage
 
 \begin{table}[h]
@@ -141,9 +141,12 @@ Capture from photo      & 0.3551 & 0.2887 & 0.2309 \\ \hline
 Selfie dataset          & 0.4342 & 0.3253 & X \\ \hline
 \end{tabular}%
 }
+\label{tab:RMSE}
 \end{table}
+\noindent
+The highest correlation coefficient, without combining the FIQMs, was achieved on the Combined passport alike dataset with ISO Metrics as shown in Figure \ref{fig:iso_SUB1}. Although the correlation was around 0.5, the RMSE value was around 0.36, shown in Table \ref{tab:RMSE}. This meant that on average the perceived quality predicted by ISO Metrics was off by $\pm$0.36 points compared to the actual ground truth data. Since our scale was from zero to one, 0.36 points off equaled an error of $\pm$36\% which was remarkably high. Even worse was the RMSE value on the Selfie dataset with ISO Metrics with a staggering error of 43\%. Despite having a lower correlation with the ground truth data on average, FaceQnet outperformed ISO Metrics on all datasets with its RMSE values. On average, FaceQnet´s errors were 0.8 points lower than ISO Metrics which equaled an error decrease of 20\%.  
 
-
+The interesting results were those of the combined FIQMs. They achieved considerably better values than the metrics individually. Although an error of $\pm$0.22 and $\pm$0.23 in our case would be considered mediocre, the decrease could not be overlooked. 
 
 \section{Second Experiment}
 This second section is about the second subjective experiment we conducted based on our own dataset of 250 images. 
