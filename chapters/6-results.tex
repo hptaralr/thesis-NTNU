@@ -1,53 +1,57 @@
 \chapter{Results and Discussion}
 \label{chap:Results}
-Since a large part of our bachelor task consisted of face image quality research, this chapter is of great importance. After conducting the experiments in Chapter \ref{chap:subjective}, we gathered large amount of data, which we had to process. This data will be presented in the form of statistical calculations, such as box plots, correlation graphs and standard deviation graphs. The main goal of the chapter is to tie together the results we achieved in the objective and subjective face quality assessment, discuss them and present an in-depth look into the performance of the FIQMs relative to our collected ground truth data.   
+In this chapter we provide the reader with a detailed evaluation of the FIQMs and their correlation with the subjective scores collected in our subjective experiment. Since a large part of our bachelor project consisted of face image quality research, this chapter is of great importance. After conducting the experiments in Chapter \ref{chap:subjective}, we gathered a large amount of data, which we had to process. This data will be presented in the form of statistical calculations, such as box plots, correlation graphs and standard deviation graphs. The main goal of the chapter is to tie together the results we achieved in the objective and subjective face quality assessment, discuss them and present an in-depth look into the performance of the FIQMs relative to our collected ground truth data.   
 
 \section{Main Experiment}
 The results we achieved are split into two sections. In this first section the results of the objective assessment and our first subjective experiment will be presented and discussed. Both assessment categories are based on the three datasets provided by Mobai, which were described in Chapter \ref{chap:subjective}. 
 %Utfylle mer her senere om hvordan seksjonen er oppbygd.
 
+
+
+
 \subsection{Objective Assessment Scores}
-The FIQMs presented in Chapter \ref{chap:FQA} use different approaches to predict the perceived face quality. Their predicted perception of quality is supposed to correlate with human assessment, which is the whole purpose of the metrics. The objective predictions produced by the FIQMs were measured up to human assessment to evaluate how true to their purpose they were. This evaluation was carried out by comparing the results of the FIQMs against the results gathered from human observers. The same resized images used in our first subjective experiment were used as input to our two FIQMs. 
+The FIQMs presented in Chapter \ref{chap:FQA} use different approaches to predict the perceived face quality. Their predicted perception of quality is supposed to correlate with human assessment, which is the whole purpose of FIQMs. The objective predictions produced by the FIQMs were measured against human assessment to evaluate the accuracy of the proposed approaches. This evaluation was carried out by comparing the results of the FIQMs with the results gathered from human observers. The same resized images used in our first subjective experiment were used as input to our two FIQMs. 
 \newpage
 
-\begin{figure}[h]
-\centering
-    \subfloat[Combined passport alike]
-        {\includegraphics[scale = 0.36]{figures/ISO_FaceQnet1.png}\label{fig:combinedpassportalikeplot}}
-    \subfloat[Capture from photo]
-        {\includegraphics[scale = 0.36]{figures/ISO_FaceQnet2.png}\label{fig:capturefromphotoplot}}
-    \subfloat[Selfie dataset]
-        {\includegraphics[scale = 0.36]{figures/ISO_FaceQnet3.png}\label{fig:selfiedatasetplot}}
-    \caption{2D correlation graphs of the scores provided by the FIQMs on the three datasets with ISO Metrics scores along the x-axis and FaceQnet scores along the y-axis. The Spearman and Pearson correlation coefficients, including the coefficient of determination, are calculated.}
-    \label{fig:corrFIQMs}
-\end{figure}
+% \begin{figure}[h]
+% \centering
+%     \subfloat[Combined passport alike]
+%         {\includegraphics[scale = 0.31]{figures/ISO_FaceQnet1.png}\label{fig:combinedpassportalikeplot}}
+%     \subfloat[Capture from photo]
+%         {\includegraphics[scale = 0.31]{figures/ISO_FaceQnet2.png}\label{fig:capturefromphotoplot}}
+%     \subfloat[Selfie dataset]
+%         {\includegraphics[scale = 0.31]{figures/ISO_FaceQnet3.png}\label{fig:selfiedatasetplot}}
+%     \caption{2D correlation graphs of the scores provided by the FIQMs on the three datasets with ISO Metrics scores along the x-axis and FaceQnet scores along the y-axis. The Spearman and Pearson correlation coefficients, including the coefficient of determination, are calculated.}
+%     \label{fig:corrFIQMs}
+% \end{figure}
 
-The three plots depicted in Figure \ref{fig:corrFIQMs} show the scores of each image, which are represented by dots, in the three datasets. One can easily see the large difference in scores predicted by the two FIQMs. In regards to the first plot, with the ``Combined passport alike'' dataset, ISO Metrics had a large gap between the ratings provided. Most of the images were given a score above 0.9, while some received the lowest score of zero. Images with a score of zero provided by ISO Metrics were usually of faces where both eyes were not visible. ISO Metrics is coded in such a way that facial images where both eyes are not visible will be filtered out and provided with a score of zero. FaceQnet however, rated the images far more evenly between the 0.2 and 0.6 range. Figure \ref{fig:capturefromphotoplot} shows far more evenly distributed scores even though the scores from FaceQnet were significantly lower than ISO Metrics. As for Figure \ref{fig:selfiedatasetplot} the scores from ISO Metrics were equally spread from zero to one, where as most of the FaceQnet scores were zero. The images rated zero were mostly because the cropping part of FaceQnet failed. The images were therefore manually provided a score of zero. In other words, FaceQnet is not a suitable FIQM for the Selfie-dataset.  
+% The three plots depicted in Figure \ref{fig:corrFIQMs} show the scores of each image, which are represented by dots, in the three datasets. One can easily see the large difference in scores predicted by the two FIQMs. In regards to the first plot, with the Combined passport alike dataset, ISO Metrics had a large gap between the ratings provided. Most of the images were given a score above 0.9, while some received the lowest score of zero. Images with a score of zero provided by ISO Metrics were usually of faces where both eyes were not visible. ISO Metrics is coded in such a way that facial images where both eyes are not visible will be filtered out and provided with a score of zero. FaceQnet however, rated the images far more evenly between the 0.2 and 0.6 range. Figure \ref{fig:capturefromphotoplot} shows far more evenly distributed scores even though the scores from FaceQnet were significantly lower than ISO Metrics. As for Figure \ref{fig:selfiedatasetplot} the scores from ISO Metrics were equally spread from zero to one, where as most of the FaceQnet scores were zero. The images rated zero were mostly because the cropping part of FaceQnet failed. The images were therefore manually provided a score of zero. In other words, FaceQnet is not a suitable FIQM for the Selfie dataset.  
 
 The sample Pearson correlation coefficient ($r$) was calculated as: 
 \begin{equation}
     {\displaystyle r={\frac {\sum _{i=1}^{n}(x_{i}-{\bar {x}})(y_{i}-{\bar {y}})}{{\sqrt {\sum _{i=1}^{n}(x_{i}-{\bar {x}})^{2}}}{\sqrt {\sum _{i=1}^{n}(y_{i}-{\bar {y}})^{2}}}}}}
 \end{equation}
-where $n$ is the sample size, $x_{i}$ and $y_{i}$ denotes the individual sample points (scores) from ISO Metrics and FaceQnet respectively while ${\bar {x}}={\frac {1}{n}}\sum _{i=1}^{n}x_{i}$ and ${\bar {y}}={\frac {1}{n}}\sum _{i=1}^{n}y_{i}$ represents the sample means from both FIQMs. Another type of correlation coefficient, the Spearman rank correlation coefficient ($\rho$) \cite{wiki:spearman} was also calculated because it does not assume that both variables are normally distributed.
+where $n$ is the sample size, $x_{i}$ and $y_{i}$ denotes the individual sample scores from ISO Metrics and FaceQnet respectively while ${\bar {x}}={\frac {1}{n}}\sum _{i=1}^{n}x_{i}$ and ${\bar {y}}={\frac {1}{n}}\sum _{i=1}^{n}y_{i}$ represents the sample means from both FIQMs. Another type of correlation coefficient, the Spearman rank correlation coefficient ($\rho$) \cite{wiki:spearman} was also calculated because it does not assume that both variables are normally distributed.
 
-As for the plots depicted in Figure \ref{fig:corrFIQMs} one can see that a correlation between ISO Metrics and FaceQnet on the three datasets was near no existent. Figure \ref{fig:capturefromphotoplot} showed the closest to zero correlation between the datasets. The $\rho$ and $r$-values even show a negligible negative correlation which is confirmed by the red linear regression line which slightly points downwards. On the contrary Figure \ref{fig:capturefromphotoplot} showcases a $r$-value of 0.34 which is still considered a weak correlation, but is noticeably higher than the two other datasets. !!!The reasoning for this is because of the??? . The rightmost plot is similar to plot (a), but with a negligible positive correlation. It is highly likely that if FaceQnet had worked for the dataset, the correlation would be different. 
+% As for the plots depicted in Figure \ref{fig:corrFIQMs} one can see that a correlation between ISO Metrics and FaceQnet on the three datasets was near no existent. Figure \ref{fig:capturefromphotoplot} showed the closest to zero correlation between the datasets. The $\rho$ and $r$-values even show a negligible negative correlation which is confirmed by the red linear regression line which slightly points downwards. On the contrary Figure \ref{fig:capturefromphotoplot} showcases a $r$-value of 0.34 which is still considered a weak correlation, but is noticeably higher than the two other datasets. The rightmost plot is similar to plot (a), but with a negligible positive correlation. It is highly likely that if FaceQnet had worked for the dataset, the correlation would be different. 
 
 
-\subsection{Subjective Assessment Scores}
-As earlier mentioned, the first subjective experiment was supposed to gather ground truth data about each of the three datasets provided by Mobai. These datasets were equally split and mixed amongst the three survey sessions. Since the survey sessions consisted of images from all datasets, the data gathered from each survey session had to be organized and matched with the images of the corresponding dataset. That way the ground truth data could be analyzed on the original datasets and not on the datasets used for each survey session.
+\subsection{Results of subjective evaluation}
+\label{sec:SubAssessment}
+% Since the experiment sessions consisted of images from all datasets, the data gathered from each session had to be organized and matched with the images of the corresponding dataset. That way the ground truth data could be analyzed on the original datasets and not on the datasets used for each session.
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.7\textwidth]{figures/KernelPlots2.png}
-    \caption{Kernel density estimation on the subjective scores between one and five on each dataset. There is a clear difference between the quality of the Selfie dataset vs the two others.}
+    \includegraphics[width=0.7\textwidth]{figures/KernelPlots.png}
+    \caption{Subjective scores between one and five on each dataset. There is a clear difference between the quality of the Selfie dataset and the two others.}
     \label{fig:kerneldensity}
 \end{figure}
 
-We calculated the mean opinion score (MOS) on each image in the datasets and in Figure \ref{fig:kerneldensity} one can see how the subjective scores were distributed between the datasets. The quality of the images in the Selfie dataset were more consistent than the two other datasets, because it was more evenly distributed. The score distribution for Combined passport alike and Capture from photo were quite similar which was expected given that the images in the datasets were related. The standard deviation was calculated for every image, but also for each dataset and the datasets combined. The average standard deviation ($\overline{\sigma}$) for both experts and non-experts on all three datasets combined was calculated to $\overline{\sigma} = 0.7488$. This confirmed that the participants had an equal understanding of what defined a good or a bad image. Given that we were collecting ground truth data, it was expected that the deviation should be low.   
+As a first step in analyzing the subjective scores collected in our experiment we calculated the mean opinion score (MOS) for the images in each dataset. Figure \ref{fig:kerneldensity} shows the histogram of the MOS results in each dataset. The score distribution for Combined passport alike and Capture from photo were quite similar which was expected given that the images in the datasets were similar in context. This was not the case in the Selfie dataset where unlike  The standard deviation was calculated for every image, but also for each dataset and the datasets combined. The average standard deviation ($\overline{\sigma}$) for both experts and non-experts on all three datasets combined was calculated to $\overline{\sigma} = 0.7488$. This confirmed that the participants had an equal understanding of what defined a good or a bad image. Given that we were collecting ground truth data, it was expected that the deviation should be low.   
 
 \newpage
 
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
     \subfloat[Combined passport alike]
         {\includegraphics[width=1.0\textwidth]{figures/boxplot1.png}\label{fig:combinedpassportalikeboxplot}}
@@ -57,15 +61,15 @@ We calculated the mean opinion score (MOS) on each image in the datasets and in 
         \quad
     \subfloat[Selfie dataset]
         {\includegraphics[width=1.0\textwidth]{figures/boxplot3.png}\label{fig:selfiedatasetboxplot}}
-    \caption{Standard box plots of the images in the datasets. It shows the outliers, the min and max whiskers, the lower (Q1) and upper quartile (Q3) as well as the median (Q2) of the ground truth data produced by the survey participants.}
+    \caption{Standard box plots of the images in the datasets. It shows the outliers, the min and max whiskers, the lower (Q1) and upper quartile (Q3) as well as the median (Q2) of the ground truth data produced by the subjective experiment participants.}
     \label{fig:boxplot}
 \end{figure}
 
-Figure \ref{fig:boxplot} depicts three box plots of the score distribution of each image in a dataset. The whiskers extending from either side show the extent of the data. Some of the images are shown as tiny lines with no body, which indicates that the majority agreed upon a similar score. This is especially apparent in the first plot which also generated the lowest standard deviation of $\sigma = 0.6707$. The two remaining datasets received a similar standard deviation of $\sigma = 0.7891$ and $\sigma = 0.7872$ respectively. Some images had greater variety than others. The selfie dataset contained some of those, but all in all the general participants rated images alike. Even between the experts and non-experts, the evaluation was more or less equal. In fact non-experts had a slightly better standard deviation of $\sigma = 0.6908$, than the experts of $\sigma = 0.7608$. 
+Figure \ref{fig:boxplot} depicts three box plots of the score distribution of each image in a dataset. The whiskers extending from either side show the extent of the data. Some of the images are shown as tiny lines with no body, which indicates that the majority agreed upon a similar score. This is especially apparent in the first plot which also generated the lowest standard deviation of $\sigma = 0.6707$. The two remaining datasets received a similar standard deviation of $\sigma = 0.7891$ and $\sigma = 0.7872$ respectively. Some images had greater variety than others. The Selfie dataset contained some of those, but all in all the general participants rated images alike. Even between the experts and non-experts, the evaluation was more or less equal. In fact non-experts had a slightly better standard deviation of $\sigma = 0.6908$, than the experts of $\sigma = 0.7608$. 
 
 
-\subsection{FIQMs vs Ground Truth Data}
-The subjective scores had to be normalized in order to be compared with the objective scores. Our survey initially had a categorical judgment with a scale from one to five, which had to be converted to scores between zero and one. It is easy to think that the MOS for each image should be divided by the number of score alternatives in the subjective experiment, which in this case was five. However it is worth noting that had we only divided the subjective scores by five, the subjective scores would never fall below 0.2. This means that the FIQMs could provide scores from zero to one, while the ground truth data was from 0.2 to one. Dividing by five would therefore provide us with an uneven scoring scale where a score of five equals 100\% while the lowest score of one equals 20\% instead of 0\%. We needed a five-point scale that would increment the score alternatives with 25\% starting from 0\%. To properly convert a five-point scale to percentages we used the following equation on every image:
+\subsection{FIQMs vs Subjective scores}
+The subjective scores had to be normalized in order to be compared with the objective scores. Our subjective experiment initially had a categorical judgment with a scale from one to five, which had to be converted to scores between zero and one. It is easy to think that the MOS for each image should be divided by the number of score alternatives in the subjective experiment, which in this case was five. However it is worth noting that had we only divided the subjective scores by five, the subjective scores would never fall below 0.2. This means that the FIQMs could provide scores from zero to one, while the ground truth data was from 0.2 to one. Dividing by five would therefore provide us with an uneven scoring scale where a score of five equals 100\% while the lowest score of one equals 20\% instead of 0\%. We needed a five-point scale that would increment the score alternatives with 25\% starting from 0\%. To properly convert a five-point scale to percentages we used the following equation on every image:
 
 \begin{equation}
     MOS_{Normalized} = \frac{MOS_{} - 1}{4}
@@ -75,26 +79,26 @@ The subjective scores had to be normalized in order to be compared with the obje
 \begin{figure}[h]
 \centering
     \subfloat[Combined passport alike]
-        {\includegraphics[scale = 0.36]{figures/ISO_Subjective1.png}\label{fig:iso_SUB1}}
+        {\includegraphics[scale = 0.31]{figures/ISO_Subjective1.png}\label{fig:iso_SUB1}}
     \subfloat[Capture from photo]
-        {\includegraphics[scale = 0.36]{figures/ISO_Subjective2.png}\label{fig:iso_SUB2}}
+        {\includegraphics[scale = 0.31]{figures/ISO_Subjective2.png}\label{fig:iso_SUB2}}
     \subfloat[Selfie dataset]
-        {\includegraphics[scale = 0.36]{figures/ISO_Subjective3.png}\label{fig:iso_SUB3}}
+        {\includegraphics[scale = 0.31]{figures/ISO_Subjective3.png}\label{fig:iso_SUB3}}
     \caption{2D correlation graphs of the scores provided by the FIQMs on the three datasets with ISO Metrics scores along the x-axis and subjective ground truth data along the y-axis. The Spearman and Pearson correlation coefficients are calculated.}
     \label{fig:corrISOsvsSub}
 \end{figure}
 \noindent
-The correlation between ISO Metrics and the subjective scores was considerably higher, although still low, than the correlation between ISO Metrics and FaceQnet for Combined passport alike and Capture from photo which is shown by the plots depicted in Figure \ref{fig:corrISOsvsSub}. The correlation coefficients were just shy of 0.5 which indicated a low to moderate association whereas the correlation on the selfie dataset was non existent. The performance of ISO Metrics was clearly worse on the Selfie dataset relative to the two others. The FIQM was challenged by the dataset which was not surprising given that the images were of mediocre face quality which ISO Metrics often tends to over evaluate. In other words ISO Metrics was not suited for the Selfie dataset.  
+The correlation between ISO Metrics and the subjective scores was considerably higher, although still low, the correlation between ISO Metrics and FaceQnet for Combined passport alike and Capture from photo which is shown by the plots depicted in Figure \ref{fig:corrISOsvsSub}. The correlation coefficients were just shy of 0.5 which indicated a low to moderate association whereas the correlation on the Selfie dataset was non-existent. The performance of ISO Metrics was clearly worse on the Selfie dataset relative to the two others. The FIQM was challenged by the dataset which was not surprising given that the images were of mediocre face quality which ISO Metrics often tends to over evaluate. In other words ISO Metrics was not suited for the Selfie dataset.  
 
 \subsubsection{FaceQnet}
 \begin{figure}[h]
 \centering
     \subfloat[Combined passport alike]
-        {\includegraphics[scale = 0.36]{figures/FaceQNet_Subjective1.png}\label{fig:face_SUB1}}
+        {\includegraphics[scale = 0.31]{figures/FaceQNet_Subjective1.png}\label{fig:face_SUB1}}
     \subfloat[Capture from photo]
-        {\includegraphics[scale = 0.36]{figures/FaceQNet_Subjective2.png}\label{fig:face_SUB2}}
+        {\includegraphics[scale = 0.31]{figures/FaceQNet_Subjective2.png}\label{fig:face_SUB2}}
     \subfloat[Selfie dataset]
-        {\includegraphics[scale = 0.36]{figures/FaceQNet_Subjective3.png}\label{fig:face_SUB3}}
+        {\includegraphics[scale = 0.31]{figures/FaceQNet_Subjective3.png}\label{fig:face_SUB3}}
     \caption{2D correlation graphs of the scores provided by the FIQMs on the three datasets with FaceQnet scores along the x-axis and subjective ground truth data along the y-axis. The Spearman and Pearson correlation coefficients are calculated.}
     \label{fig:corrFACEQNETsvsSub}
 \end{figure}
@@ -102,26 +106,27 @@ The correlation between ISO Metrics and the subjective scores was considerably h
 The correlation between FaceQnet and the ground truth data regressed with each dataset the same way as ISO Metrics and the ground truth data did. The performance of the two FIQMs was comparable on all the datasets. Combined passport alike achieved the highest correlation of the datasets, with Spearman and Pearson values similar to the ones in Figure \ref{fig:iso_SUB1}. Like ISO Metrics, the performance of FaceQnet on Capture from photo was worse than Combined passport alike, but this time FaceQnet performed slightly worse. The performance on the Selfie dataset was even worse with a non-existing correlation. 
 
 \subsubsection{Combining the FIQMs}
-An interesting though the team came by, was if the correlation between the FIQMs and the ground truth data significantly would be affected by combining the two quality scores predicted by the metrics. The new score for each image was calculated by adding and then dividing the scores of FaceQnet and ISO Metrics by two. This was tested only on Combined passport alike and Capture from photo. Since FaceQnet did not work for over 50\% of the images in the Selfie dataset, we found no reason to combine the two scores on that dataset. 
+An interesting thought the team came by, was if the correlation between the FIQMs and the ground truth data significantly would be affected by combining the two quality scores predicted by the FIQMs. The new score for each image was calculated by adding and then dividing the scores of FaceQnet and ISO Metrics by two. This was tested only on Combined passport alike and Capture from photo. Since FaceQnet did not work for over 50\% of the images in the Selfie dataset, we found no reason to combine the two scores on that dataset. 
 
 Figure \ref{fig:corrAVGvsSub} shows the correlation coefficients and the linear regression line calculated on the two datasets. The plot depicted in Figure \ref{fig:avg_SUB1} shows the highest correlation coefficients we ever achieved during our experiment. The $r$-value of 0.6045 and the $\rho$-value of 0.5942 were considerably higher than the correlation coefficients of the FIQMs individually. An value around 0.6 would indicate a moderate to strong correlation between the two data types. Even Capture from photo achieved an increased correlation. Initially ISO Metrics performed better on the dataset than FaceQnet, but after combining them, the combined scores performed slightly better than ISO Metrics. The correlation was still considered low to moderate. 
 \begin{figure}[h]
 \centering
     \subfloat[Combined passport alike]
-        {\includegraphics[scale = 0.4]{figures/FIQMAVGSubjective1.png}\label{fig:avg_SUB1}}
+        {\includegraphics[scale = 0.45]{figures/FIQMAVGSubjective1.png}\label{fig:avg_SUB1}}
     \subfloat[Capture from photo]
-        {\includegraphics[scale = 0.4]{figures/FIQMAVGSubjective2.png}\label{fig:avg_SUB2}}
+        {\includegraphics[scale = 0.45]{figures/FIQMAVGSubjective2.png}\label{fig:avg_SUB2}}
     \caption{2D correlation graphs of the average scores provided by the FIQMs on Combined passport alike and Capture from photo. The average FIQMs scores are displayed along the x-axis and subjective ground truth data along the y-axis. The Spearman and Pearson correlation coefficients are calculated.}
     \label{fig:corrAVGvsSub}
 \end{figure}
 
 \subsubsection{Error Method}
-Plotting the results of the FIQMs against the ground truth data was not enough to assess the performance of the metrics on the datasets. Although the correlation coefficients on the datasets mostly were below 0.5 and indicated low to moderate correlation, error methods such as Root Mean Square Error (RMSE) can be used to track both the efficiency and accuracy of our metrics. The RMSE-values were calculated by the following general formula: 
+Plotting the results of the FIQMs against the ground truth data was not enough to assess the performance of the FIQMs on the datasets. Although the correlation coefficients on the datasets mostly were below 0.5 and indicated low to moderate correlation, error methods such as Root Mean Square Error (RMSE) can be used to track both the efficiency and accuracy of our FIQMs. The RMSE-values were calculated by the following general formula: 
 \begin{equation}
     RMSE = \sqrt{\frac{1}{N}\sum _{i=1}^{N}(Predicted_{i} - Actual_{i})^2}
 \end{equation}
+
 $N$ equaled the number of samples, and in our case these were images. The predicted values denoted the objective scores by the FIQMs while the actual values were the corresponding ground truth data. This calculation gave us the standard deviation of the prediction errors. In other words, RMSE measured how far from the linear regression line the predicted values were. The closer to zero the scores were, the better the FIQMs predicted the right scores.
-\newpage
+%\newpage
 
 \begin{table}[h]
 \caption{The calculated RMSE values of the FIQMs on the datasets relative to the ground truth data. The RMSE value was not calculated for the Selfie dataset with the combined scores of the FIQMs. The `X' symbolises this.}
@@ -146,10 +151,256 @@ Selfie dataset          & 0.4342 & 0.3253 & X \\ \hline
 \noindent
 The highest correlation coefficient, without combining the FIQMs, was achieved on the Combined passport alike dataset with ISO Metrics as shown in Figure \ref{fig:iso_SUB1}. Although the correlation was around 0.5, the RMSE value was around 0.36, shown in Table \ref{tab:RMSE}. This meant that on average the perceived quality predicted by ISO Metrics was off by $\pm$0.36 points compared to the actual ground truth data. Since our scale was from zero to one, 0.36 points off equaled an error of $\pm$36\% which was remarkably high. Even worse was the RMSE value on the Selfie dataset with ISO Metrics with a staggering error of 43\%. Despite having a lower correlation with the ground truth data on average, FaceQnet outperformed ISO Metrics on all datasets with its RMSE values. On average, FaceQnet´s errors were 0.8 points lower than ISO Metrics which equaled an error decrease of 20\%.  
 
-The interesting results were those of the combined FIQMs. They achieved considerably better values than the metrics individually. Although an error of $\pm$0.22 and $\pm$0.23 in our case would be considered mediocre, the decrease could not be overlooked. 
+The interesting results were those of the combined FIQMs. They achieved considerably better values than the FIQMs individually. Although an error of $\pm$0.22 and $\pm$0.23 in our case would be considered mediocre, the decrease could not be overlooked. FIQMs Combined had a decreased error rate of $\pm$0.14 points on Combined passport alike and $\pm$0.08, relative to ISO Metrics and FaceQnet. This equaled a decrease of 38.5\% and 25.4\% respectively. The accuracy of FIQMs Combined was similar on the Capture from photo dataset. 
+
+\subsection{Significance of our Results}
+Our results without any kind of validation were of little value. A validation had to be done in order to conclude whether our results were statistical significant. We had to be confident that our results could be replicated. 
+
+The plots depicted in Figure \ref{fig:corrFIQMs} showed a low to non-existent correlation between the two FIQMs on the datasets. The correlation coefficients were calculated with a 95\% confidence interval. The p-values of the correlation coefficients are shown in Table \ref{tab:p-value}. The lower the value the more statistical significant our results were, and anything above a value of $p = 0.05$ was considered insignificant. Capture from photo was the only dataset that received p-values below the threshold, which meant all other correlation coefficients should be taken with a grain of salt. Combined passport alike received p-values of 0.77 and 0.57 which meant that the likelihood of an uncorrelated system providing those exact coefficients randomly, were 77\% and 57\%. Given that both correlation coefficients were low and the p-values were high, it was highly likely the FIQMs were uncorrelated on that dataset. 
+\newpage
+
+\begin{table}[h] 
+\caption{The p-values of the correlation coefficients between ISO Metrics and FaceQnet. The values indicated the probability of an uncorrelated system providing the same correlation coefficients.}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{l|
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFFFF}}c |}
+\cline{2-3}
+& \multicolumn{2}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{ISO Metrics vs FaceQnet}} \\ \cline{2-3} 
+\textbf{} & Spearman p-value & Pearson p-value \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{C0C0C0}Combined passport alike} 
+& 0.7700 & 0.5706 \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{C0C0C0}Capture from photo}      
+& 0.0588 & 0.0034 \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{C0C0C0}Selfie dataset} & 0.2271    & 0.3133 \\ \hline
+\end{tabular}%
+}
+\label{tab:p-value}
+\end{table}
+
+\begin{table}[h]
+\caption{All correlation coefficients on the three datasets between ISO Metrics, FaceQnet, FIQMs Combined and the ground truth data. The `X'-symbol indicated the correlation coefficients that had a p-value higher than 0.05 and were therefore ignored. The coefficients were not calculated where the `-' symbol is placed.}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{l|
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFFFF}}c |
+>{\columncolor[HTML]{FFFFFF}}c |}
+\cline{2-7}
+ &
+  \multicolumn{2}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{ISO Metrics}} &
+  \multicolumn{2}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{FaceQnet}} &
+  \multicolumn{2}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{FIQMs Combined}} \\ \cline{2-7} 
+\textbf{} &
+  Spearman $\rho$ &
+  Pearson $r$ &
+  Spearman $\rho$ &
+  Pearson $r$ &
+  Spearman $\rho$ &
+  Person $r$ \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{C0C0C0}Combined passport alike} &
+  0.4425 &
+  0.4721 &
+  0.4885 &
+  0.4525 &
+  0.5942 &
+  0.6045 \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{C0C0C0}Capture from photo} &
+  0.3704 &
+  0.4330 &
+  X &
+  0.2843 &
+  0.4398 &
+  0.4550 \\ \hline
+\multicolumn{1}{|l|}{\cellcolor[HTML]{C0C0C0}Selfie dataset} &
+  X &
+  X &
+  X &
+  X &
+  - &
+  - \\ \hline
+\end{tabular}%
+}
+\label{tab:corrcoeff}
+\end{table}
+\noindent
+Table \ref{tab:corrcoeff} show only the correlation coefficients that were considered statistically significant, i.e. we were 95\% confident the correlation coefficients did not occur by coincidence. The coefficients were replaced by a `X' symbol where the p-values were greater than the significance level. All results regarding whether the FIQMs were correlated with the ground truth data on the Selfie dataset were confirmed to be uncorrelated with the high p-values. The results gathered from the remaining datasets were within the significance level and were considered accurate.  
+
 
 \section{Second Experiment}
-This second section is about the second subjective experiment we conducted based on our own dataset of 250 images. 
-%Spider på rotert vs ikke rotert 
+This section is about the second experiment we conducted based on our own NFC dataset of 250 images, including the Distorted NFC subset, and the results we achieved. A key goal the team considered was having the NFC dataset consist of varying face quality to achieve a balanced dataset. A kernel density estimation was therefore done on the MOS values generated by the second subjective experiment on the NFC dataset, as is depicted in the plot of Figure \ref{fig:NFCKernel}. One can see how the different quality categories are represented to an acceptable level. Images of specific quality were not over represented relative to the other quality categories. There was a nice consistency in the dataset with images of varying quality which was what we wanted to achieve. 
+\newpage
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.55\textwidth]{figures/KernelPlotsNFC.png}
+    \caption{Kernel density estimation on the subjective scores between one and five on the NFC dataset.}
+    \label{fig:NFCKernel}
+\end{figure}
+
+
 \subsection{Objective Assessment Scores}
+An important metric we voluntary wanted to measure was how the FIQMs performed on distorted images relative to their corresponding undistorted ones. This was tested on the Distorted NFC subset by plotting the kernel estimations of the scores provided to the different types of distortions. 
+On order to assess how the FIQMs performed we first had to analyze how the subjective scores were distributed. Since the distortions we added were not supposed to affect the subjective scores, the FIQMs should also not be affected if they were able to handle the distortions. We had to make sure our distortions did not affect the perceived face quality and Figure \ref{fig:NFC2KernelSUB} shows that the subjective scores for the most part were equal.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{figures/KernelPlotsSUBJECTIVE.png}
+    \caption{Kernel density estimation on the subjective scores between one and five on the NFC dataset.}
+    \label{fig:NFC2KernelSUB}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+    \subfloat[ISO Metrics scores]
+        {\includegraphics[ width=0.47\textwidth]{figures/KernelPlotsISO.png}\label{fig:kernelISO}}
+    \subfloat[FaceQnet scores]
+        {\includegraphics[width=0.47\textwidth]{figures/KernelPlotsFaceQnet.png}\label{fig:kernelFACE}}
+    \caption{Kernel density estimation on the objective scores of the original images and their corresponding distorted images on the Distorted NFC subset.}
+    \label{fig:NFC2Kernel}
+\end{figure}
+
+Figure \ref{fig:NFC2Kernel} showcases how the FIQMs performed on the Distorted NFC subset. Even though the scores provided vastly differed from the subjective scores, one can see how the objective scores highly correlated between the different distortions. Between the FIQMs, FaceQnet had an overall better performance on the types of distortions we added relative to ISO Metrics. Its scores correlated close to perfect which is shown in Figure \ref{fig:NFCFaceCorr}. Three out of four distortions had correlation coefficients above 0.8, which is considered a very strong positive correlation. Only the Telegram compression on FaceQnet performed slightly worse with a moderate to high correlation. ISO Metrics performed likewise, however the scores were more spread as shown in Figure \ref{fig:kernelISO}. The scores of facial images with noise differed noticeably from its original ones. Facial images with noise also had a significantly lower correlation than the other distortions, shown in Figure \ref{fig:NFCISOCorr}. The FIQM struggled with facial images with noise which is clear by the moderate correlation coefficients close to 0.5, relative to the other distortions which are considered strongly correlated. Not only did the correlation coefficients confirm that FaceQnet performed better on the distortions, but the FIQM had on average considerably lower RMSE values than ISO Metrics. 
+
+\begin{figure}[h]
+\centering
+    \subfloat
+        {\includegraphics[width=0.38\textwidth]{figures/FaceQnetBlur.png}}
+    \subfloat
+        {\includegraphics[width=0.38\textwidth]{figures/FaceQnetNoise.png}}
+        \quad
+    \subfloat
+        {\includegraphics[width=0.38\textwidth]{figures/FaceQnetPhotoshop.png}}
+    \subfloat
+        {\includegraphics[width=0.38\textwidth]{figures/FaceQnetTelegram.png}}
+    \caption{2D scatter plots of FaceQnet scores on the original images along the x-axis and the distorted images along the y-axis. All correlation coefficients are given with a 95\% confidence interval. RMSE values are included.}
+    \label{fig:NFCFaceCorr}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+    \subfloat
+        {\includegraphics[ width=0.45\textwidth]{figures/ISOBlur.png}}
+    \subfloat
+        {\includegraphics[width=0.45\textwidth]{figures/ISONoise.png}}
+        \quad
+    \subfloat
+        {\includegraphics[ width=0.45\textwidth]{figures/ISOPhotoshop.png}}
+    \subfloat
+        {\includegraphics[width=0.45\textwidth]{figures/ISOTelegram.png}}
+    \caption{2D scatter plots of ISO Metrics scores on the original images along the x-axis and the distorted images along the y-axis. All correlation coefficients are given with a 95\% confidence interval. RMSE values are included.}
+    \label{fig:NFCISOCorr}
+\end{figure}
+
 \subsection{Subjective Assessment Scores}
+The MOS of each image was calculated as we did in the first subjective experiment. The subjective scores of the NFC dataset provided by the participants correlated closely. The average standard deviation of the subjective scores was calculated to $\overline{\sigma} = 0.53$ which was substantially lower than those of the datasets in the first subjective experiment mentioned in Section \ref{sec:SubAssessment}. This time the experiment was not split into several sessions to prevent fatigue even though it consisted of 250 facial images. With that in mind the average standard deviation was lower, which goes to show how the subjective experiment aspects mentioned in Section \ref{sec:SubjectiveAspects} mattered to a lesser degree since we were collecting ground truth data. Provided that six participants participated in the subjective experiment and only two of those were experts we found no reason to compare the standard deviations between those types of participants.   
+
+\subsection{FIQMs vs Subjective scores}
+The correlation between the FIQMs and the collected ground truth data was calculated and plotted in Figure \ref{fig:ourDS1corr}. A 0.05 significance level was used when calculating the correlation coefficients. The coefficients ranged between 0.32 to 0.42 which meant there was a weak association between the objective and subjective assessments. Combining the two FIQMs did not show a significant difference. There were no clear difference between the performance of either FIQM on our dataset. Even though the correlation was weak, the result were not entirely negative. Our dataset was supposed to challenge the FIQMs by introducing new measures they had not been exposed to or created to assess, which was the case. 
+
+\begin{figure}[h]
+\centering
+    \subfloat[ISO Metrics]
+        {\includegraphics[scale = 0.31]{figures/OurDataset1_ISO_Subjective.png}\label{fig:our1_ISO}}
+    \subfloat[FaceQnet]
+        {\includegraphics[scale = 0.31]{figures/OurDataset1_FaceQNet_Subjective.png}\label{fig:our1_FACE}}
+    \subfloat[FIQMs Combined]
+        {\includegraphics[scale = 0.31]{figures/OurDataset1_AVG_Subjective.png}\label{fig:our1_AVG}}
+    \caption{2D correlation graphs of the scores provided by the FIQMs on the NFC dataset with FIQMs scores along the x-axis and subjective ground truth data along the y-axis. The Spearman and Pearson correlation coefficients are calculated.}
+    \label{fig:ourDS1corr}
+\end{figure}
+
+\subsubsection{Spider plots}
+
+The two spider plots in Figure \ref{fig:SpiderMaskTilted} takes a closer look into how the FIQMs reacted to the different face mask usages on the images depicted in Figure \ref{fig:masks2}. The subjective scores for 940.jpg and 1133.jpg were lower than the two other face mask images because the face is more visible. ISO Metrics did not react to that what so ever, but FaceQnet did provide slightly lower scores, but the change was very minor. Regarding the oblique angled images, both FIQMs provided lower scores than the subjective, but the ISO Metrics scores were consistent where as FaceQnet had larger differences between the facial images.
+
+\begin{figure}[h]
+\centering
+    \subfloat[Different face mask usage.]
+        {\includegraphics[width=0.33\textwidth]{figures/SpiderMask.png} \label{fig:spiderMask}}
+    \subfloat[Different oblique angles.]
+        {\includegraphics[width=0.33\textwidth]{figures/SpiderTilted.png}\label{fig:spiderTilted}}
+    \caption{Spider chart of the objective and subjective scores on different face mask and oblique angle images.}
+    \label{fig:SpiderMaskTilted}
+\end{figure}
+
+The distorted facial images in Figure \ref{fig:Distorted1} and Figure \ref{fig:Distorted2} are used in the spider plots depicted in Figure \ref{fig:SpiderDistortions}. On image 0340.jpg we can see how ISO Metrics predicted equal scores, but the facial image with noise had major effect on the score. This is consistent with the kernel estimation done on Distorted NFC subset in Figure \ref{fig:NFC2Kernel}. Even the Photoshop compression received double the score of its original image. FaceQnet had an overall more consistent quality perception close to the subjective scores.  
+
+\begin{figure}[h]
+\centering
+    \subfloat[0329.jpg distorted.]
+        {\includegraphics[width=0.33\textwidth]{figures/SpiderDistortions.png}\label{fig:dist1}}
+    \subfloat[0718.jpg distorted.]
+        {\includegraphics[width=0.33\textwidth]{figures/SpiderDistortions2.png}\label{fig:dist2}}
+    \caption{Spider chart of the objective and subjective scores on original and distorted facial images.}
+    \label{fig:SpiderDistortions}
+\end{figure}
+Image 0718.jpg in Figure \ref{fig:SpiderDistortions} again showed how FaceQnet was not affected by adding any of our distortions. The FaceQnet scores were quality wise closely related to the subjective scores, whereas the quality perception by ISO Metrics was off. This time the FIQM gave much more consistent scores with no large spikes, which goes to show its inconsistency. 
+
+\newpage
+
+\begin{figure}[h]
+\centering
+    \subfloat
+        {\includegraphics[scale = 0.13]{figures/926.png}\hspace{0.4cm}}
+    \subfloat
+        {\includegraphics[scale = 0.13]{figures/940.png}\hspace{0.4cm}}
+    \subfloat
+        {\includegraphics[scale = 0.13]{figures/1133.png}\hspace{0.4cm}}
+    \subfloat
+        {\includegraphics[scale = 0.13]{figures/1152.png}\hspace{0.4cm}}
+    \caption{Face mask images used in the Spider chart depicted in Figure \ref{fig:spiderMask}. From left to right: 926.jpg, 940.jpg, 1133.jpg and 1152.jpg.}
+    \label{fig:masks2}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+    \subfloat
+        {\includegraphics[scale = 0.13]{figures/0035.jpg}\hspace{0.4cm}}
+    \subfloat
+        {\includegraphics[scale = 0.13]{figures/0143.jpg}\hspace{0.4cm}}
+    \subfloat
+        {\includegraphics[scale = 0.13]{figures/0151.jpg}\hspace{0.4cm}}
+    \subfloat
+        {\includegraphics[scale = 0.13]{figures/0172.jpg}\hspace{0.4cm}}
+    \subfloat
+        {\includegraphics[scale = 0.13]{figures/0246.jpg}\hspace{0.4cm}}
+    \caption{Oblique angled images used in the Spider chart depicted in Figure \ref{fig:spiderTilted}. From left to right: 0035.jpg, 0143.jpg, 0151.jpg, 0172.jpg and 0246.jpg.}
+    \label{fig:ObliqueA}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+    \subfloat
+        {\includegraphics[scale = 0.13]{figures/0329.jpg}}
+    \subfloat
+        {\includegraphics[scale = 0.13]{figures/0329blur.jpg}}
+    \subfloat
+        {\includegraphics[scale = 0.13]{figures/0329noise.jpg}}
+    \subfloat
+        {\includegraphics[scale = 0.13]{figures/0329photoshop_compression.jpg}}
+    \subfloat
+        {\includegraphics[scale = 0.13]{figures/0329telegram_compression.png}}
+    \caption{Distorted images used in the Spider chart depicted in Figure \ref{fig:dist1}. From left to right: original, blur, noise, Photoshop compression and Telegram compression.}
+    \label{fig:Distorted1}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+    \subfloat
+        {\includegraphics[scale = 0.13]{figures/0718.jpg}}
+    \subfloat
+        {\includegraphics[scale = 0.13]{figures/0718blur.jpg}}
+    \subfloat
+        {\includegraphics[scale = 0.13]{figures/0718noise.jpg}}
+    \subfloat
+        {\includegraphics[scale = 0.13]{figures/0718photoshop_compression.jpg}}
+    \subfloat
+        {\includegraphics[scale = 0.13]{figures/0718.jpg}}
+    \caption{Distorted images used in the Spider chart depicted in Figure \ref{fig:dist2}. From left to right: original, blur, noise, Photoshop compression and Telegram compression.}
+    \label{fig:Distorted2}
+\end{figure}
+
+

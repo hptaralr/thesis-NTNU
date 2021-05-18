@@ -1,9 +1,9 @@
 \documentclass[british,titlepage,table,xcdraw]{ntnuthesis}
 
-\title{An NTNU Thesis \LaTeX{} Document Class}
+\title{Face Image Quality}
 \shorttitle{Face Image Quality}
 \author{Walid Demloj, Hans Petter Fauchald Taralrud, Kjetil Grosberghaugen, Julian Nyland Skattum}
-\shortauthor{ }
+\shortauthor{W. Demloj, H. P. F. Taralrud, K. Grosberghaugen, J. N. Skattum }
 \date{CC-BY \ntnuthesisdate}
 
 \addbibresource{thesis.bib}
@@ -23,8 +23,9 @@
 \listoftables
 \lstlistoflistings
 
+\glsaddall
 \printglossary[type=\acronymtype] % Print acronyms
-\printglossary                    % Print glossary
+%\printglossary                    % Print glossary
 
 \input{chapters/1-introduction}
 \input{chapters/2-specification}
@@ -38,12 +39,13 @@
 \printbibliography[heading=none]
 
 
-%\appendix
+\appendix
 %\input{appendices/a-projectPlan/projectPlan}
 %\input{appendices/b-assignment/assignment}
 %\input{appendices/c-agreements/agreements}
 %\input{appendices/d-results/results}
 %\input{appendices/meeting-reports/0-meetings}
 %\input{appendices/meeting-reports/1-meetings-supervisor}
+%\input{appendices/meeting-reports/2-meetings-mobai}
 
 \end{document}

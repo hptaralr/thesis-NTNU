@@ -1,4 +1,400 @@
 \chapter{Meetings with Mobai}
 
+We had weekly meetings with Mobai every Tuesday at 12:00. This later changed to bi-weekly meetings every other Tuesday at the same time.
+
 Unless stated otherwise, the planned agenda is written by the bachelor group.
 
+\section*{Meeting with Mobai 12.01.2021}
+\subsection*{Planned agenda}
+\begin{itemize}
+    \item Mobai’s planned topics:
+    \begin{itemize}
+        \item What do the students need to get going?
+        \item How do we structure the project?
+        \item I’d like to structure this a bit like a normal agile project, what do you think? Scrum?
+        \item Anything else?
+    \end{itemize}
+\end{itemize}
+
+\subsection*{Summaries}
+\begin{itemize}
+    \item The group members got more specific details about the bachelor assignment:
+    \begin{itemize}
+        \item Mobai will send us the algorithms (metrics).
+        \item The people from Mobai explained how the algorithms work.
+        \item Each algorithm returns a quality score for each single image.
+        \item Mobai will send us datasets that we can use.
+    \end{itemize}
+    \item About the subjective assessment:
+    \begin{itemize}
+        \item We use the same datasets for the subjective and objective assessment.
+        \item Ask about 10 people to participate in the subjective experiment.
+        \item Have the participants rate the images with a score from 1 to 100.
+        \item Get the subjects opinions about the images.
+        \item Calculate the average scores.
+        \item Calculate the correlation between the subjective and objective assessments.
+        \item Display the results as graphs.
+    \end{itemize}
+    \item About the objective assessment:
+    \begin{itemize}
+        \item The programming language is mostly up to us.
+        \item Put the application in containers. Using Docker desktop is a good idea.
+    \end{itemize}
+    Future meetings with Mobai: 
+    \begin{itemize}
+        \item Every Tuesday at 12:00. We will keep the meetings short, about  30 min.
+    \end{itemize}
+\end{itemize}
+\subsection*{Agenda for the next week}
+\begin{itemize}
+    \item Create a project plan.
+    \item Read face quality assessments and other research papers.
+\end{itemize}
+
+
+\newpage
+
+\section*{Meeting with Mobai 26.01.2021}
+(The planned meeting on 19.01.2021 was canceled due to unforeseen circumstances.) 
+
+\subsection*{Planned agenda}
+\begin{itemize}
+    \item We have tested the algorithms and they are running.
+    \item The repository contains three algorithms, which should we use?
+    \item Talk more detailed about what actually are going to do in the project.
+    \item We need datasets.
+    \item Signing a supplementary agreement with Mobai.
+    \item Use containers for the database and the application?
+    \item Is this project a research project?
+    \item What are Mobai’s “effect goals” for this project?
+    \item About the subjective assessment: how many images should the participants rate.
+    \item We’re planning to do the Scrum development method.
+\end{itemize}
+
+\subsection*{Summaries}
+\begin{itemize}
+    \item Focus on including the ISOmetrics and FaceQnet algorithms. Include the third if there is time.
+    \item What we want to determine in this project (in the short term and in the long term):
+    \begin{itemize}
+        \item We want to see which one of these open source algorithms that is the best, based on the results from the subjective assessment.
+        \item The police do not have algorithms that check the quality of passport images, they do this manually. Automating this would be very valuable.
+        \item Specialists are creating the ICAO and ISO standards, which defines good or bad quality. Mobai wants to create a better algorithm based on these two algorithms and the subjective assessments.
+    \end{itemize}
+    \item Create a web application. Platform independent.
+    \item Use docker containers to easily integrate into their system, because they also use Docker containers as well. Use two containers: one for the frontend and one for the backend.
+    \item When it comes to the application, do not think about security or authentication, Mobai doesn't care about that. Think about the front- and backend.
+    \item A dataset is a collection of images. The dataset will be sent to us.
+    \item The report will be a research report.
+    \item Participants of the subjective assessment should look at the same images: 
+    \begin{itemize}
+        \item Get an average from the participants. 
+        \item Rating the images for about 30-60 min.
+        \item Do a quick evaluation of each photo. 
+    \end{itemize}
+    \item About Scrum: 2 week Scrum. Use these meetings as demos and planning.
+    \item We are allowed to come up with new ideas during the project. No need to get permission for everything.
+\end{itemize}
+
+\subsection*{Agenda for the next week}
+\begin{itemize}
+    \item Finish the project plan.
+    \item Start with a UI shell for the application.
+    \item By Monday, decide if we want a meeting next Tuesday.
+    \item Read and understand more about face quality metrics.
+\end{itemize}
+
+\newpage
+
+\section*{Meeting with Mobai 09.02.2021}
+\subsection*{Planned agenda}
+\begin{itemize}
+    \item  Our supervisor will join us during this meeting and discuss different topics.
+    \item What defines a good face image (resolution, pixels, how much of the face is shown)? 
+    \item Do we call a good face image “face quality”, "face recognition”, “face identification” or something else? 
+    \item Create instructions on the subjective experiment? What should we ask the subjects?
+    \item Discuss if 300 images is too much in one go for the subjective experiment and if we should split it into three groups with a mix of all three folders (datasets) in each group.
+\end{itemize}
+
+\subsection*{Summaries}
+\begin{itemize}
+\item About the subjective experiment:
+    \begin{itemize}
+    \item Include images from low to high quality.
+    \item We want to collect ground truth data.
+    \item Get 15 participants to join.
+    \item Look at the average score from the participants.
+    \item Splitting the experiment into three sessions is fine.
+    \item Give the observer some training before running the test. Create instructions.
+    \item No specific background is required for the participants (except for the basic training test). 
+    \item Advice: stick with the experts.
+    \item We (the bachelor group and our supervisor) can do the test ourselves.
+    Mobai can get us participants. 
+    \item Still yet to decide which range of scores should we use for the experiment. Maybe 1-10? 
+    \end{itemize}
+\end{itemize}
+
+\subsubsection*{Agenda for the next week}
+\begin{itemize}
+    \item Create the first draft of the instructions for the subjective experiment.
+\end{itemize}
+
+\newpage
+
+\section*{Meeting with Mobai 16.02.2021}
+\subsection*{Planned agenda}
+\begin{itemize}
+    \item Show the current website design.
+    \item Show the pilot survey in QuickEval. (Note that we had to downscale the images.)
+    \item Show the instruction manual for the subjective experiment.
+    \item Create a training dataset to be used in the instructions:
+    \begin{itemize}
+        \item Create some (4-5?) image lineups with the same person in each lineup, with different attributes and poses.
+        \item Use images  from the datasets or our own images?
+        \item Have Mobai rate each image in the lineup. (Get ground truth data from Mobai)
+    \end{itemize}
+    \item Do Mobai have an example of rating from 1 to 5 (except for the previous research papers)?
+    \item Have Mobai rate the images in the survey instructions for us.
+\end{itemize}
+
+\subsection*{Summaries}
+\begin{itemize}
+    \item We will have a meeting with Brage next week and brainstorm more about the web application and its features.
+    \item We can use Python and Flask for the backend.
+    \item Examples of high/low res images in the instructions manual should be moved to the last slide. This to make it clear for the users that the image resolution is not the most important thing.
+\end{itemize}
+
+\subsection*{Agenda for the next week}
+\begin{itemize}
+    \item Send Guoqiang a link to the pilot survey on QuickEval.
+    \item Send Guoqiang images in the survey instructions so he can rate them from 1-5.
+\end{itemize}
+
+\newpage
+
+\section*{Meeting with Mobai 19.02.2021}
+\subsection*{Planned agenda}
+\begin{itemize}
+    \item Brainstorm around the face quality applications with Brage.
+    \item How should the GUI of the application look?
+    \item Any recommended technologies we should use?
+    \item Design and functionality of the app
+\end{itemize}
+
+\subsection*{Summaries}
+\begin{itemize}
+    \item The frontend will be used mostly for demo purposes.
+    \item Prioritize the development of the backend:
+    \begin{itemize}
+        \item Create a backend API service. REST API.
+        \item The API should receive an image and return a score.
+        \item Create the backend so it’s easy to add new algorithms.
+        \item Python based backends are generally good. We can use Django or Flask.
+    \end{itemize}
+    \item Put it all into Docker containers.
+    \item Create a website where you can upload one or more images.
+    \item Contact Martin of Mobai to get help with the design and functionality of the web application.
+\end{itemize}
+
+\subsection*{Agenda for the next week}
+\begin{itemize}
+    \item Do research on REST API.
+\end{itemize}
+
+\newpage
+
+\section*{Meeting with Mobai 23.02.2021}
+\subsection*{Planned agenda}
+\begin{itemize}
+    \item We have to resize the images in the datasets. Should the subjects evaluate the resized or the original images?
+    \item The images in the dataset “Faces in the wild” are not working because of the small distance between the eyes.
+    \item More talk about the frontend and the backend for the web application:
+    \begin{itemize}
+        \item We have started using Flask for the backend and React.js for the frontend.
+    \end{itemize}
+\end{itemize}
+
+\subsection*{Summaries}
+\begin{itemize}
+    \item The subjects should evaluate the resized images. 
+    \item The metric results must also be from the same resized images.
+    \item Guoqiang will send us a new dataset this week to replace the “Faces in the wild” dataset.
+    \item Using Flask and React.js for the web application is fine.
+    \item We can create a separate Docker container for each metric, for easier maintenance? Start by putting everything in one container.
+    \item We will now have bi-weekly meetings instead. Next meeting 2. March, then bi-weekly.
+    \item Get in touch on Teams or email if we need some input before the meeting.
+\end{itemize}
+
+\newpage
+
+\section*{Meeting with Mobai 02.03.2021}
+\subsection*{Planned agenda}
+\begin{itemize}
+    \item At the beginning of the survey instructions, we want a very brief intro about the face recognition system.
+    \item We’re thinking about creating our own dataset. Do you think that is a good idea?
+    \item Do you want us to create a specific dataset that you can experiment with?
+    \item Include tilted images in the subjective and object experiments.
+    \item We need ratings for the images we’re going to include in the instruction manual.
+    \item About the web application
+\end{itemize}
+
+\subsection*{Summaries}
+\begin{itemize}
+    \item Guoqiang will create a slide about the face recognition system that we can include in the instructions, betweens slide two and three. He will send it to us tomorrow.
+    \item Mobai thinks it's a great idea to create our own dataset. We will create a dataset of ourselves (selfies) with different properties: Indoor, outdoor, different places (e.g. at the store), at different times during the day, with different lighting, and so on.
+    \item We will include tilted images and write about them in the thesis.
+    \item Guoqiang will rate the images we are going to use in the survey instructions and send them to us today.
+    \item How the demo should work: select local images (“browse files”), send the images to the backend, get the results back from the backend, then save the results as a file.
+    \item Being able to add more algorithms to the web application is more important than processing multiple images.
+\end{itemize}
+
+\newpage
+
+\section*{Meeting with Mobai 16.03.2021}
+\subsection*{Planned agenda}
+\subsection*{Summaries}
+\begin{itemize}
+    \item Ask for technical help with the frontend and backend.
+    \item We will invite the rest of the people in our list to join the subjective experiment.
+\end{itemize}
+
+\subsection*{Summaries}
+\begin{itemize}
+    \item Create API for uploading the file.
+    \item Create API for running the metrics. 
+    \item Make Flask render the React frontend. 
+    \item Have everything in one Docker container. Split into two containers if possible.
+    \item Add Martin to the Github repository of the project.
+\end{itemize}
+
+\newpage
+
+\section*{Meeting with Mobai 30.03.2021}
+\subsection*{Planned agenda}
+\begin{itemize}
+    \item How to deploy the web application?
+    \item Should the web application be public? Public for NTNU people?
+    \item How should the API (backend) work?
+    \item Should the web application be able to process the scores from the subjective experiment?
+\end{itemize}
+
+\subsection*{Summaries}
+\begin{itemize}
+    \item The web application will be used for different demo purposes.
+    \item About the backend:
+    \begin{itemize}
+        \item The backend is the most important part.
+        \item Do a request to the backend. 
+        \item Set the return format as a JSON object.
+        \item The JSON object should contain all the data, like scores from the metrics, brightness score, and so on.
+        \item  Return the data as a JSON file. This makes it system independent.
+        \item Mobai will handle the returned file.
+        \end{itemize}
+    \item About the frontend:
+    \begin{itemize}
+        \item Display/preview the image (if one image is selected) in the frontend.
+        \item Display the scores for all of the images (including brightness and so on) returned from the backend.
+    \end{itemize}
+    \item The web application does not need to handle the scores from the subjective experiment. We will do the correlation calculations and so on manually.
+    \item Forward technical questions to Martin.
+    \item Add Guoqiang to the Github repository of the project.
+\end{itemize}
+
+\newpage
+
+\section*{Meeting with Mobai 13.04.2021}
+\subsection*{Planned agenda}
+\begin{itemize}
+    \item Can we publish the report?
+    \item We need two more from Mobai to complete the experiment: 
+    \begin{itemize}
+        \item We need at least a total of 15 replies. 
+        \item Five people from Mobai have replied, plus two more non-Mobai experts.
+        \item The rest of the replies are from non-experts.
+    \end{itemize}
+    \item What else do we need to complete?
+    \begin{itemize}
+        \item Have the API working as desired
+        \item Decide on the correct JSON format
+        \item Display the results from the JSON format in the web application
+        \item Put in containers
+    \end{itemize}
+\item Include C++ code in the project? (No time).
+\item Ask about the API: 
+    \begin{itemize}
+        \item Without using the frontend, how exactly do you expect to do an API call?
+        \item Is it enough if the backend returns a JSON file with the data, as it is doing now?
+        \item We can add image attributes from ISO metrics to the JSON file.
+        \item Have Mobai looked at how to put it in Docker containers?
+    \end{itemize}
+    \item Can Mobai help us with setting up the containers? Or, send us an example of how it’s done.
+    \item Give a name to the web application?
+    \item Shall we deploy (create a deployment build) the web application? We have only tested the production build.
+    \item How should we format the JSON file returned from the backend?
+    \item Missing features in the frontend, and are they needed?
+    \begin{itemize}
+        \item Prevent the user from uploading other files than images (sort of works).
+        \item Display a loading bar/screen when the metrics are running.
+        \item If one single image is uploaded and run through the metrics, display the metric scores and image attributes.
+    \end{itemize}
+    \item Many images are failing when running FaceQnet. 
+\end{itemize}
+
+\subsection*{Summaries}
+\begin{itemize}
+    \item Publication is OK with Mobai.
+    \item Martin will do the subjective experiment.
+    \item Returning an array of JSON objects works fine. Display the results in the frontend. If Mobai need to do something else with the JSON file/array, they will handle that themselves.
+    \item We do not need to create a deployment build for the web application. We can submit the development build.
+    \item Martin will take a look at how to put the web application into Docker containers this week and let us know.
+    \item The current name (“Face Image Quality Assessment”) of the web application is fine.
+    \item Add a loading screen/bar to the frontend if it doesn't take too much effort. (Maybe use some premade module?).
+    \item Try to add one more metric (FaceImageQuality).
+    \item Share the results with Mobai when we have something to show.
+    \item If the images fail while running the metrics, set the score to 0.
+    \item Test all the images and send the images that fail to Guoqiang.
+\end{itemize}
+
+\newpage
+
+\section*{Meeting with Mobai 27.04.2021}
+\subsection*{Planned agenda}
+\begin{itemize}
+    \item Cropping the faces on the images fails on many images. Can we run the FaceQnet metric without cropping the images?
+    \item Any updates regarding Docker?
+\end{itemize}
+
+\subsection*{Summaries}
+\begin{itemize}
+    \item Cropping is needed for the FaceQnet metric to work properly. We can get some weird results if we include the background of the images.
+    \begin{itemize}
+    \item Add new code for cropping the faces in the images. Guoqiang will send us the code. If an image still fails (the code doesn’t detect the face), set the score to 0.
+    \end{itemize}
+    \item Some images are “filtered out” by the ISO metrics. Too narrow eye distance (lower than the ISO standard) can be one of the reasons. Give these images a score of 0.
+    \item Mobai will update us on Docker soon.
+\end{itemize}
+
+\newpage
+
+\section*{Meeting with Mobai 11.05.2021}
+\subsection*{Planned agenda}
+\begin{itemize}
+    \item Will this thesis be a noncommercial project? Some of the images in the thesis are only allowed to be included in noncommercial projects.
+    \item Can Mobai read through the report and approve it before we publish it on NTNU Open?
+    \item Are all IQMs no-reference? Do any of them use some other image as reference?
+    \item Feedback from the user testing.
+\end{itemize}
+
+\subsection*{Summaries}
+\begin{itemize}
+    \item The thesis will not be used in a commercial setting.
+    \item The IQMs do not use other images as a reference when they rate images. Face quality is different from face comparison. 
+    \item Guoqiang will send us an email with the user testing feedback.
+    \item Remember to include citations to FaceQnet and ISO metrics in the thesis.
+\end{itemize}
+
+\subsection*{Agenda for the next week}
+\begin{itemize}
+    \item Send the finished thesis to Gouqiang. Have him approve the thesis before we publish it on NTNU Open.
+    \item Send Guoqiang the data from the subjective experiment after we have finished the report. Include the raw data.
+    \item Send Guoqiang a file with all of the images that we want to use in our thesis. Get approval and references in order.
+\end{itemize}

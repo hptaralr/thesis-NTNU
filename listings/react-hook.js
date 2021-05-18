@@ -1,0 +1,1 @@
+const [ imagesSelected, setImagesSelected ] = useState([]);

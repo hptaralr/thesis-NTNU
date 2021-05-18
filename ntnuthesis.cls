@@ -8,7 +8,7 @@
 
 %% IDENTIFICATION
 
-\xdef\ntnuthesisdate{2019/07/18}
+\xdef\ntnuthesisdate{2021/05/20}
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{ntnuthesis}
  [\ntnuthesisdate\space
@@ -398,7 +398,6 @@
   alsodigit={-}
 }
 
-
 \lstdefinestyle{htmlcssjs} {%
   % General design
 %  backgroundcolor=\color{editorGray},
@@ -471,3 +470,5 @@ framexbottommargin=4pt,
 %backgroundcolor=\color{lightgray},
 showstringspaces=false,      % Leerzeichen in Strings anzeigen ?
 }%
+
+
