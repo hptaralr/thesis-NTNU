@@ -26,14 +26,14 @@
   \renewcommand{\paging}{oneside}
 }
 
-% Title Page
-\DeclareOption{titlepage}{
-    \AtBeginDocument{
-        \begin{titlepage}
-            \maketitle
-        \end{titlepage}
-    }
-}
+% Title Page % Fjernet forsiden (front page)
+% \DeclareOption{titlepage}{
+%     \AtBeginDocument{
+%         \begin{titlepage}
+%             \maketitle
+%         \end{titlepage}
+%     }
+% }
 
 % British
 \newif\ifcapitalize
@@ -246,7 +246,7 @@
 \def\ps@ntnuheadings{%
     \let\@evenfoot\@empty
     \let\@oddfoot\@empty
-    \def\@evenhead{\small\thepage\hfil\textit{\@shortauthor: \@shorttitle}}
+    \def\@evenhead{\small\thepage\hfil\textit{\@shorttitle}} %fjernet\@shortauthor: 
     \def\@oddhead{\small\textit{\ch@ptermark}\hfil\thepage}
     \def\chaptermark##1{\def\ch@ptermark{\chaptername\ \thechapter: ##1}}
 }
