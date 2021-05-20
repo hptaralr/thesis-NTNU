@@ -1,43 +1,43 @@
 \chapter{Objective Assessment}
 \label{chap:objective}
-This chapter contains the development process of the Face Quality Analysis application. To start we will look at functional and non-functional requirements in Section \ref{sec:requirements} followed by use cases in Section \ref{sec:useCase}. Section \ref{sec:choiceOfFrontBack} discusses our choice of front- and backend implementation, followed by Section \ref{sec:designAndImplamentation} that shows off our design and implementation. We include sequence diagrams in Section \ref{sec:sequenceDiagram} to show how some of the core functionality work.
+This chapter contains the development process of the Face Image Quality Assessment application. To start we will look at functional and non-functional requirements in Section \ref{sec:requirements} followed by use cases in Section \ref{sec:useCase}. Section \ref{sec:choiceOfFrontBack} discusses our choice of front- and backend implementation, followed by Section \ref{sec:designAndImplamentation} that shows off our design and implementation. We include sequence diagrams in Section \ref{sec:sequenceDiagram} to show how some of the core functionality work. Finally, in Section \ref{sec:testing} we conclude the chapter with an overview of the user testing process where we ensure the quality of the application.
 
 \section{Requirements}
 \label{sec:requirements}
-When approaching the requirements, we had to make decisions based on the task description as well as the meetings with Mobai. The description and Mobai were open in terms of setting requirements, but some core concepts of the desired product were simplicity, clarity, performance and modifiability. Based on these principles, we along with Mobai shaped non-functional and functional requirements. Also, as mentioned in Section \ref{sec:OurModel} not all requirements were set at the start of the project, so they had to be fine-tuned and confirmed during the development process. While this did not result in any dramatic change in the software, as more functionality were suggested, requirements had to be adjusted to address to these issues. The non-functional requirements describes how the software should perform. These are the following requirements:
+When approaching the requirements, we had to make decisions based on the task description as well as the meetings with Mobai. The description and Mobai were open in terms of setting requirements, but some core concepts of the desired product were simplicity, clarity, performance and modifiability. Based on these principles, we along with Mobai shaped non-functional and functional requirements. Also, as mentioned in Section \ref{sec:OurModel}, not all requirements were set at the start of the project, so they had to be fine-tuned and confirmed during the development process. While this did not result in any dramatic change in the software, as more functionality were suggested, requirements had to be adjusted to address these issues. The non-functional requirements describes how the software should perform. These are the following requirements:
 \begin{itemize}
     \item The application should be deployed in a container.
     \item The architecture should consist of a backend and a frontend.
-    \item APIs should be implemented as REST APIs.
-    \item The application should make it easy to add new FIQMs.
+    \item APIs should be implemented as \acrshort{rest} APIs.
+    \item It should be easy to add new FIQMs to the application.
 \end{itemize}
 The functional requirements defines what the software should do or not do. These are the following requirements:
 \begin{itemize}
     \item The application should run every available FIQM separately.
     \item The application should run all FIQMs together.
     \item The application should return a report with quality scores on every image based on the FIQMs as a \acrshort{json} file.
-    \item If only one image is evaluated, the image should be displayed with corresponding attribute scores. 
+    \item If only one image is evaluated, the image should be displayed. 
 \end{itemize}
 
 \subsection{Type of Application}
-The responsibility of choosing application type was given to the bachelor group. Selecting either a web or desktop application was challenging, but we carefully evaluated the type of application that suited our needs the best. 
+The responsibility of choosing the application type was given to the bachelor group. Selecting either a web or desktop application was challenging, but we carefully evaluated the type of application that suited our needs the best. 
 
 \subsubsection*{Desktop Application}
-Since desktop applications are downloaded to your operating system, they are available independently whether you are connected to the internet or not. In that way it is possible to stay functional all the time \cite{WebVsDesktop}. The constant accessibility that desktop applications provide automatically make them more secure. In a way, you never have to be connected to the internet when working on tasks which reduces the possibility of being hacked by a margin. Having a fast computer would be beneficial for running a desktop application. The application uses memory and CPU which returns a good user experience given a resourceful computer. However, using an old computer would not be a problem either. The fact that desktop applications allows for running older versions of the program with all functional availability does not make a hardware upgrade necessary. Also, given that desktop applications do not coerce to update, the software makes it adaptable to choose a suitable version for the computer's specifications. It is also uncomplicated to store files from the application, as information are supported by the computer's hard drives. 
+Since desktop applications are downloaded to your operating system, they are available independently whether you are connected to the internet or not. In that way it is possible to stay functional all the time \cite{WebVsDesktop}. The constant accessibility that desktop applications provide, automatically make them more secure. In a way, you never have to be connected to the internet when working on tasks which reduces the possibility of being susceptible to malware attacks. Having a fast computer would be beneficial for running a desktop application. The application uses memory and CPU which returns a good user experience given a resourceful computer. However, using an old computer would not be a problem either. The fact that desktop applications allows for running older versions of the program with all functional availability does not make a hardware upgrade necessary. Also, given that desktop applications do not coerce to update, the software makes it adaptable to choose a suitable version for the computer's specifications. It is also uncomplicated to store files from the application, as information are supported by the computer's hard drives. 
 
 Naturally, desktop applications have their downsides as well. The application may require multiple updates to enable full functionality which seems persistent and unnecessary. If the work is performed on different devices, each device need the same installation to synchronize the progress. This will also make it more challenging for multiple users to collaborate on desktop applications. Another disadvantage with a desktop application is its dependence on operating system requirements. To allow the latest functionality the application provides, specific requirements are required. 
 
 \subsection*{Web Application}
-A web application only require one installation step before the software is workable \cite{WebVsDesktop}. This is time saving because it provides the user access to the web application by typing the internet address into a web browser on any operating system. All updates are free and immediately available. The ease of availability for these applications make synchronizing with several devices a small matter. In addition to this, the simplicity of managing cooperation with different users is remarkable. While some licence issues may arise, but this solution still allows the users the chance to collaborate from their permanent working stations.
+A web application only require one installation step before the software is workable \cite{WebVsDesktop}. This is time saving because it provides the user access to the web application by typing the internet address into a web browser on any operating system. All updates are free and immediately available. The ease of availability for these applications make synchronizing with several devices a small matter. In addition to this, the simplicity of managing cooperation with different users is remarkable. While some licence issues may arise, this solution still allows the users the chance to collaborate from their permanent working stations.
 
 When it comes to the disadvantages of web applications, they require a constant internet connection. In addition, the application's capability depends on the internet connection and speed. A poor connection and speed could result in a bad workflow. As regular updates could be beneficial, there are less possibilities of using older versions of the software. 
-
+ 
 \subsection*{Our Application}
-Keeping in mind the mentioned advantages and disadvantages, in our work, we chose to build a web application. Given the intuitive user interface with a limited amount of functions, it was practical and more meaningful to develop a web application. We felt a desktop application would be more suitable if the application requirements increased and the programming tasks were more complex. Our web application would be time saving and comprehensible for Mobai employers since the application only need one installation before working on the software. When new FIQMs are added to the application, the update is easily done and users can instantly evaluate facial images with the new incoming metrics. 
+Keeping in mind the mentioned advantages and disadvantages, we chose to build a web application. Given the intuitive user interface (\acrshort{ui}) with a limited amount of functions, it was practical and more meaningful to develop a web application. We felt a desktop application would be more suitable if the application requirements increased and the programming tasks were more complex. Our web application would be time saving and comprehensible for Mobai employers since the application only need one installation before working on the software. When new FIQMs are added to the application, the update is easily done and users can instantly evaluate facial images with the new incoming metrics. 
 
 \section{Use Case}
 \label{sec:useCase}
-We have created a use case diagram  showcased in Figure \ref{fig:UseCase} along with use cases in Table \ref{usecase:uploadImages}, \ref{usecase:runFIQM}, \ref{usecase:deleteImages} and \ref{usecase:runAllFIQM} to show the core functionality and activities within the application. The diagram was built from the perspective of the user (described in Section \ref{sec:TargetGroups}) which were employees at Mobai. The cases differ in complexity where running all metrics would be the most challenging. That is because it includes running every metric and providing scores for each image. 
+We have created a use case diagram showcased in Figure \ref{fig:UseCase} along with use cases in Table \ref{usecase:uploadImages}, \ref{usecase:runFIQM}, \ref{usecase:deleteImages} and \ref{usecase:runAllFIQM} to show the core functionality and activities within the application. The diagram was built from the perspective of the user (described in Section \ref{sec:TargetGroups}) which were employees at Mobai. The cases differ in complexity where running all metrics would be the most challenging. That is because it includes running every metric and providing scores for each image. 
 
 \begin{figure}[h]
     \centering
@@ -55,9 +55,9 @@ We have created a use case diagram  showcased in Figure \ref{fig:UseCase} along 
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{|p{12cm}|} 
 \hline
-\textbf{Use case:} Upload images\\
-\textbf{Actor:} User \\
-\textbf{Goal:} Upload selected images \\
+\textbf{Use case:} Upload images.\\
+\textbf{Actor:} User. \\
+\textbf{Goal:} Upload selected images. \\
 \textbf{Description:} The user can select what images he would like to upload to the application. Images will only be stored in the application in that session. \\ \hline
 \end{tabular}%
 }
@@ -70,9 +70,9 @@ We have created a use case diagram  showcased in Figure \ref{fig:UseCase} along 
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{|p{12cm}|} 
 \hline
-\textbf{Use case:} Run FIQM\\
-\textbf{Actor:} User \\
-\textbf{Goal:} Evaluate images with a specific FIQM \\
+\textbf{Use case:} Run FIQM.\\
+\textbf{Actor:} User. \\
+\textbf{Goal:} Evaluate images with a specific FIQM. \\
 \textbf{Description:} After uploading selected images, the user would run a specific FIQM to assess the images. The application returns a report with quality scores for each facial image. \\ \hline
 \end{tabular}%
 }
@@ -85,9 +85,9 @@ We have created a use case diagram  showcased in Figure \ref{fig:UseCase} along 
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{|p{12cm}|} 
 \hline
-\textbf{Use case:} Delete images\\
-\textbf{Actor:} User \\
-\textbf{Goal:} Remove images from the session \\
+\textbf{Use case:} Delete images.\\
+\textbf{Actor:} User. \\
+\textbf{Goal:} Remove images from the session. \\
 \textbf{Description:} After running the FIQMs for the uploaded images, the user is able to remove all images used in that session. \\ \hline
 \end{tabular}%
 }
@@ -102,19 +102,19 @@ We have created a use case diagram  showcased in Figure \ref{fig:UseCase} along 
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{|l|p{9cm}|} 
 \hline
-\textbf{Case} & Run all metrics  \\ \hline
+\textbf{Case} & Run all metrics.  \\ \hline
 \textbf{Description} & The user runs all metrics in the application which returns scores for every image.      \\ \hline
 \textbf{Basic Flow} &   \begin{enumerate}
-    \item The user presses the ``upload images'' button.
+    \item The user clicks the ``Upload Images'' button.
     \item The user navigates to select wanted images to execute the metrics on.
-    \item After uploading images, the user presses ``Run all metrics''
-    \item The program returns a report with quality scores of the selected images
+    \item After uploading images, the user clicks ``Run all metrics''
+    \item The program returns a report with quality scores of the selected images.
 \end{enumerate}     \\ \hline
-\textbf{Alternative} &  The user runs all metrics without uploading any images
+\textbf{Alternative} &  The user runs all metrics without uploading any images.
             \begin{enumerate}
                 \item The application displays an error and asks the user to upload images.
             \end{enumerate}
-The user presses reset before running the metrics 
+The user presses reset before running the metrics. 
             \begin{enumerate}
                 \item Uploading images again is necessary.
             \end{enumerate}
@@ -130,15 +130,15 @@ The user presses reset before running the metrics
 
 \section{Choice of Front- and Backend}
 \label{sec:choiceOfFrontBack}
-When choosing the development software, we had to take some considerations. First, both backend and frontend software should not be time consuming to master, given that the project consisted of coding and research. Second, it should be uncomplicated to add the released FIQMs with the backend as well as creating an intelligible user interface. 
+When choosing the development software, we had to take some considerations. First, both backend and frontend software should not be time consuming to master, given that the project consisted of coding and research. Second, it should be uncomplicated to add new FIQMs to the backend as well as creating an intelligible user interface. 
 
 \subsection{Backend}
-The two FIQMs FaceQnet and ISO Metrics were written in Python. Since we were experienced with Python and operated with it in courses throughout the bachelor program, it was natural to choose a Python framework for the backend. With a dozen of possible web frameworks, we needed to select a framework which suited our needs in terms of scalability, performance and ease of use. In the end, the choices were between Django and Flask.
+The two FIQMs FaceQnet and ISO Metrics were written in Python. Since we were experienced with Python and operated with it in courses throughout the bachelor's program, it was natural to choose a Python framework for the backend. With a dozen of possible web frameworks, we needed to select a framework which suited our needs in terms of scalability, performance and ease of use. In the end, the choices were between Django and Flask.
 
 \subsubsection*{Django}
 Django is a fast framework, which quickens the development process for developers. It has a high level of scaliability to the users. This feature is the reason many leading websites depend on Django to fulfill their high operational requirements. The framework includes several rebuilt development features such as user authentication, sitemaps and content administration. It has excellent security, preventing the users from several security issues. Django is very flexible as it can be used to create a wide specter of application types. Some of these are social networking sites like Instagram or content management systems such as Wagtail \cite{DjangoAdvantages}.
 
-When it comes to the disadvantages, Django has a steep learning curve. Even though it its written in Python, it takes a long time for developers to get the hang of it. The framework is considered one of the hardest to master. Django is more suitable for large scale applications rather than smaller products with fewer features and requirements. The unique functionalities within Django can be confusing for developers working with a small project. Djangos' monolithic architecture has a small number of dependencies which make it challenging to use. It does not facilitate developers to utilize Python packages and tools, but focuses on code-oriented programming. Django can not provide fast development in terms of requests. Only one request at the time can be fulfilled, meaning it is unable to handle multiple requests concurrently \cite{DjangoDisadvantages}.
+When it comes to the disadvantages, Django has a steep learning curve. Even though it is written in Python, it takes a long time for developers to get the hang of it. The framework is considered one of the hardest to master. Django is more suitable for large scale applications rather than smaller products with fewer features and requirements. The unique functionalities within Django can be confusing for developers working with a small project. Djangos' monolithic architecture has a small number of dependencies which make it challenging to use. It does not facilitate developers to utilize Python packages and tools, but focuses on code-oriented programming. Django can not provide fast development in terms of requests. Only one request at the time can be fulfilled, meaning it is unable to handle multiple requests concurrently \cite{DjangoDisadvantages}.
 
 \subsubsection*{Flask}
 \label{sec:flask}
@@ -147,7 +147,7 @@ For programmers with experience in Python, it is easy adaptable to work with Fla
 Flask also has some disadvantages. Many beginner web developers tend to use the Flask framework, resulting in low quality code and possibly a bad application. Flask has singular source, meaning that it handles requests in turns. With multiple requests, it could be time consuming to handle the requests. The use of modules in Flask raises security issues. It would be bad if a module contained spiteful data. 
 
 \subsubsection*{Our Choice}
-Initially, we started the backend development process using Django. This was mainly because the team working with the backend had learned about the framework in an earlier course of the bachelor program. However, we eventually concluded not to use Django for the backend. Given some knowledge in the framework, we had not actually developed anything with it. Since Django did not provide the usage of Python packages or tools, it would be more time consuming to code the application. The steep learning curve provided by the framework would make the development process even more time consuming. Our project differed in working tasks, which made the application smaller in terms of features and requirements. Django was more suitable for larger applications, making the decision of not using the framework clearer. We ended up using Flask for the backend. Immediately after installing the framework, the development productivity increased. Our Python experience was easily adaptable to Flask, which made it simple to make a deployable application and add FIQMs in the program. 
+Initially, we started the backend development process using Django. This was mainly because the team working with the backend had learned about the framework in an earlier course of the bachelor's program. However, we eventually concluded not to use Django for the backend. Given some knowledge in the framework, we had not actually developed anything with it. Since Django did not provide the usage of Python packages or tools, it would be more time consuming to code the application. The steep learning curve provided by the framework would make the development process even more time consuming. Our project differed in working tasks, which made the application smaller in terms of features and requirements. Django was more suitable for larger applications, making the decision of not using the framework clearer. We ended up using Flask for the backend. Immediately after installing the framework, the development productivity increased. Our Python experience was easily adaptable to Flask, which made it simple to make a deployable application and add FIQMs in the program. 
 
 \subsection{Frontend}
 As mentioned in Section \ref{sec:requirements}, the central ideas of how Mobai wanted the application to be built were simplicity, which was adaptable when choosing how to build the frontend. Mobai's vision was for it to be a demo to show some of the key concepts provided by the backend, like displaying results from different FIQMs on a small amount of images. It could also be used as a demonstration to Mobai's customers. Since we decided to build the frontend as a web application, we quickly understood that this would be coded in HTML, CSS and JavaScript. 
@@ -157,17 +157,17 @@ The backend framework Flask explained in Section \ref{sec:flask} has a way of re
 We wanted the frontend to run independently from the backend on its own server. This way, the frontend would not be dependent on the backend to run, and we would get more flexibility when it came to design and implementations. We could still program the frontend using basic HTML and JavaScript, but we found that using a well-developed web framework would enhance the design and simplify for future development of the application. Angular and React are the two frameworks we considered to use. 
 
 \subsubsection*{React}
-React is a JavaScript library, but is often referred to as a whole framework because it is directly comparable to other web development frameworks. React is component based, which means the user interface can be rendered using different components. By doing this, the same component can be rendered multiple times without duplicating code and it will be easier to fix bugs because they are likely caused by one specific component. This is one of the key factors that makes React flexible and dynamic. This also makes React applications easier to test and maintain. Considering it is a JavaScript library, learning is easier for any developer that has a JavaScript background, and also more lightweight than other frameworks. React uses its own virtual \acrfull{dom}. This DOM is a cross-platform and programming API which deals with \acrshort{html}, \acrshort{xml} or \acrshort{xhtml}. The React virtual DOM exists entirely in memory and is a representation of the web browser's DOM. This means that when we want to render React, the virtual components will turn into the DOM, leading to smoother and faster performance \cite{ReactProsAndCons}.
+React is a JavaScript library, but is often referred to as a whole framework because it is directly comparable to other web development frameworks. React is component based, which means the user interface can be rendered using different components. By doing this, the same component can be rendered multiple times without duplicating code and it will be easier to fix bugs because they are likely caused by one specific component. This is one of the key factors that makes React flexible and dynamic. This also makes React applications easier to test and maintain. Considering it is a JavaScript library, learning is easier for any developer that has a JavaScript background, and also more lightweight than other frameworks. React uses its own virtual \acrfull{dom}. This DOM is a cross-platform API which deals with \acrshort{html}, \acrshort{xml} or \acrshort{xhtml}. The React virtual DOM exists entirely in memory and is a representation of the web browser's DOM. This means that when we want to render React, the virtual components will turn into the DOM, leading to smoother and faster performance \cite{ReactProsAndCons}.
 
 React has a high pace of development, which can be both an advantage and a disadvantage. Since the environment constantly changes, some developers might not feel comfortable relearning the new ways of doing things regularly. It may be hard to adapt to new ways of doing things constantly and always be updated. Because of the constant updating, the technology is accelerating so fast that there might not be enough time to make proper documentation.
 
 \subsubsection{Angular}
-Angular is an open-source software engineering platform used to build UIs. The main benefit of using Angular is to turn static HTML-based documents into dynamic content using components. It was built on the \acrlong{mvc} architecture, where the framework is synchronized with the model and the view. This is called two-way binding. This allows developers that use Angular to reduce the development time as it will not require additional code to synchronize the model and the view. Angular uses something called dependency injection. Dependencies define how different pieces of code interacts with each other and how changing one component affects others. Using dependency injection, dependencies can be defined externally outside components, making the dependencies decoupled from the components. This makes components more reusable, easier to manage and test \cite{goodBadAngular}.
+Angular is an open-source software engineering platform used to build UIs. The main benefit of using Angular is to turn static HTML-based documents into dynamic content using components. It was built on the \acrlong{mvc} architecture, where the framework is synchronized with the model and the view. This is called two-way binding. This allows developers that use Angular to reduce the development time as it will not require additional code to synchronize the model and the view. Angular uses something called dependency injection. Dependencies define how different pieces of code interacts with each other and how changing one component affects others. Using dependency injection, dependencies can be defined externally outside components, making the dependencies decoupled from the components. This makes the components more reusable, easier to manage and test \cite{goodBadAngular}.
 
-When it comes to the disadvantages, Angular is a framework that always has multiple ways of completing any task. Therefore the framework has a steep learning curve. Due to Angular's two-way binding, it may sometimes cause performance issues when rendering multiple components, especially on old devices \cite{AngularCons}. Since Angular is a complete framework, it is created for building enterprise-scale applications, making the framework less flexible than other lightweight frameworks \cite{goodBadAngular}.
+In regard to the disadvantages, Angular is a framework that always has multiple ways of completing any task. Therefore the framework has a steep learning curve. Due to Angular's two-way binding, it may sometimes cause performance issues when rendering multiple components, especially on older devices \cite{AngularCons}. Since Angular is a complete framework, it is created for building enterprise-scale applications, making the framework less flexible than other lightweight frameworks \cite{goodBadAngular}.
 
 \subsubsection{Our Choice}
-We ended up choosing React, considering its great performance, flexibility and its ability to create dynamic web pages. React has its own Command Line Interface (CLI) tool that makes building a React app easy. This command is called ``create-react-app'' and automatically builds up all files, packages and folders that are needed to run a React application \cite{ReactGetStarted}. The command also serves the React app with a server using Node.js, which is an open source, cross platform, JavaScript runtime environment that gives the ability to run web pages on server side \cite{NodeJs}. In order to run the CLI tool, Node.js would have to be installed first. Using this method, a React application could easily be installed and the web page be run on a local server on port 3000 using the Node.js command ``npm start''. This way we have created a frontend independent of the backend running on port 3000.  
+We ended up choosing React, considering its great performance, flexibility and its ability to create dynamic web pages. React has its own Command Line Interface (\acrshort{cli}) tool that makes building a React app easy. This command is called ``create-react-app'' and automatically builds up all files, packages and folders that are needed to run a React application \cite{ReactGetStarted}. The command also serves the React app with a server using Node.js \footnote{\url{https://nodejs.org/en/}}, which is an open source, cross platform, JavaScript runtime environment that gives the ability to run web pages on server side \cite{NodeJs}. In order to run the CLI tool, Node.js would have to be installed first. Using this method, a React application could easily be installed and the web page be run on a local server on port 3000 using the Node.js command ``npm start''. This way we have created a frontend independent of the backend running on port 3000.  
 
 \section{Design and Implementation}
 \label{sec:designAndImplamentation}
@@ -188,11 +188,11 @@ This code is run when the backend receives an API call with a route to ``/allAlg
 
 For Mobai, the possibility to easily add more FIQMs into the backend was important, and one of the reasons why we chose to have an API call that can run all the metrics in one go. To simplify the process of adding more FIQMs, we have created independent functions in Python that do not rely on any FIQMs to work and can be used for multiple purposes in the future. Two of these functions are called ``save\_results\_to\_file'' and ``save\_results\_to\_json'' and are used in Code listing \ref{lst:APICall} to combine the results from both FIQMs into one single file, either in JSON or CSV format. Another step we took to simplify the adding of new FIQMs was to restructure the metrics code into Python functions. This way, we could run the different FIQMs by calling its specific function, and then save the results using the function ``save\_results\_to\_file''. These are options that make it easier for Mobai to add new metrics to the backed and reuse the code that we have already created. 
 
-Mobai also wanted the backend to work independently on the frontend, meaning that all functionality available in the frontend should be able to run in the backend alone. This includes running FIQMs and uploading images. Uploading images can be done by simply drag-and-dropping images into the ``Uploads'' folder in the backend, but running the FIQMs would require accessing the REST API without the use of the frontend. To solve this, we used another third party software to send HTTP requests to the backend. Postman is such an application that can simulate a client and send POST and GET requests to the backend. By using Postman, we can send a POST request to the backend and get the returned results from a JSON file displayed. Figure \ref{fig:postman} shows a POST request being sent to the backend using postman and then displaying the results from the JSON file. Consider the code in Code listing \ref{lst:APICall} to run when the API call gets sent. 
+Mobai also wanted the backend to work independently on the frontend, meaning that all functionality available in the frontend should be able to run in the backend alone. This includes running FIQMs and uploading images. Uploading images can be done by simply drag-and-dropping images into the ``Uploads'' folder in the backend, but running the FIQMs would require accessing the REST API without the use of the frontend. To solve this, we used another third party software to send HTTP requests to the backend. Postman \footnote{\url{https://www.postman.com/}} is such an application that can simulate a client and send POST and GET requests to the backend. By using Postman, we can send a POST request to the backend and get the returned results from a JSON file displayed. Figure \ref{fig:postman} shows a POST request being sent to the backend using postman and then displaying the results from the JSON file. Consider the code in Code listing \ref{lst:APICall} to run when the API call gets sent. 
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.9\textwidth]
+    \includegraphics[width=0.6\textwidth]
     {figures/postman_json.PNG}
     \caption{POST request with Postman.}
     \label{fig:postman}
@@ -200,9 +200,9 @@ Mobai also wanted the backend to work independently on the frontend, meaning tha
 %api calls implementation, adding more metrics, different routes, write to file, send file to frontend. use 3rd party software to communicate with the backend 
 
 \subsection{Frontend}
-Due to Reacts popularity, multiple UI frameworks has been built to simplify the process of building web pages. One of these frameworks are called Material-UI. Material-UI delivers already built components, styles, icons and templates that support the React framework. Most of these components are free and can be used to easily get started with building a web page. When we discussed how to build the web page, we came to a conclusion that using the Material-UI framework would be beneficial to the simplicity, efficiency and design of our frontend. Different Material-UI libraries could be installed using the Node.js command ``npm install''. We also chose to start the development process using a Material-UI pre-built pattern, called ``Album'', that can be found on the Material-UI website \cite{MaterialUI}. 
+Due to Reacts popularity, multiple UI frameworks has been built to simplify the process of building web pages. One of these frameworks are called Material-UI \footnote{\url{https://material-ui.com/}}. Material-UI delivers already-built components, styles, icons and templates that support the React framework. Most of these components are free and can be used to easily get started with building a web page. When we discussed how to build the web page, we came to a conclusion that using the Material-UI framework would be beneficial to the simplicity, efficiency and design of our frontend. Different Material-UI libraries could be installed using the Node.js command ``npm install''. We also chose to start the development process using a Material-UI pre-built pattern, called ``Album'', that can be found on the Material-UI website \cite{MaterialUI}. 
 
-To build dynamic web pages, React introduced a new addition in version 16.8, called ``React hooks''. This addition provides a way of storing data as a state and the data gets updated automatically once the state is updated. This way we could change text fields, counters and data and display it automatically without refreshing the website, because it is stored in a state. We have used React hooks to store data that we know can be modified during the web applications lifetime. Code listing \ref{lst:hook} is an example of how we have implemented a React hook to store images for the use case ``Upload Images'' showcased in the use case diagram in Figure \ref{fig:UseCase}.
+To build dynamic web pages, React introduced a new addition in version 16.8, called ``React hooks''. This addition provides a way of storing data as a state and the data gets updated automatically once the state is changed. This way we could change text fields, counters and data and display them automatically without refreshing the website, because they are stored in a state. We have used React hooks to store data that we know can be modified during the web applications lifetime. Code listing \ref{lst:hook} is an example of how we have implemented a React hook to store images for the use case ``Upload Images'', showcased in the use case diagram in Figure \ref{fig:UseCase}.
 
 \lstinputlisting[
     caption={React hook implementation.},
@@ -214,7 +214,7 @@ To build dynamic web pages, React introduced a new addition in version 16.8, cal
 
 The ``imagesSelected'' variable stores the state of what images have been selected from the user, and the ``setImagesSelected'' function updates the state every time a user selects images. If we wanted to display the images selected by the user, setting the variable name in a paragraph would suffice, and React would update the paragraph automatically once the state had been updated.
 
-In order for the frontend functionality to work, the frontend would have to connect to the backend. This is done by sending a \acrshort{http} request in the form of a GET or POST command to the backend. The backend would then execute the specific code in the REST API based on what request was sent. React has different libraries that can send HTTP requests. We have chosen to use Axios to send HTTP request, because it is both compatible with the Node.js framework and can also be installed using the ``npm install'' command. By using Axios, we send HTTP requests from the frontend to the backend. The backend would then return the desired results, either in the form of text or a file. The use case ``Run all metrics'' showcased in the use case diagram in Figure \ref{fig:UseCase} is implemented using Axios.  
+In order for the frontend functionality to work, the frontend would have to connect to the backend. This was done by sending a \acrshort{http} request in the form of a GET or POST command to the backend. The backend would then execute the specific code in the REST API based on what request was sent. React has different libraries that can send HTTP requests. We have chosen to use Axios to send HTTP request, because it is both compatible with the Node.js framework and can also be installed using the ``npm install'' command. By using Axios, we sent HTTP requests from the frontend to the backend. The backend would then return the desired results, either in the form of text or a file. The use case ``Run all metrics'' showcased in the use case diagram in Figure \ref{fig:UseCase} was implemented using Axios.  
 Code listing \ref{lst:axios} shows our implementation. 
 \newpage
 \lstinputlisting[
@@ -238,10 +238,10 @@ One of the main requirements given by Mobai was to deploy the application in con
     \item Containers are efficient in terms of allowing applications to quickly be deployed, patched or scaled. 
     \item Containers consume less system overhead than regular hardware or virtual environments owing to the fact that they do not include operating system images. 
     \item Containers provide better application development, production cycles and testing as containers support an agile workflow.
-    \item Having the application separated into different containers will improve security. 
+    \item Having the application separated into different containers will improve security.
 \end{itemize}
 
-Once functionality for the application were mostly fulfilled, the task was to package it up into two separate containers - one for the frontend and one for the backend. The basis of containers, images, were created using Dockerfiles. Information that automated the application running process was stored inside the Dockerfiles. This included information such as the base Docker image to run from (i.e., based on Alpine since the application was built in Python), location to project code, dependencies that the application had and which commands to run at start-up. When both Dockerfiles were written, the command ``docker build'' produced two disparate images. To enable both images to run together in a remote environment, we needed to use the Docker Compose tool. We created a Docker Compose file which included the definition of services that built the application. The command ``docker-compose up'' ran the application from our Docker Compose configuration file making the images become containers running on a Docker engine.
+Once functionality for the application were mostly fulfilled, the task was to package it into two separate containers - one for the frontend and one for the backend. The basis of containers, images, were created using Dockerfiles. Information that automated the application running process was stored inside the Dockerfiles. This included information such as the base Docker image to run from (i.e., based on Alpine since the application was built in Python), location to project code, dependencies that the application had and which commands to run at start-up. When both Dockerfiles were written, the command ``docker build'' produced two disparate images. To enable both images to run together in a remote environment, we needed to use the Docker Compose tool. We created a Docker Compose file which included the definition of services that built the application. The command ``docker-compose up'' ran the application from our Docker Compose configuration file making the images become containers running on a Docker engine.
 
 \section{Sequence Diagrams}
 \label{sec:sequenceDiagram}
@@ -262,14 +262,12 @@ Figure \ref{fig:highlevel} is meant as a surface level visualization of what hap
 
 From the terminal window, the command: ``docker-compose up'', will boot up both the React and Flask servers. An immediate request to render the index.js file in the web application is sent to the React server. After the home page is displayed in the web browser, the user can press a button to browse files, which will send a request to the React server to open a window of your local files. Images are now ready to be selected. The selected images are stored in a state that waits for the ``Upload'' button to be pressed. Once the user presses the button, a function called ``uploadImages'' will be executed from the React server that in return redirects an Axios HTTP POST request to the external Flask backend API at port 5000. The POST request contains all the selected images. An API by the name of ``upload'' saves all selected images in a specified ``uploads'' folder in the backend before it is redirected back to the React server that displays a ``Files successfully uploaded'' message to the web application. Since this is the first time the application is executed, the ``uploads'' folder has not yet been created. The upload API therefore has to create it before uploading the images and returning to the web application. 
 
-
-
 %\newpage
 
-Once the images are saved in the backend, the web application is now ready to execute any metric. The button ``Run ISO-Metrics'' on the web page is clicked which requests the function runISOMetricsHandler to be executed on the React server. This function will likewise redirect an Axios POST request to port 5000. An API by the name of ISO will receive the request which triggers the API to execute ISO Metrics. Once the metric has generated quality scores on the uploaded images, it returns a single JSON file that contains the scores. This JSON file is returned to the React server which in return displays the scores on the web page. 
+Once the images are saved in the backend, the web application is now ready to execute any metric. The button ``Run ISO-Metrics'' on the web page is clicked which requests the function ``runISOMetricsHandler'' to be executed on the React server. This function will likewise redirect an Axios POST request to port 5000. An API by the name of ``ISO'' will receive the request which triggers the API to execute ISO Metrics. Once the metric has generated quality scores on the uploaded images, it returns a single JSON file that contains the scores. This JSON file is returned to the React server which in return displays the scores in the web page. 
 
 \subsection{Low Level - FaceQnet}
-Unlike Figure \ref{fig:highlevel}, Figure \ref{fig:lowlevel} is a sequence diagram for how FaceQnet is executed the first time it is ran on a computer. Before the ``Run FaceQnet'' button is clicked, it is given that images have been selected and uploaded to the ``uploads'' folder which is shown in Figure \ref{fig:highlevel}. For that reason, the ``uploads'' folder already exists instead of being created along the way. The first few steps are quite similar to the sequence diagram depicted in Figure \ref{fig:highlevel}, however this time an API called FaceQnet is executed that in return starts the FaceQnet FIQM. 
+Unlike Figure \ref{fig:highlevel}, Figure \ref{fig:lowlevel} is a sequence diagram for how FaceQnet is executed the first time it is ran on a computer. Before the ``Run FaceQnet'' button is clicked, it is given that images have been selected and uploaded to the ``uploads'' folder which is shown in Figure \ref{fig:highlevel}. For that reason, the ``uploads'' folder already exists instead of being created along the way. The first few steps are quite similar to the sequence diagram depicted in Figure \ref{fig:highlevel}, however this time an API called ``FaceQnet'' is executed that in return starts the FaceQnet FIQM. 
 
 \begin{figure}[h]
     \centering
@@ -278,14 +276,14 @@ Unlike Figure \ref{fig:highlevel}, Figure \ref{fig:lowlevel} is a sequence diagr
     \label{fig:lowlevel}
 \end{figure}
 
-The cropping phase of FaceQnet begins, and since this is the first time the API has been called, two folders by the name of ``uploads\_cropped'' and ``uploads\_cropping\_failed'' are created. The function then enters a for-loop that reads all the uploaded images from the original ``uploads'' folder, before they are cropped. Unfortunately, the cropping tool provided by MTCNN sometimes fails to detect the face in the images which results in an empty image. An alternative scenario then occurs, which sends these images to ``uploads\_cropping\_failed'', and they will automatically be provided with the lowest score possible. If no exception happens during the face cropping, the cropped image is saved to the ``uploads\_cropped'' folder. After having finished the cropping, the API starts the scores calculation, which first has to read all images from ``uploads\_cropped'', resize them and then calculates their scores. The metric likewise returns a JSON file with all scores back to the web page.
+The cropping phase of FaceQnet begins, and since this is the first time the API has been called, two folders by the name of ``uploads\_cropped'' and ``uploads\_cropping\_failed'' are created. The function then enters a for-loop that reads all the uploaded images from the original ``uploads'' folder, before they are cropped. Unfortunately, the cropping tool provided by MTCNN sometimes fails to detect the face in the images which results in an empty image. An alternative scenario then occurs, which sends these images to ``uploads\_cropping\_failed'', and they will automatically be provided with the lowest score possible. If no exception happens during the face cropping, the cropped image is saved to the ``uploads\_cropped'' folder. After having finished the cropping, the API starts the scores calculation, which first has to read all images from ``uploads\_cropped'', resize them and then calculate their scores. The metric likewise returns a JSON file with all scores back to the web page.
 
 \section{Testing}
 \label{sec:testing}
 Before we finalized the development of the web application, it was important to have the users and the product owner test the product and provide their feedback. 
 
 \subsection{User Testing}
-We began the user testing at the end of the development process. The user testing was done by the product owner. Since the target group of the web application was a small number of users at Mobai, the product owner was a perfect representation of the group. While this might initially sound limited we have to keep in mind that the application created is targeted for a small number of users at Mobai and the product owner will be a perfect representation of the users of our application. The testing began after the user received an email with a link to the Github repository containing the source code of the web application. The email also included a list of tasks for the user to complete and a few questions about the user experience. The tasks and questions are listed in Table \ref{table:usertesttasks} and \ref{table:usertestquestions}. The user testing was discussed with the product owner during our next meeting to expand upon the feedback we received. If there was no comment on the task or question, the feedback was set as ``satisfactory''. The required changes were implemented as described in Table \ref{table:userTestIssues}.
+We began the user testing at the end of the development process. The user testing was done by the product owner. While this might initially sound limited, we have to keep in mind that the application created is targeted for a small number of users at Mobai and the product owner will be a perfect representation of the users of our application. The testing began after the user received an email with a link to the Github repository containing the source code of the web application. The email also included a list of tasks for the user to complete and a few questions about the user experience. The tasks and questions are listed in Table \ref{table:usertesttasks} and \ref{table:usertestquestions}. The user testing was discussed with the product owner during our next meeting to expand upon the feedback we received. If there was no comment on the task or question, the feedback was set as ``satisfactory''. The required changes were implemented as described in Table \ref{table:userTestIssues}.
 
 \begin{table}[h]
 %\centering
@@ -294,11 +292,11 @@ We began the user testing at the end of the development process. The user testin
 \begin{tabular}{|p{7.5cm}|p{7.5cm}|p{1cm}|} 
 \hline
 \textbf{Issue} & \textbf{Solution} & \textbf{Status}  \\ \hline
-Headings in the web application have line breaks.
+Headings in the web application has line breaks.
 &
 Edit the width of the React component from small to medium.
 &
-Done
+Done.
 \\ \hline
 When the metrics are running in the backend, there is no text telling the user what is going on.
 &
@@ -310,19 +308,19 @@ The scores from the metrics have too many decimals. Change this to four decimals
 &
 Add the round() function with four decimals to the metric scores.
 &
-Done
+Done.
 \\ \hline
 The ``Delete'' button should be on the right side of the ``Upload'' button
 &
 Move the code for the ``Delete'' button to the correct position.
 &
-Done
+Done.
 \\ \hline
 The attribute results from FaceQnet should not be set to zero.
 &
 Fix the code so that the attribute results from FaceQnet are set to -1. Add a text field explaining that -1 means that it does not return a score.
 &
-Done
+Done.
 \\ \hline
 \end{tabular}%
 }
@@ -339,23 +337,23 @@ Done
 \textbf{Task} & \textbf{Feedback}  \\ \hline
 Launch the frontend and the backend on the users' computers using Docker.
 &
-Satisfactory
+Satisfactory.
 \\ \hline
 Upload multiple images to the backend from the users' computers using the frontend.
 &
-Satisfactory
+Satisfactory.
 \\ \hline
 Run all metrics at the same time with the images uploaded in the second task.
 &
-Satisfactory
+Satisfactory.
 \\ \hline
 Run each of the metrics separately with the images uploaded in the second task. 
 &
-Satisfactory
+Satisfactory.
 \\ \hline
 Delete the images uploaded to the backend.
 &
-Satisfactory
+Satisfactory.
 \\ \hline
 Upload a single image to the backend from the users' computers using the frontend.
 &
@@ -367,7 +365,7 @@ Satisfactory
 \\ \hline
 Run each of the metrics separately with the image uploaded in the sixth task.
 &
-Satisfactory
+Satisfactory.
 \\ \hline
 \end{tabular}%
 }

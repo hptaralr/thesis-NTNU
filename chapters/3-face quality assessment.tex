@@ -1,16 +1,16 @@
 \chapter{Face Quality Assessment}
 \label{chap:FQA}
-The third chapter of the thesis introduces the reader to key definitions and concepts within the field of face quality, used throughout the project. We will throw light on face image quality with examples and elaborate how face recognition systems and the two face image quality metrics behave.  
+To start off the third chapter we introduce the reader to key definitions and concepts within the field of face quality in Section \ref{sec:setup}. In Section \ref{sec:FIQMs}, we will throw light on face image quality with examples and elaborate how face recognition systems and the two FIQMs behave.  
 
 \section{What Is a Good Image?}
 \label{sec:setup}
-Throughout this thesis, we will mention the word quality several times. While some people already have a good understanding of what the word means, some confusion may arise. Within the standard image quality assessment field, the definition of quality is straight forward and is what most people think about when hearing the word. Ordinary people and people working with images will for the most part think about an image with a high resolution and no distortion or noise as the most important characteristic that defines image quality. An excellent image of a face with this definition would have a high resolution and a sharp focus. However we are working in the field of biometrics, where the definition differs from this. Our emphasis lies not with the image resolution itself, but with how well the face is visible. There are several aspects that heavily affect the quality of facial images with respect to the performance of biometric systems. These aspects are presented and discussed in two important standards: 
+Throughout this thesis, we will mention the word quality several times. While some people already have a good understanding of what the word means, some confusion may arise. Within the standard image quality assessment field, the definition of quality is straight forward and is what most people think about when hearing the word. People working with images will for the most part think about an image with a high resolution and no distortion or noise as the most important characteristic that defines image quality. An excellent image of a face with this definition would have a high resolution and a sharp focus. However, we are working in the field of biometrics, where the definition differs from this. Our emphasis lies not with the image resolution itself, but with how well the face is visible. There are several aspects that heavily affect the quality of facial images with respect to the performance of biometric systems. These aspects are presented and discussed in two important standards: 
 %
 \begin{itemize}
     \item ISO/\acrshort{iec} TR 29794-5:2010: Information technology — Biometric sample quality — Part 5: Face image data \cite{ISO50912}.
     \item \acrshort{icao} Doc 9303 Part 3: Specifications Common to all \acrshort{mrtd}s \cite{ICAO1}. 
 \end{itemize}
-
+%
 The quality specific aspects of facial images presented in the two standards are what defines the quality in our work. These different quality factors are:  
 
 \begin{itemize}
@@ -33,6 +33,7 @@ The quality specific aspects of facial images presented in the two standards are
 \end{itemize}
 
 The above mentioned aspects all have an affect on the quality of the facial image to some degree. What we consider a high-quality facial image is similar to a standard passport photograph with the following characteristics: 
+%
 \begin{itemize}
 \label{item:passport}
     \item Open and visible eyes (Figure \ref{fig:lightning}, \ref{fig:face_covering}, \ref{fig:high_quality}, \ref{fig:poor_resolution}, \ref{fig:noise}, \ref{fig:exposure}).
@@ -42,10 +43,10 @@ The above mentioned aspects all have an affect on the quality of the facial imag
     \item No garments covering the face (Figure \ref{fig:lightning}, \ref{fig:open_mouth}, \ref{fig:high_quality}, \ref{fig:side_pose}, \ref{fig:poor_resolution}, \ref{fig:noise}, \ref{fig:exposure}). 
     \item Clean background (Figure \ref{fig:image_properties}).
     \item Neither too dark or too light background (Figure \ref{fig:dark_glasses}, \ref{fig:face_covering}, \ref{fig:open_mouth}, \ref{fig:side_pose}, \ref{fig:poor_resolution}, \ref{fig:noise}).
-    \item Photo taken neither too close or too far away \ref{fig:image_properties}.
+    \item Photo taken neither too close or too far away (Figure \ref{fig:image_properties}).
 \end{itemize} 
-
-Such characteristics will naturally have an affect on the image quality in a good or bad way. If all bullet points above are followed, the quality of the facial image is near perfect. An image of a half-covered or missing face will negatively affect the quality, even though the image resolution itself may be impeccable. 
+%
+Such characteristics will naturally have an affect on the image quality in a good or bad way. If all the bullet points above are followed, the quality of the facial image is near perfect. An image of a half-covered or missing face will negatively affect the quality, even though the image resolution itself may be impeccable. 
 \begin{figure}[h]
 \centering
     \subfloat[A facial image which has the requirements needed for a facial recognition system.]
@@ -57,7 +58,7 @@ Such characteristics will naturally have an affect on the image quality in a goo
     \caption{Sample images from a face quality dataset.}
 \end{figure}
 \newpage
-Image depicted in Figure \ref{fig:excellentImg} checks all bullet points in what defines a high quality image. The subjects' facial expression and head pose are neutral and the whole face is clearly visible. The second Figure \ref{fig:defectedImg} however, does not have high quality since the face is rotated 90 degrees sideways which only makes half of the face visible. The facial image  in Figure \ref{fig:defectedImg} does have a neutral background with good lightning and image resolution, but those aspects do not weight up against the head pose.
+Image depicted in Figure \ref{fig:excellentImg} checks all bullet points in what defines a high quality facial image. The subjects' facial expression and head pose are neutral and the whole face is clearly visible. The second Figure \ref{fig:defectedImg} however, does not have high quality since the face is rotated 90 degrees sideways which only makes half of the face visible. The facial image in Figure \ref{fig:defectedImg} does have a neutral background with good lighting and image resolution, but those aspects do not weigh up against the head pose.
 %
 \begin{figure}[h]
 \centering
@@ -97,18 +98,19 @@ Image depicted in Figure \ref{fig:excellentImg} checks all bullet points in what
 \end{figure}
 
 \section{Face Image Quality Metrics} 
+\label{sec:FIQMs}
 With the inclusion of authentication to applications, \acrlong{fr} systems are being utilized more than ever. These FR systems are reliant on a pre-captured reference image (a high quality image) which are then used as a reference to compare with the test image (also called probe image). 
 
 \begin{figure}[h]
     \centering
-    \includegraphics[scale = 0.4]{figures/Erna.png}
+    \includegraphics[scale = 0.38]{figures/Erna.png}
     \caption{Face Recognition system. Middle photo by Thomas Haugersveen, Statsministerens Kontor. Top left photo by Human-Etisk Forbund. Second and third from the top photos by Torbjørn Kjosvold, Forsvaret. Bottom left photo by Eirin Larsen, Statsministerens Kontor.}
     \label{fig:erna}
 \end{figure}
 
 Figure \ref{fig:erna} visualizes how FR systems work. The quality of the probe images on the left side of the figure are assessed and compared with the reference image. A similarity score between the two images is calculated (in the case of the FR system depicted in Figure \ref{fig:erna} the similarity scores are between zero and one). FR systems have a set threshold where probe images are rejected if the similarity score is too low. 
 
-When it comes to the performance of the system, the quality of the probe images plays a crucial role. If the probe images are of bad quality, the overall performance of the system will decrease. To keep the performance of FR systems, careful attention is paid to the quality of facial images so that only high-quality images are used in the system. For this and to evaluate the quality of facial images, Face Image Quality Metrics (FIQMs) are used.
+When it comes to the performance of the system, the quality of the probe images plays a crucial role. If the probe images are of bad quality, the overall performance of the system will decrease. To keep the performance of FR systems, careful attention is paid to the quality of facial images so that only high-quality images are used in the system. For this and to evaluate the quality of facial images, FIQMs are used.
 %
 \begin{figure}[h]
     \centering
@@ -117,34 +119,23 @@ When it comes to the performance of the system, the quality of the probe images 
     \label{fig:fiqm}
 \end{figure}
 %
-FIQMs are automated algorithms that evaluate the quality of facial images and provide a score which represents the quality of the given images. FIQMs can be based on different quality factors, such as subject-camera distance, inter-eye distance, pose, lightning and facial coverings. % Cite work after each factor
-
-FIQMs can be divided into three approaches in regards to a reference image. It is important to understand that these reference images have nothing to do with the reference images mentioned in the FR systems. These reference images are only used for the FIQMs. The three approaches are: 
-%
-\begin{itemize}
-    \item Full-reference.
-    \item Reduced-reference.
-    \item No-reference. 
-\end{itemize}
-%
-The names of the approaches are telling of what to expect. The full-reference approach compares the input image with a known reference image of good quality. The reduced-reference approach is similar to the above-mentioned approach, however only some information of the reference image is used. Finally, the no-reference approach does not require a reference image to calculate a score. 
+FIQMs are automated algorithms that evaluate the quality of facial images and provide a score which represents the perceived quality of the given images. FIQMs can be based on different quality factors, such as subject-camera distance, inter-eye distance, pose, lighting and facial coverings. % Cite work after each factor
 
 Mobai chose FaceQnet and ISO Metrics to be used in our application. The reason for choosing these specific metrics was their differences in terms of evaluating facial images. The two FIQMs are both no-reference approaches, which will be used to assist and provide feedback when an image is acquired for FR system enrollment. 
-
 
 \subsection{ISO Metrics}
 ISO Metrics is a no-referenced FIQM. The metric is implemented based on ISO/IEC TR 29794-5:2010 Information technology — Biometric sample quality — Part 5: Face image data \cite{ISO50912}. All factors described in the standard affecting the face image quality are implemented in the FIQM. 
 
-The ISO Metrics calculate the inter-eye distance on the facial images. If this value is below a certain score, the metric will filter out these types of images. The inter-eye distance is related to the subject camera distance, because it indicates that the subject could be too close to or to far from the camera lens. 
+ISO Metrics calculate the inter-eye distance on the facial images. If this value is below a certain score, the metric will filter out these types of images. The inter-eye distance is related to the subject camera distance, because it indicates that the subject could be too close to or to far from the camera lens. 
 
-All image properties and characteristics described in \cite{ISO50912} are taken into account when evaluating the quality of facial images in ISO Metrics. This includes the sharpness, contrast, blur, brightness, exposure, pose symmetry, light symmetry and illumination symmetry of the image. These factors are stored in an array for each facial image. 
+All image properties and characteristics described in \cite{ISO50912} are taken into account when evaluating the quality of facial images in ISO Metrics. This includes the sharpness, contrast, blur, brightness, exposure, pose symmetry, light symmetry and illumination symmetry of the image. These factors are stored in an image properties array for each facial image. 
 
-To be able to calculate quality scores on the facial images, training data are needed. The metric uses random forest regression \cite{RandomForestRegressor} with 214 estimators and 22 nodes of depth. The quality score for each facial image is computed by predicting the output score of the image properties array.  
+To be able to calculate quality scores on the facial images, training data is needed. The metric uses random forest regression \cite{RandomForestRegressor} with 214 estimators and 22 nodes of depth. The quality score for each facial image is computed by predicting the output score of the image properties array.  
 
 \subsection{FaceQnet}
 FaceQnet \cite{FaceQnet} is an open source, no-reference FIQM using \acrlong{cnn}s (\acrshort{cnn}s). FaceQnet has two versions implemented, FaceQnet v0 \cite{hernandezortega2019faceqnet} and FaceQnet v1 \cite{hernandezortega2021biometric}. In this project, we used the latest version (FaceQnet v1). Its quality measures are closely related to the ICAO standard \cite{ICAO2} that provides strict guidelines for capturing images. Factors such as illumination, pose, resolution and focus are essential in regard to the final quality score.
 
 A key part of the implementation of FaceQnet is data preprocessing (shown in Figure \ref{fig:fiqm}). Generally data preprocessing removes unnecessary data, which directly improves the quality of machine learning algorithms. The background of images will affect the quality score which provides us with biased results. One way to avoid feature extraction from the background is to crop the input images to only include the face before using FIQMs. FaceQnet uses \acrfull{mtcnn} to detect and extract the coordinates of the face. In the next step, the facial image is cropped to an image with the size $224 \times $224 and used as the input image in FaceQnet v1. 
 
-FaceQnet uses a subset of the VGGFace2 \cite{VGGFace2} dataset to create a pre-trained model to make its quality predictions. The subset consists of 300 subjects. The FIQM will first generate ground truth quality measures which is created by labeling the 300 subjects in the training dataset. The ground truth quality measures will then train the deep regression model in order to generate quality scores. 
+FaceQnet uses a subset of the VGGFace2 \cite{VGGFace2} dataset to create a pre-trained model to make its quality predictions. The subset consists of 300 subjects. The FIQM will first generate ground truth quality measures which are created by labeling the 300 subjects in the training dataset. The ground truth quality measures will then train the deep regression model in order to generate quality scores. 
 
